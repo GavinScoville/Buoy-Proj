@@ -28,7 +28,7 @@ def wave_summary(df, buoy_id):
 
     # Calculate wave length and energy
     df['wave_length'] = 9.81 * (df['DPD'] ** 2) / (2 * math.pi)
-    df['wave_energy'] = 1025 * 9.81 * ((df['WVHT']) ** 2) * df['wave_length'] / 8
+    df['wave_energy'] = 1.025 * 9.81 * ((df['WVHT']) ** 2) * df['wave_length'] / 8
 
     # Get the most recent row
     latest = df.iloc[-1]
@@ -37,10 +37,9 @@ def wave_summary(df, buoy_id):
     print(f"  - Wave Height (WVHT): {latest['WVHT']} m")
     print(f"  - Dominant Period (DPD): {latest['DPD']} s")
     print(f"  - Estimated Wavelength: {latest['wave_length']:.2f} m")
-    print(f"  - Estimated Wave Energy: {latest['wave_energy']:.2f} J/m²")
+    print(f"  - Estimated Wave Energy: {latest['wave_energy']:.2f} kJ/m²")
     print(f"  - Wave Direction : {latest['MWD']:.2f} deg")
 
-    return df
 
 
 
