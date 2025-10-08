@@ -42,8 +42,7 @@ if wave145 is not None:
 
 wave145.iloc[-1]["WVHT"]#most recent entry, waveheight 
 wave145.iloc[-1]["DPD"]#most recent entry, period
-wave145.iloc[-1]["WMD"]
-
+wave145.iloc[-1]["MWD"]#most rencent entry, direction
 
 
 
@@ -61,4 +60,10 @@ print(currents)
 
  
 plot_tides(tides, "Neah Bay")
+
+#deepwater 
+https://en.wikipedia.org/wiki/Dispersion_(water_waves)
+
+wavelength= g/2pi* period**2
+wavespeed= g/2pi* Period
 '''

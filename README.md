@@ -14,4 +14,19 @@ Will use wave data
 
 ## Applying to Straight of Juan De Fuca: 
 
+### Wave Stations: 
+    Ocean PAPA. 46246.[49.903 N 145.246 W]. -(water depth 4252m)-(advanced wave data) 
+    Climate PAPA. 48400.[50.055 N 144.873 W]. -(wind data only) 
+    South Nomad. 46036.[48.360 N 133.940 W]. -(might move?)
+    La Perouse Bank. 46206. [48.840 N 126.000 W]. 
+    Neah Bay. 46087. [48.493 N 124.727 W]. -(Depth 259 m) photos available  
+        (https://www.ndbc.noaa.gov/station_page.php?station=46087)
+    Port Angles. 46267. [48.173 N 123.607 W]. -(Depth 75 m)
+    New Dungeness. 46088. [48.332 N 123.179 W]. -(Depth 115 m) photos available
+        (https://www.  ndbc.noaa.gov/station_page.php?station=46088)
+    Smith Island. SISW1. [48.321 N 122.831 W] (wind only) 
+
+### Step 1: Predict Waves off North Seattle and when they will reach Neah Bay 
+
+
 
