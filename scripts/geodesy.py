@@ -7,6 +7,7 @@
 #I need more math background to derive the coreolis effect 
 #The PDE's of coeolis effect and current interacitons have me mind boggled.
 #this is somehting I need to come back to.
+
 #for now, no coreolis effect, just great circle path  
 
 
@@ -28,6 +29,7 @@ def arclength(North1, West1, North2, West2):
     x2 = math.cos(phi2) * math.cos(lambda2)
     y2 = math.cos(phi2) * math.sin(lambda2)
     z2 = math.sin(phi2)
+    
 
 
     dot = x1 * x2 + y1 * y2 + z1 * z2 #dot product 

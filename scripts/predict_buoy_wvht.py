@@ -40,7 +40,7 @@ except Exception as e:
 Failed to import required scientific packages (numpy/pandas/scikit-learn).
 This commonly happens on macOS when binary wheels are for a different CPU architecture
 (e.g. x86_64 vs arm64). Error:
-{e}
+
 
 Suggested fixes (choose one):
 
