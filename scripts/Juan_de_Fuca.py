@@ -40,7 +40,7 @@ if wave145 is not None:
     wave_summary(wave145, Ocean_Papa)
 
 #Can replace this with a stochastic model later: 
-if abs(wave145.iloc[-1]["MWD"]-azimuth(49.903, 145.246, 48.493, 124.727)) <15: #if wave direction is within 15 degrees of path to neah bay 
+if abs(wave145.iloc[-1]["MWD"]-180-azimuth(49.903, 145.246, 48.493, 124.727)) <15: #if wave direction is within 15 degrees of path to neah bay 
     print("waves are aligned with path to neah bay")
 
     distance = arclength(49.903, 145.246, 48.493, 124.727)
@@ -82,7 +82,7 @@ current124 = predict_currents("PUG1642", today_str, tomorrow_str, interval="h")
 
 
 #Can replace this with a stochastic model later: 
-if abs(wave124.iloc[-1]["MWD"]-azimuth(48.493, 124.727, 48.2248207, 122.7701732)) <15: #if wave direction is within 15 degrees 
+if abs(wave124.iloc[-1]["MWD"]-180-azimuth(48.493, 124.727, 48.2248207, 122.7701732)) <15: #if wave direction is within 15 degrees 
     print("waves are on path to Fort Ebey") 
 
     distance = arclength(48.493, 124.727, 48.2248207, 122.7701732)
@@ -103,10 +103,11 @@ if abs(wave124.iloc[-1]["MWD"]-azimuth(48.493, 124.727, 48.2248207, 122.7701732)
     prediction_update(new_row, "data/predicted/ebey.csv")
 else:
     print("waves are NOT on path to ebey bay, no update made")
+
 
 
 #Can replace this with a stochastic model later: 
-if abs(wave124.iloc[-1]["MWD"]-azimuth(48.493, 124.727, 48.2248207, 122.7701732)) <15: #if wave direction is within 15 degrees 
+if abs(wave124.iloc[-1]["MWD"]-180-azimuth(48.493, 124.727, 48.2248207, 122.7701732)) <15: #if wave direction is within 15 degrees 
     print("waves are on path to Fort Ebey") 
 
     distance = arclength(48.493, 124.727, 48.2248207, 122.7701732)
@@ -127,3 +128,28 @@ if abs(wave124.iloc[-1]["MWD"]-azimuth(48.493, 124.727, 48.2248207, 122.7701732)
     prediction_update(new_row, "data/predicted/ebey.csv")
 else:
     print("waves are NOT on path to ebey bay, no update made")
+
+
+if abs(wave124.iloc[-1]["MWD"]-azimuth(48.493, 124.727, 48.2248207, 122.7701732)) <15: #if wave direction is within 15 degrees 
+    print("waves are on path to Fort Ebey") 
+
+    distance = arclength(48.493, 124.727, 48.2248207, 122.7701732)
+    wavelength = (9.81*wave145.iloc[-1]["DPD"]**2)/(2*math.pi) #L = gT2/2π
+    celarity = math.sqrt((9.81*wavelength)/(2*math.pi)*math.tanh(2*math.pi*150/wavelength)) #C = sqrt(gλ/2π * tanh(2πd/λ)) #average depth of 100 m 
+    speed= celarity # going to add current to this later 
+    traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay
+    traveltime = int(traveltime*4)/4 #round to nearest 15 min
+    print(f"predicted travel time to Fort Ebey is {traveltime:.2f} hours")
+
+    # Building the new prediction row
+    new_row = {
+        'datetime': pd.to_datetime(wave124.iloc[-1]['datetime']) + pd.Timedelta(hours=traveltime),
+        'WVHT': wave124.iloc[-1]['WVHT'],
+        'DPD':  wave124.iloc[-1]['DPD'],
+        'MWD':  wave124.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
+    }
+    prediction_update(new_row, "data/predicted/ebey.csv")
+else:
+    print("waves are NOT on path to ebey, no update made")
+
+
