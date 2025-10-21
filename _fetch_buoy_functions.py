@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
+from io import StringIO
 
 def fetch_and_clean_buoy_data(buoy_id):
     """
@@ -30,7 +31,7 @@ def fetch_and_clean_buoy_data(buoy_id):
     # Save raw
     raw_path = f"data/raw/buoy_{buoy_id}_raw.csv"
     df.to_csv(raw_path, index=False)
-    print(f"💾 Raw data saved to {raw_path}")
+    print(f"Raw data saved to {raw_path}")
 
     # Clean
     date_cols = ['#YY', 'MM', 'DD', 'hh', 'mm']
@@ -64,9 +65,6 @@ def fetch_and_clean_buoy_data(buoy_id):
     # Forward-fill all columns to deal with random gaps
     df = df.sort_values('datetime').bfill()
 
-    # Drop rows that still have missing required values after filling
-    df = df.dropna(subset=['WVHT', 'DPD', 'MWD'])
-
     if df.empty:
         print("No usable data available after cleaning.")
         return
@@ -74,7 +72,7 @@ def fetch_and_clean_buoy_data(buoy_id):
     # Save cleaned
     clean_path = f"data/processed/buoy_{buoy_id}_processed.csv"
     df_clean.to_csv(clean_path, index=False)
-    print(f" 💾 Cleaned data saved to {clean_path}")
+    print(f"Cleaned data saved to {clean_path}")
 
     # Merge with old data to create longer and longer df: 
     historic_path = f"data/historic/buoy_{buoy_id}_historic.csv"
@@ -92,13 +90,13 @@ def fetch_and_clean_buoy_data(buoy_id):
     df_combined = df_combined.sort_values("datetime")
     # Save historic
     df_combined.to_csv(historic_path, index=False)
-    print(f" 💾  Historic data updated to {historic_path}")
+    print(f"Historic data updated to {historic_path}")
     
     return df_combined
 
 
 
-def wave_summary(df, buoy_id):
+def wave_summary(df, bouy_name):
     # Ensure necessary columns are present
     required = ['WVHT', 'DPD', 'MWD', 'datetime']
     missing = [col for col in required if col not in df.columns]
@@ -124,41 +122,17 @@ def wave_summary(df, buoy_id):
     # Calculate wave length and energy
     df['wave_length'] = 9.81 * (df['DPD'] ** 2) / (2 * math.pi)
     df['wave_energy'] = 1.025 * 9.81 * ((df['WVHT']) ** 2) * df['wave_length'] / 8
-
+    df['wave_bearing'] = df['MWD']-180 
     # Get the most recent row
     latest = df.iloc[-1]
 
-    print(f"\n🌊 Summary for Buoy {buoy_id} (most recent):")
+    print(f"\n🌊 Summary for Buoy {bouy_name} (most recent):")
     print(f"  - Wave Height (WVHT): {latest['WVHT']} m")
     print(f"  - Dominant Period (DPD): {latest['DPD']} s")
     print(f"  - Estimated Wavelength: {latest['wave_length']:.2f} m")
     print(f"  - Estimated Wave Energy: {latest['wave_energy']:.2f} kJ/m²")
-    print(f"  - Wave Direction : {latest['MWD']:.2f} deg")
+    print(f"  - Wave Bearing: {latest['wave_bearing']:.2f} deg")
 
-
-
-def plot_wave_height(df1, buoy_id1, df2, buoy_id2):
-    # Check if required columns are present
-    if 'WVHT' not in df1.columns or 'WVHT' not in df2.columns:
-        print("Wave height (WVHT) column not found in one of the DataFrames.")
-        return
-
-    # Drop rows with missing values
-    df1 = df1.dropna(subset=['datetime', 'WVHT'])
-    df2 = df2.dropna(subset=['datetime', 'WVHT'])
-
-    # Plot
-    plt.figure(figsize=(10, 5))
-    plt.plot(df1['datetime'], df1['WVHT'], label=f"Buoy {buoy_id1}", color='red')
-    plt.plot(df2['datetime'], df2['WVHT'], label=f"Buoy {buoy_id2}", color='blue')
-    
-    plt.title(f"Wave Height: Buoys {buoy_id1} and {buoy_id2}")
-    plt.xlabel("Date")
-    plt.ylabel("Wave Height (m)")
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
 
 
 def predict_tides(station, begin_date, end_date, interval):
@@ -189,16 +163,6 @@ def predict_tides(station, begin_date, end_date, interval):
     return df
 
 
-def plot_tides(tide_df, station_name="Tide Station"):
-    plt.figure(figsize=(10,5))
-    plt.plot(tide_df["t"], tide_df["v"], marker="o", linestyle="-")
-    plt.title(f"Tidal Predictions - {station_name}")
-    plt.xlabel("Time")
-    plt.ylabel("Water Level (m)")
-    plt.grid(True)
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.show()
 
 def predict_currents(station, begin_date, end_date, interval):
     """
@@ -215,34 +179,25 @@ def predict_currents(station, begin_date, end_date, interval):
         "time_zone": "lst_ldt",
         "units": "metric",
         "interval": interval,
-        "format": "json"
+        # Ask for CSV which is easier to load into pandas directly
+        "format": "csv"
     }
-
     response = requests.get(url, params=params)
     response.raise_for_status()
-    data = response.json()
 
-    # The API returns a structure like:
-    # { 'current_predictions': { 'units': '...', 'cp': [ {..}, {..}, ... ] } }
-    # Extract the list of current-prediction dicts (cp) and normalize into a DataFrame.
-    cp_list = None
-    if isinstance(data, dict):
-        cp_list = data.get('current_predictions', {})
-        if isinstance(cp_list, dict):
-            cp_list = cp_list.get('cp')
-    # Fallback if structure differs
-    if cp_list is None:
-        # try other common keys
-        cp_list = data.get('cp') or data.get('current_predictions') or []
+    # Load CSV into pandas directly
+    text = response.text
+    # Some CSVs from the API include leading metadata lines; let pandas infer header
+    try:
+        df = pd.read_csv(StringIO(text))
+    except Exception:
+        # fallback: try reading without header and infer
+        df = pd.read_csv(StringIO(text), header=0, error_bad_lines=False)
 
-    # If cp_list is already a DataFrame-like structure, turn into DataFrame
-    df = pd.DataFrame(cp_list)
-
-    # Common JSON field is 'Time' for the timestamp; convert it to datetime if present
-    if 'Time' in df.columns:
-        df['datetime'] = pd.to_datetime(df['Time'])
-        # Optionally drop the original 'Time' column
-        # df = df.drop(columns=['Time'])
+    # Many CSVs use 'Time' or 'time' for timestamp column
+    time_cols = [c for c in df.columns if c.lower() in ('time', 't', 'datetime')]
+    if time_cols:
+        df['datetime'] = pd.to_datetime(df[time_cols[0]])
 
     # Coerce numeric columns to numbers where possible
     for col in df.columns:
@@ -255,9 +210,65 @@ def predict_currents(station, begin_date, end_date, interval):
 
     return df
 
+
 def plot_currents(tide_df, station_name="Tide Station"):
-    plt.figure(figsize=(10,5))
-    plt.plot(tide_df["t"], tide_df["v"], marker="o", linestyle="-")
+    plt.figure(figsize=(10, 5))
+    # prefer columns 'datetime'/'t' and value column 'v' if present
+    if 't' in tide_df.columns and 'v' in tide_df.columns:
+        x = tide_df['t']
+        y = tide_df['v']
+    elif 'datetime' in tide_df.columns and 'Velocity_Major' in tide_df.columns:
+        x = tide_df['datetime']
+        y = tide_df.get('Velocity_Major', tide_df.iloc[:, 1])
+    else:
+        # fallback to first two columns
+        x = tide_df.iloc[:, 0]
+        y = tide_df.iloc[:, 1]
+
+    plt.plot(x, y, marker='o', linestyle='-')
+    plt.title(f"Tidal/Current Predictions - {station_name}")
+    plt.xlabel("Time")
+    plt.ylabel("Value")
+    plt.grid(True)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_wave_height(df1, buoy_id1, df2, buoy_id2):
+    # Check if required columns are present
+    if 'WVHT' not in df1.columns or 'WVHT' not in df2.columns:
+        print("Wave height (WVHT) column not found in one of the DataFrames.")
+        return
+
+    # Drop rows with missing values
+    df1 = df1.dropna(subset=['datetime', 'WVHT'])
+    df2 = df2.dropna(subset=['datetime', 'WVHT'])
+
+    # Plot
+    plt.figure(figsize=(10, 5))
+    plt.plot(df1['datetime'], df1['WVHT'], label=f"Buoy {buoy_id1}", color='red')
+    plt.plot(df2['datetime'], df2['WVHT'], label=f"Buoy {buoy_id2}", color='blue')
+
+    plt.title(f"Wave Height: Buoys {buoy_id1} and {buoy_id2}")
+    plt.xlabel("Date")
+    plt.ylabel("Wave Height (m)")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_tides(tide_df, station_name="Tide Station"):
+    plt.figure(figsize=(10, 5))
+    if 't' in tide_df.columns and 'v' in tide_df.columns:
+        plt.plot(tide_df['t'], tide_df['v'], marker='o', linestyle='-')
+    elif 'datetime' in tide_df.columns and 'v' in tide_df.columns:
+        plt.plot(tide_df['datetime'], tide_df['v'], marker='o', linestyle='-')
+    else:
+        # fallback to first two columns
+        plt.plot(tide_df.iloc[:, 0], tide_df.iloc[:, 1], marker='o', linestyle='-')
+
     plt.title(f"Tidal Predictions - {station_name}")
     plt.xlabel("Time")
     plt.ylabel("Water Level (m)")

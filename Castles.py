@@ -1,4 +1,5 @@
-from scripts.fetch_buoy_functions import fetch_and_clean_buoy_data, wave_summary, predict_tides, plot_tides, predict_currents
+from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_tides, plot_tides, predict_currents
+from _report_funcitons import wave_summary
 from datetime import date, timedelta
 
 # today
@@ -18,8 +19,7 @@ if waves is not None:
     wave_summary(waves, Mokapu_Point)
 
 tides = predict_tides( Mokuoloe, today_str, tomorrow_str, interval="h")
-print(tides)
+print(tides["t"].max)
  
 plot_tides(tides, "Mokuoloe (Kaneohe Bay, HI)")
-
 
