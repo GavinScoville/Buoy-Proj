@@ -25,8 +25,8 @@ jobs:
 
       - name: Run NOAA buoy script
         env:
-          NOAA_API_KEY: ${{ secrets.NOAA_API_KEY }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: python Salish_Alerts.py
 
       - name: Commit and push results
