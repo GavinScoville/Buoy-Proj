@@ -4,3 +4,10 @@ numpy
 scikit-learn
 datetime 
 requests
+smtplib
+email.mime.text
+email.mime.multipart 
+dotenv 
+os
+zoneinfo
+math

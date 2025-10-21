@@ -124,7 +124,7 @@ else:
 if wave123pa["WVHT"] <1.2: 
     print("ocean waves are less then 1.2m high at PA")
     wave123pa["status"]= 0
-elif wave123pa["DPD"] <8:
+elif wave123pa["DPD"] < 8:
     print("Ocean waves have a period under 8 seconds at PA")
     wave123pa["status"]= 0
 else:
@@ -137,8 +137,6 @@ if change123pa.loc[0]["status"]-change123pa.loc[0]["status"]>0: #if the status g
     send_PA_email = "T" 
 else:
     send_PA_email = "F"
-
-
 
     #Dungeness Forcast:
 if wave123nd["WVHT"] <1: 

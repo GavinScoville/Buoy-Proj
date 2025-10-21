@@ -184,10 +184,9 @@ def setstatus(wave, buoy_id):
         if pd.to_datetime(wave["datetime"]) - latest_time > pd.Timedelta(hours=6):
             print(f"Data old for {buoy_id}. Last data at {latest_time} UTC")
     
-        print(f"Data updated for {buoy_id}")
         df.loc[0] = df.loc[1] # overwright
         df.loc[1] = [wave["datetime"], wave["status"]] #1 is the most recent
     # Save updated file
     df.to_csv(file_path, index=False)
-    print(f"Status updated for {buoy_id} — last entry: {df.iloc[-1].to_dict()}")
+    print(f"Status updated for {buoy_id}")
     return df
