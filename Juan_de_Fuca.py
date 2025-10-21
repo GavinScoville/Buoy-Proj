@@ -1,14 +1,13 @@
 import pandas as pd
 import numpy as np
 from datetime import date, timedelta, datetime
-import pytz
+from zoneinfo import ZoneInfo
 import math
 
 from _fetch_buoy_functions import fetch_and_clean_buoy_data,  predict_currents, predict_tides, plot_currents
-from _report_funcitons import  wave_summary, current_report, tide_report
+from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
 from _geodesy import arclength, azimuth
 
-#for waves: 
 Ocean_Papa = "46246"
 South_Nomad = "46036"
 Northwest_Seattle = "46419"
@@ -31,158 +30,386 @@ today_str = today.strftime("%Y%m%d")
 tomorrow = today + timedelta(days=1)
 tomorrow_str = tomorrow.strftime("%Y%m%d")
 #GMT to PT conversion:
-pst_timezone = pytz.timezone('America/Los_Angeles')
-current_time_pst = datetime.now(pst_timezone)
-print(current_time_pst)
-now = datetime.now()
-print(now)
-if today.month in [3,4,5,6,7,8,9,10,11]: #DST
-    time_offset = -7
-else:
-    time_offset = -8 #PST 
+PacificTime = ZoneInfo("America/Los_Angeles")
 
 ######################################################################
 '''Pull that data!'''
 ######################################################################
 #naming based on latitiude
-wave145 = fetch_and_clean_buoy_data(Ocean_Papa) #returns a datafeame of the last 45 days of data
-wave133 = fetch_and_clean_buoy_data(South_Nomad)
-wave126 = fetch_and_clean_buoy_data(La_Persouse_Bank)
+waves145 = fetch_and_clean_buoy_data(Ocean_Papa) #returns a datafeame of the last 45 days of data
 #add northwest seattle in here when wifi
-wave124 = fetch_and_clean_buoy_data(Neah_Bay)
-wave123pa = fetch_and_clean_buoy_data(Port_Angelis)
-wave123nd= fetch_and_clean_buoy_data(New_Dungeness)
+waves124 = fetch_and_clean_buoy_data(Neah_Bay)
+waves123pa = fetch_and_clean_buoy_data(Port_Angelis)
+waves123nd= fetch_and_clean_buoy_data(New_Dungeness)
 
 #Get those tides and currents: 
-current124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
-current123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
-tide124 = predict_tides(Neah_Bay_Tide,today_str,tomorrow_str, interval="h")
-tide123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
+currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
+currents123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
+tides124 = predict_tides(Neah_Bay_Tide,today_str,tomorrow_str, interval="h")
+tides123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
 
 ######################################################################
 '''Make a report!'''
 ######################################################################
 
-sum145 = wave_summary(wave145, "Ocean Papa") # wave summary returns a dataframe with the latest data and calculated energy etc.
-sum133 = wave_summary(wave133, "South Nomad") #this is in PST now
-sum126 = wave_summary(wave126, "La Persouse Bank")
-sum124 = wave_summary(wave124, "Neah Bay")
-sum123pa = wave_summary(wave123pa, "Port Angelis")
-sum123nd = wave_summary(wave123nd, "New Dungeness")
+wave145 = wave_summary(waves145, "Ocean Papa", PacificTime) # wave summary returns a dataframe with the latest data and calculated energy etc.
+wave124 = wave_summary(waves124, "Neah Bay", PacificTime)
+wave123pa = wave_summary(waves123pa, "Port Angelis", PacificTime)
+wave123nd = wave_summary(waves123nd, "New Dungeness", PacificTime)
 
-#now time for the logic that initiates setting the status of the waves to 1 or 0 based on conditions unique to that location.
-time124 = sum124["datetime"]  #get the time of the latest wave data 
-current_report(current124, time124)
-time123nd = sum123nd["datetime"]  #get the time of the latest wave data 
-current_report(current123, time123nd)
+time124 = wave124["datetime"]  #get the time of the latest wave data 
+time123 = wave123nd["datetime"]
+                  
+current124=current_report(currents124, time124, PacificTime)
+current123=current_report(currents123, time123, PacificTime)
 
-
-current124.info()
+tide124 = tide_report(tides124, time124, PacificTime)
+tide123 = tide_report(tides123, time123, PacificTime)
 
 
+######################################################################
+'''Decide if it might be firing'''
+######################################################################
+#THis is for Ocean Papa:
+#can replace this with a stochastic model later:
+if abs(wave145["MWD"]-180-azimuth(49.903, 145.246, 48.493, 124.727)) >10: #if wave direction is within 10 degrees of path to neah bay 
+    print("ocean waves are not aligned with path to neah bay")
+    wave145["status"]= 0 #set status to zero (normal)
+elif wave145["WVHT"] <5: 
+    print("ocean waves are less then 5m high at ocean papa")
+    wave145["status"]= 0
+elif wave145["DPD"] <12:
+    print("ocean waves have a period under 12s at ocean papa")
+    wave145["status"] = 0
+else:
+    print("Swell is on path to Neah bay and is large enough to surf")
+    wave145["status"]= 1  #set status to 1 (watch)
+#update status file
+change145 = setstatus(wave145, "ocean_papa")
+if change145.loc[0]["status"]-change145.loc[0]["status"]>0: #if the status goes up, send email:
+    send_ocean_email = "T" 
+else:
+    send_ocean_email = "F"
 
 
 
-#Can replace this with a stochastic model later: 
-if abs(wave145.iloc[-1]["MWD"]-180-azimuth(49.903, 145.246, 48.493, 124.727)) <15: #if wave direction is within 15 degrees of path to neah bay 
-    print("waves are aligned with path to neah bay")
+#Neah Bay Forcast:
 
-    distance = arclength(49.903, 145.246, 48.493, 124.727)
-    speed = math.sqrt(9.81/(2* math.pi)*wave145.iloc[-1]["DPD"])  #wavespeed= sqrt(g/2pi* Period) 
+azimuth(48.493, 124.727, 48.173, 123.607)-azimuth(48.493, 124.727,48.332, 123.179)#14 deg window:
+
+if abs(wave124["MWD"]-180)> azimuth(48.493, 124.727, 48.173, 123.607) or abs(wave124["MWD"]-180)< azimuth(48.493, 124.727, 48.173, 123.607) : #if wave direction is within 10 degrees of path to neah bay 
+    print("swell is not headed down the strait")
+    wave124["status"]= 0
+elif wave124["WVHT"] <3: 
+    print("ocean waves are less then 3m high at Neah")
+    wave124["status"]= 0
+elif wave124["DPD"] <10:
+    print("ocean waves have a period under 10s at ocean papa")
+    wave124["status"]= 0
+else:
+    print("Swell is going down the strait and is big enough to surf")
+    wave124["status"]= 1  #set status to 1 (watch)
+#update status file
+
+change124 = setstatus(wave124, "Neah_Bay")
+if change124.loc[0]["status"]-change124.loc[0]["status"]>0: #if the status goes up, send email:
+    send_strait_email = "T" 
+else:
+    send_strait_email = "F"
+
+
+#P/A Forcast:
+if wave123pa["WVHT"] <1.2: 
+    print("ocean waves are less then 1.2m high at PA")
+    wave123pa["status"]= 0
+elif wave123pa["DPD"] <8:
+    print("Ocean waves have a period under 8 seconds at PA")
+    wave123pa["status"]= 0
+else:
+    print("Swell is big enough tto surf at PA")
+    wave123pa["status"]= 1  #set status to 1 (watch)
+
+change123pa = setstatus(wave124, "Neah_Bay")#setting status
+
+if change123pa.loc[0]["status"]-change123pa.loc[0]["status"]>0: #if the status goes up, send email:
+    send_PA_email = "T" 
+else:
+    send_PA_email = "F"
+
+
+
+    #Dungeness Forcast:
+if wave123nd["WVHT"] <1: 
+    print("ocean waves are less then 1m high at ND")
+    wave123nd["status"]= 0
+elif wave123nd["DPD"] <8:
+    print("Ocean waves have a period under 8 seconds at ND")
+    wave123nd["status"]= 0
+else:
+    print("Swell is big enough to surf from ND")
+    wave123nd["status"]= 1  #set status to 1 (watch)
+
+change123nd = setstatus(wave124, "Neah_Bay")#setting status
+    
+if change123nd.loc[0]["status"]-change123nd.loc[0]["status"]>0: #if the status goes up, send email:
+    send_ND_email = "T" 
+else:
+    send_ND_email = "F"
+
+
+######################################################################
+'''Send THe Emails!'''
+###################################################################### 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+from dotenv import load_dotenv
+import os
+# Load environment variables from .env file
+load_dotenv()
+# Retrieve them
+sender_email = os.getenv("EMAIL_USER")
+password = os.getenv("EMAIL_PASS")
+receiver_email = "gavin.scoville@gmail.com" 
+
+######################################################################
+'''Send Ocean Papa'''
+###################################################################### 
+if send_ocean_email == "T":
+    local_time = wave145['datetime'].astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    distance = arclength(49.903, 145.246,48.321, 122.831)
+    wavelength = (9.81*wave145["DPD"]**2)/(2*math.pi) #L = gT2/2π
+    speed = (9.81/(2*math.pi)*wave145["DPD"])
     traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay (deepwater waves)
-    traveltime = int(traveltime*4)/4 #round to nearest 15 min
-    print(f"predicted travel time to Neah Bay is {traveltime:.2f} hours")
+    landfall = (wave145['datetime'] + timedelta(traveltime)).astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    azy = azimuth(49.903, 145.246, 48.493, 124.727)
+    missshot = -(wave145["MWD"]-azimuth(49.903, 145.246, 48.493, 124.727)-180) #to Ebbyazimuth(49.903, 145.246, 48.493, 124.727) 
+# --- create the email ---
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "🌊 Ocean Papa Detects Waves"
+    message["From"] = sender_email
+    message["To"] = receiver_email
 
-    # Building the new prediction row
-    new_row = {
-        'datetime': pd.to_datetime(wave145.iloc[-1]['datetime']) + pd.Timedelta(hours=traveltime),
-        'WVHT': wave145.iloc[-1]['WVHT'],
-        'DPD':  wave145.iloc[-1]['DPD'],
-        'MWD':  wave145.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
-    }
-    prediction_update(new_row, "data/predicted/neah.csv")
-else:
-    print("waves are NOT on path to neah bay, no update made")
-################################################################################################
-#from South Nomad:
-#these are missing MWD data
-'''
-wave133 = fetch_and_clean_buoy_data(South_Nomad)
-if wave133 is not None:
-    wave_summary(wave133, South_Nomad)
-#these are missing MWD data 
+    # --- body text ---
+    text = f"""\
+    
+Summary from Ocean Papa Buoy at {wave145['datetime'].astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")}:
 
-#from La Persouse Bank:
-wave126 = fetch_and_clean_buoy_data(La_Persouse_Bank)
-if wave126 is not None:
-    wave_summary(wave126, La_Persouse_Bank)
-'''
-################################################################################################
-#from Neah Bay to Fort Ebey: #48.2248207°N 122.7701732°W
-wave124 = fetch_and_clean_buoy_data(Neah_Bay) #48.493 N 124.727 W
-if wave124 is not None:
-    wave_summary(wave124, Neah_Bay)
+  - Wave height: {wave145['WVHT']} m
+  - Dominant period: {wave145['DPD']} s
+  - Estimated wave energy: {wave145['wave_energy']:.2f} kJ/m²
+  - Wave bearing: {wave145['wave_bearing']:.2f}°, 
+  - The waves are propogating {missshot:.2f}° north of the {azy:.2f}° azimuth to Neah Bay
+  - First waves landfall in {traveltime:.2f} hours at {landfall}
 
-#currents at Neah Bay
-current124 = predict_currents("PUG1642", today_str, tomorrow_str, interval="h")
-# ensure types
-current124['datetime'] = pd.to_datetime(current124['datetime'])
-target_dt = pd.to_datetime(wave124.iloc[-1]['datetime'])
-target_dt = target_dt.round('H')  # round to nearest hour
-# boolean mask and get value(s)
-mask = current124['datetime'] == target_dt
-if mask.any():
-    # get the first matching value
-    current_current = current124.loc[mask, 'Velocity_Major'].iloc[0]/100
-else:
-    current_current = 0  # not found
+"""
+    message.attach(MIMEText(text, "plain"))
+
+    # --- send email securely ---
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender_email, password)
+        server.send_message(message)
+
+    print("Ocean Papa alert sent successfully!")
+
+######################################################################
+'''Send Strait Email'''
+###################################################################### 
+if send_strait_email == "T":
+    local_time = wave124['datetime'].astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    distance = arclength(48.493, 124.727,48.2248207, 122.7701732)
+    wavelength = (9.81*wave124["DPD"]**2)/(2*math.pi) #L = gT2/2π
+    celarity = math.sqrt((9.81*wavelength)/(2*math.pi)*math.tanh(2*math.pi*100/wavelength)) #C = sqrt(gλ/2π * tanh(2πd/λ)) #average depth of 100 m 
+    speed = celarity+current124[" Velocity_Major"]/100
+    traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay (deepwater waves)
+    landfall = (wave124['datetime'] + timedelta(traveltime)).astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+ #set current status
+    if current124[" Velocity_Major"]> 10:
+        current_status = "FLOODING"
+    elif current124[" Velocity_Major"]< -10:
+        current_status = "EBBING"
+    else:
+        current_status = "SLACK"
+
+#Getting tide conditions
+    tides124['time_diff'] = abs(pd.to_datetime(tides124['datetime'], utc=True) - pd.to_datetime(wave124['datetime'],utc=True))
+    closest_row = tides124.loc[tides124['time_diff'].idxmin()]# Get the row closest to the specified time
+    idx = tides124['time_diff'].idxmin()
+    row_after = tides124.loc[idx +1 ] if idx +1 < len(tides124) else None
+    tide_change = row_after["v"]-closest_row["v"]
+    if tide_change >.2:
+        tide_status = "RISING"
+    elif tide_change <-.2:
+        tide_status = "FALLING"
+    else:
+        tide_status = "SLACK"
+#determining wind conditions
+    if wave124["GST"]<2:
+        wind_status = "SLACK"
+    elif abs(wave124["WDIR"]- wave124["MWD"]) > 135:
+        wind_status = "OFFSHORE"
+    elif abs(wave124["WDIR"]- wave124["MWD"]) > 45:
+        wind_status = "ONSHORE"
+    else:
+        wind_status = "CROSS"
+        
+    azy = azimuth(48.493, 124.727,48.2248207, 122.7701732)
+    missshot = wave124["MWD"]-azimuth(48.493, 124.727,48.2248207, 122.7701732)-180 #to Ebby
+
+# --- create the email ---
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "🌊 Waves are Moving down the Strait"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+
+    # --- body text ---
+    text = f"""\
+    
+Summary from Neah Bay Bouy at {local_time}:
+
+  - Wave height: {wave124['WVHT']} m
+  - Dominant period: {wave124['DPD']} s
+  - Estimated wave energy: {wave124['wave_energy']:.2f} kJ/m²
+  - Wave bearing: {wave124['wave_bearing']:.2f}°
+
+  - Tide is {closest_row['v']:.2f}m and {tide_status}, expected to change by {tide_change:.2f}m in the next hour 
+  - Current is {current_status}, and moving at {current124[" Velocity_Major"]:.2f} cm/s
+  - Wind at Neah Bay is currenly {wind_status} at {wave124["WSPD"]} m/s, from {wave124["WDIR"]}° EoN. 
+
+"""
+    message.attach(MIMEText(text, "plain"))
+
+    # --- send email securely ---
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender_email, password)
+        server.send_message(message)
+
+    print("Strait of Juan de Fuca Alert sent successfully!")
 
 
-#Can replace this with a stochastic model later: 
-if abs(wave124.iloc[-1]["MWD"]-180-azimuth(48.493, 124.727, 48.2248207, 122.7701732)) <15: #if wave direction is within 15 degrees 
-    print("waves are on path to Fort Ebey") 
+######################################################################
+'''Send PA Email!!'''
+###################################################################### 
 
-    distance = arclength(48.493, 124.727, 48.2248207, 122.7701732)
-    wavelength = (9.81*wave145.iloc[-1]["DPD"]**2)/(2*math.pi) #L = gT2/2π
-    celarity = math.sqrt((9.81*wavelength)/(2*math.pi)*math.tanh(2*math.pi*150/wavelength)) #C = sqrt(gλ/2π * tanh(2πd/λ)) #average depth of 100 m 
-    speed= celarity+current_current # going to add current to the wave speed
-    traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay
-    traveltime = int(traveltime*4)/4 #round to nearest 15 min
-    print(f"predicted travel time to Fort Ebey is {traveltime:.2f} hours")
+if send_PA_email == "T":
+    local_time = wave123pa['datetime'].astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    wavelength = (9.81*wave123pa["DPD"]**2)/(2*math.pi) #L = gT2/2π
 
-    # Building the new prediction row
-    new_row = {
-        'datetime': pd.to_datetime(wave124.iloc[-1]['datetime']) + pd.Timedelta(hours=traveltime),
-        'WVHT': wave124.iloc[-1]['WVHT'],
-        'DPD':  wave124.iloc[-1]['DPD'],
-        'MWD':  wave124.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
-    }
-    prediction_update(new_row, "data/predicted/ebey.csv")
-else:
-    print("waves are NOT on path from Neah to Ebey, no update made")
-################################################################################################
-
-#from Port Angelis:
-wave123 = fetch_and_clean_buoy_data(Port_Angelis) #48.173 N 123.607 W
-if abs(wave123.iloc[-1]["MWD"]-180-azimuth(48.173, 123.607, 48.2248207, 122.7701732)) <30: #if wave direction is within 30 degrees 
-    print("at PA are on path to Fort Ebey") 
-    distance = arclength(48.173, 123.607, 48.2248207, 122.7701732)
-    wavelength = (9.81*wave145.iloc[-1]["DPD"]**2)/(2*math.pi) #L = gT2/2π
-    celarity = math.sqrt((9.81*wavelength)/(2*math.pi)*math.tanh(2*math.pi*150/wavelength)) #C = sqrt(gλ/2π * tanh(2πd/λ)) #average depth of 100 m 
-    speed= celarity+current_current # going to add current to the wave speed
-    traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay
-    traveltime = int(traveltime*4)/4 #round to nearest 15 min
-    print(f"predicted travel time to Fort Ebey is {traveltime:.2f} hours")
-
-    # Building the new prediction row
-    new_row = {
-        'datetime': pd.to_datetime(wave123.iloc[-1]['datetime']) + pd.Timedelta(hours=traveltime),
-        'WVHT': wave123.iloc[-1]['WVHT'],
-        'DPD':  wave123.iloc[-1]['DPD'],
-        'MWD':  wave123.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
-    }
-    prediction_update(new_row, "data/predicted/ebey.csv")
-else:
-    print("waves are NOT on path from PA to Ebey, no update made")
+    # Get the row closest to the specified time
+    tides123['time_diff'] = abs(pd.to_datetime(tides123['datetime'], utc=True) - pd.to_datetime(wave123nd['datetime'],utc=True))
+    closest_row = tides123.loc[tides123['time_diff'].idxmin()]
+    idx = tides123['time_diff'].idxmin()
+    row_after = tides123.loc[idx +1 ] if idx +1 < len(tides123) else None
+    tide_change = row_after["v"]-closest_row["v"] #hoe much it is going to change in an hour 
+    if tide_change >.2:
+        tide_status = "RISING"
+    elif tide_change <-.2:
+        tide_status = "FALLING"
+    else:
+        tide_status = "SLACK"
+        
+    azy = azimuth(48.2248207, 122.7701732, 48.493, 124.727)+180 #to Ebby 
 
 
+# --- create the email ---
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "🌊 Port Angelis has Waves"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+
+    # --- body text ---
+    text = f"""\
+    
+Summary from Port Angelis at {local_time}:
+
+  - Wave height: {wave123pa['WVHT']} m
+  - Dominant period: {wave123pa['DPD']} s
+  - Average period: {wave123pa['APD']} s
+  - Estimated wave energy: {wave123pa['wave_energy']:.2f} kJ/m²
+  - Wave bearing: {wave123pa['wave_bearing']:.2f}°
+  - Ebey needs waves from {azy:.2f}° EoN
+
+  - Tide is {closest_row['v']:.2f}m and {tide_status}, expected to change by {tide_change:.2f}m in the next hour 
+
+
+"""
+    message.attach(MIMEText(text, "plain"))
+
+    # --- send email securely ---
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender_email, password)
+        server.send_message(message)
+
+    print("PA alert sent successfully!")
+######################################################################
+'''Send ND Email!!'''
+###################################################################### 
+
+if send_ND_email == "T":
+    local_time = wave123nd['datetime'].astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    wavelength = (9.81*wave123nd["DPD"]**2)/(2*math.pi) #L = gT2/2π
+ #set current status
+    if current123[" Velocity_Major"]> 10:
+        current_status = "FLOODING"
+    elif current123[" Velocity_Major"]< -10:
+        current_status = "EBBING"
+    else:
+        current_status = "SLACK"
+
+    # Using the Port Townsand Tides: 
+    tides123['time_diff'] = abs(pd.to_datetime(tides123['datetime'], utc=True) - pd.to_datetime(wave123nd['datetime'],utc=True))
+    closest_row = tides123.loc[tides123['time_diff'].idxmin()]
+    idx = tides123['time_diff'].idxmin()
+    row_after = tides123.loc[idx +1 ] if idx +1 < len(tides123) else None
+    tide_change = row_after["v"]-closest_row["v"] #hoe much it is going to change in an hour 
+    if tide_change >.2:
+        tide_status = "RISING"
+    elif tide_change <-.2:
+        tide_status = "FALLING"
+    else:
+        tide_status = "SLACK"
+#determining wind conditions
+    if wave123nd["GST"]<2:
+        wind_status = "SLACK"
+    elif abs(wave123nd["WDIR"]- wave123nd["MWD"]) > 135:
+        wind_status = "OFFSHORE"
+    elif abs(wave123nd["WDIR"]- wave123nd["MWD"]) > 45:
+        wind_status = "ONSHORE"
+    else:
+        wind_status = "CROSS"
+        
+    azy = azimuth(48.2248207, 122.7701732, 48.493, 124.727)+180 #to Ebby 
+
+# --- create the email ---
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "🌊 New Dungeness has Waves"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+
+    # --- body text ---
+    text = f"""\
+    
+Summary from New Dungeness Bouy at {local_time}:
+
+  - Wave height: {wave123nd['WVHT']} m
+  - Dominant period: {wave123nd['DPD']} s
+  - Average period: {wave123nd['APD']} s
+  - Estimated wave energy: {wave123nd['wave_energy']:.2f} kJ/m²
+  - Wave bearing: {wave123nd['wave_bearing']:.2f}° EoN
+  - Ebey needs waves from {azy:.2f}° EoN
+
+
+  - Tide is {closest_row['v']:.2f}m and {tide_status}, expected to change by {tide_change:.2f}m in the next hour 
+  - Current at PT is {current_status}, and moving at {current123[" Velocity_Major"]:.2f} cm/s
+  - Wind is currenly {wind_status} at {wave123nd["WSPD"]} m/s, from {wave123nd["WDIR"]}° E of N. 
+
+"""
+    message.attach(MIMEText(text, "plain"))
+
+    # --- send email securely ---
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender_email, password)
+        server.send_message(message)
+
+    print("New Dungeness Alert sent successfully!")

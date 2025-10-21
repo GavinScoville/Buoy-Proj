@@ -43,12 +43,12 @@ def wave_summary(df, bouy_name, timezone):
     print(f"  - Wave Height (WVHT): {latest['WVHT']} m")
     print(f"  - Dominant Period (DPD): {latest['DPD']} s")
     print(f"  - Estimated Wave Energy: {latest['wave_energy']:.2f} kJ/m²")
-    print(f"  - Wave Direction: {latest['MWD']:.2f} deg")
+    print(f"  - Wave Bearing: {latest['wave_bearing']:.2f} deg")
     return latest
 
 
 
-def tide_report(df, time, timezone): #is fed the dataframe of tides and looks for the one at the time of the most rectnt wave data, and returns the tide status (high/low/rising/falling) at that time.
+def tide_report(df, time, timezone): #is fed the dataframe of tides and looks for the one at the time of the most recent wave data, and returns the tide status (high/low/rising/falling) at that time.
     required = ['v','datetime']
     missing = [col for col in required if col not in df.columns]
     if missing:
@@ -78,7 +78,7 @@ def tide_report(df, time, timezone): #is fed the dataframe of tides and looks fo
         tide_status = "Slack"
     local_time = closest_row['datetime'].astimezone(timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
 
-    print(f"\n🐟 Summary for Current at {local_time} ")
+    print(f"\n🐟 Tide Summary {local_time} ")
     print(f"  - Tide Height: {closest_row['v']:.2f} m")
     print(f"  - Tide Status: {tide_status} by {tide_change:.2f}m in the next hour")
     return closest_row 
@@ -125,7 +125,7 @@ def current_report(df, time, timezone): #is fed the dataframe of currents and lo
 
 def wind_report(df, bouy_name, timezone):
     # Ensure necessary columns are present
-    required = [+'datetime']
+    required = ['WDIR','WSPD','GST','datetime']
     missing = [col for col in required if col not in df.columns]
     if missing:
         print(f"Missing required wave data columns: {missing}")
@@ -147,6 +147,7 @@ def wind_report(df, bouy_name, timezone):
         return
 
     # Get the most recent row
+    df['datetime'] = pd.to_datetime(df['datetime'], utc=True)
     latest = df.iloc[-1]
     local_time = latest['datetime'].astimezone(timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
 
@@ -156,19 +157,37 @@ def wind_report(df, bouy_name, timezone):
     print(f"  - Wind Gust {latest['GST']:.2f} m/s")
     return latest
 
-def setstatus(status, buoy_id): 
-       # Create folder if it doesnt exist
-    os.makedirs("data/status", exist_ok=True)
-    df = pd.read_csv(f"data/raw/buoy_{buoy_id}_raw.csv")
-    if df.empty or df['datetime'].max() - pd.to_datetime(latest['datetime']) > pd.Timedelta(hours=6):
-        print(f"Data missing for {buoy_id}. Last data at {df['datetime'].max()}")
-        df[1] = pd.DataFrame([status])
-        df[2] = pd.DataFrame([status])
-    else:
-        print(f"Data current for {buoy_id}. Last data at {df['datetime'].max()}")
-        df[2] = df[1]
-        df[1] = pd.DataFrame([status])
-    # Save raw
-    df.to_csv(f"data/raw/buoy_{buoy_id}_raw.csv", index=False)
-    print(f"Status updated")
 
+def setstatus(wave, buoy_id): 
+    # Create folder if it doesn’t exist
+    os.makedirs("data/status", exist_ok=True)
+    file_path = f"data/status/{buoy_id}.csv"
+
+    # Read file if it exists
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
+    else:
+        df = pd.DataFrame(columns=["datetime", "status"])
+
+    # Convert datetime column if it exists
+    if not df.empty:
+        df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")
+
+    # Handle case where there’s no record yet
+    if df.empty:
+        print(f"No record of {buoy_id} status found, creating new record")
+        df.loc[0] = [wave["datetime"], wave["status"]]  # first row
+        df.loc[1] = [wave["datetime"], wave["status"]]  # second row
+    else:
+        # Check if the last data point is more than 6 hours old
+        latest_time = df["datetime"].max()
+        if pd.to_datetime(wave["datetime"]) - latest_time > pd.Timedelta(hours=6):
+            print(f"Data old for {buoy_id}. Last data at {latest_time} UTC")
+    
+        print(f"Data updated for {buoy_id}")
+        df.loc[0] = df.loc[1] # overwright
+        df.loc[1] = [wave["datetime"], wave["status"]] #1 is the most recent
+    # Save updated file
+    df.to_csv(file_path, index=False)
+    print(f"Status updated for {buoy_id} — last entry: {df.iloc[-1].to_dict()}")
+    return df

@@ -95,46 +95,6 @@ def fetch_and_clean_buoy_data(buoy_id):
     return df_combined
 
 
-
-def wave_summary(df, bouy_name):
-    # Ensure necessary columns are present
-    required = ['WVHT', 'DPD', 'MWD', 'datetime']
-    missing = [col for col in required if col not in df.columns]
-    if missing:
-        print(f"Missing required wave data columns: {missing}")
-        return
-
-    # Convert columns to numeric (in case of strings) and drop fully NaN rows
-    for col in required:
-        df[col] = pd.to_numeric(df[col], errors='coerce')
-    df = df.dropna(subset=['datetime'])
-
-    # Forward-fill all columns to deal with random gaps
-    df = df.sort_values('datetime').bfill()
-
-    # Drop rows that still have missing required values after filling
-    df = df.dropna(subset=['WVHT', 'DPD', 'MWD'])
-
-    if df.empty:
-        print("No usable data available after cleaning.")
-        return
-
-    # Calculate wave length and energy
-    df['wave_length'] = 9.81 * (df['DPD'] ** 2) / (2 * math.pi)
-    df['wave_energy'] = 1.025 * 9.81 * ((df['WVHT']) ** 2) * df['wave_length'] / 8
-    df['wave_bearing'] = df['MWD']-180 
-    # Get the most recent row
-    latest = df.iloc[-1]
-
-    print(f"\n🌊 Summary for Buoy {bouy_name} (most recent):")
-    print(f"  - Wave Height (WVHT): {latest['WVHT']} m")
-    print(f"  - Dominant Period (DPD): {latest['DPD']} s")
-    print(f"  - Estimated Wavelength: {latest['wave_length']:.2f} m")
-    print(f"  - Estimated Wave Energy: {latest['wave_energy']:.2f} kJ/m²")
-    print(f"  - Wave Bearing: {latest['wave_bearing']:.2f} deg")
-
-
-
 def predict_tides(station, begin_date, end_date, interval):
     """
     Fetch tidal predictions from NOAA CO-OPS API and return a DataFrame.
@@ -147,7 +107,7 @@ def predict_tides(station, begin_date, end_date, interval):
         "end_date": end_date,
         "datum": "MLLW",
         "station": station,
-        "time_zone": "lst_ldt",
+        "time_zone": "gmt",
         "units": "metric",
         "interval": interval,
         "format": "json"
@@ -157,11 +117,10 @@ def predict_tides(station, begin_date, end_date, interval):
     response.raise_for_status()
     data = response.json()
     df = pd.DataFrame(data["predictions"])
-    df["t"] = pd.to_datetime(df["t"])     # convert time column to datetime
+    df["datetime"] = pd.to_datetime(df["t"])     # convert time column to datetime
     df["v"] = df["v"].astype(float)       # convert tide height to float
 
     return df
-
 
 
 def predict_currents(station, begin_date, end_date, interval):
@@ -176,10 +135,9 @@ def predict_currents(station, begin_date, end_date, interval):
         "end_date": end_date,
         "datum": "MLLW",
         "station": station,
-        "time_zone": "lst_ldt",
+        "time_zone": "gmt",
         "units": "metric",
         "interval": interval,
-        # Ask for CSV which is easier to load into pandas directly
         "format": "csv"
     }
     response = requests.get(url, params=params)
@@ -211,7 +169,7 @@ def predict_currents(station, begin_date, end_date, interval):
     return df
 
 
-def plot_currents(tide_df, station_name="Tide Station"):
+def plot_currents(tide_df, station_name= "Tide Station"):
     plt.figure(figsize=(10, 5))
     # prefer columns 'datetime'/'t' and value column 'v' if present
     if 't' in tide_df.columns and 'v' in tide_df.columns:
@@ -260,19 +218,3 @@ def plot_wave_height(df1, buoy_id1, df2, buoy_id2):
 
 
 def plot_tides(tide_df, station_name="Tide Station"):
-    plt.figure(figsize=(10, 5))
-    if 't' in tide_df.columns and 'v' in tide_df.columns:
-        plt.plot(tide_df['t'], tide_df['v'], marker='o', linestyle='-')
-    elif 'datetime' in tide_df.columns and 'v' in tide_df.columns:
-        plt.plot(tide_df['datetime'], tide_df['v'], marker='o', linestyle='-')
-    else:
-        # fallback to first two columns
-        plt.plot(tide_df.iloc[:, 0], tide_df.iloc[:, 1], marker='o', linestyle='-')
-
-    plt.title(f"Tidal Predictions - {station_name}")
-    plt.xlabel("Time")
-    plt.ylabel("Water Level (m)")
-    plt.grid(True)
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.show()
