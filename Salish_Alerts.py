@@ -3,10 +3,12 @@ import numpy as np
 from datetime import date, timedelta, datetime
 from zoneinfo import ZoneInfo
 import math
+import os
 
 from _fetch_buoy_functions import fetch_and_clean_buoy_data,  predict_currents, predict_tides, plot_currents
 from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
 from _geodesy import arclength, azimuth
+from _salish_website import render_salish_report
 
 Ocean_Papa = "46246"
 South_Nomad = "46036"
@@ -129,7 +131,7 @@ else:
     print("Swell is big enough tto surf at PA")
     wave123pa["status"]= 1  #set status to 1 (watch)
 
-change123pa = setstatus(wave124, "Neah_Bay")#setting status
+change123pa = setstatus(wave124, "Port Angelis")#setting status
 
 if change123pa.loc[0]["status"]-change123pa.loc[0]["status"]>0: #if the status goes up, send email:
     send_PA_email = "T" 
@@ -149,7 +151,7 @@ else:
     print("Swell is big enough to surf from ND")
     wave123nd["status"]= 1  #set status to 1 (watch)
 
-change123nd = setstatus(wave124, "Neah_Bay")#setting status
+change123nd = setstatus(wave124, "New Dungeness")#setting status
     
 if change123nd.loc[0]["status"]-change123nd.loc[0]["status"]>0: #if the status goes up, send email:
     send_ND_email = "T" 
@@ -277,6 +279,7 @@ Summary from Neah Bay Bouy at {local_time}:
   - Current is {current_status}, and moving at {current124[" Velocity_Major"]:.2f} cm/s
   - Wind at Neah Bay is currenly {wind_status} at {wave124["WSPD"]} m/s, from {wave124["WDIR"]}° EoN. 
 
+  photos available at https://www.ndbc.noaa.gov/station_page.php?station=46087 
 """
     message.attach(MIMEText(text, "plain"))
 
@@ -404,6 +407,7 @@ Summary from New Dungeness Bouy at {local_time}:
   - Current at PT is {current_status}, and moving at {current123[" Velocity_Major"]:.2f} cm/s
   - Wind is currenly {wind_status} at {wave123nd["WSPD"]} m/s, from {wave123nd["WDIR"]}° E of N. 
 
+  -  photos available at https://www.ndbc.noaa.gov/station_page.php?station=46088
 """
     message.attach(MIMEText(text, "plain"))
 
@@ -413,3 +417,8 @@ Summary from New Dungeness Bouy at {local_time}:
         server.send_message(message)
 
     print("New Dungeness Alert sent successfully!")
+
+######################################################################
+'''Render the Report!'''
+###################################################################### 
+#render_salish_report(wave124, wave145, wave123pa, wave123nd)

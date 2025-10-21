@@ -19,7 +19,5 @@ if waves is not None:
     wave_summary(waves, Mokapu_Point)
 
 tides = predict_tides( Mokuoloe, today_str, tomorrow_str, interval="h")
-print(tides["t"].max)
- 
 plot_tides(tides, "Mokuoloe (Kaneohe Bay, HI)")
 

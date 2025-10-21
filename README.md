@@ -12,7 +12,7 @@ Every 15 minutes I retrieve new infomration from NOAA on the waves, tides, curre
 
     3 South Nomad. 46036.[48.360 N 133.940 W]. -(no  directional data). 
 
-    4 La Perouse Bank. 46206. [48.840 N 126.000 W]. (no direcitonal data).   
+    4 La Perouse Bank. 46206. [48.840 N 126.000 W]. (no direcitonal data).
     
     5 Neah Bay. 46087. [48.493 N 124.727 W]. -(Depth 259 m) [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46087).   
 
@@ -25,6 +25,8 @@ Every 15 minutes I retrieve new infomration from NOAA on the waves, tides, curre
 ## Make predictions as to what windows conditions are good 
 I am currently using a very simplistic newtonian model. 
 This will hopefully will get updated with a stochastic model, which requres fewer violated assumtions. If I have free time I might look into numerical methods so I can include the coreolis effect, bathymetry, wind, tides, and currents in a deterministic model. 
+
+OR I can use WaveWatch3, developed by NOAA and available at https://github.com/NOAA-EMC/WW3/wiki/About-WW3, and "solves the random phase spectral action density balance equation for wavenumber-direction spectra" and the model includes options for shallow-water surf zone applicaitons. THis package can do some really advanced physics if I can figure out how to harness it. Note: this is what surfline uses. Setting this up is out of my wheelhouse right now. 
 
 ### Process of Building Wave Report: 
 Wave report is stored in Juan_de_Fuca.py 

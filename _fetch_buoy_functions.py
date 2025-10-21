@@ -215,6 +215,3 @@ def plot_wave_height(df1, buoy_id1, df2, buoy_id2):
     plt.grid(True)
     plt.tight_layout()
     plt.show()
-
-
-def plot_tides(tide_df, station_name="Tide Station"):
