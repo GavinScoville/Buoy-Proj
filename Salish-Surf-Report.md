@@ -26,12 +26,12 @@ date: 2025-10-22
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 1.6 m  
-- **Dominant period:** 13.0 s  
-- **Mean bearing:** 92.0°  
+- **Wave height:** 1.5 m  
+- **Dominant period:** 11.0 s  
+- **Mean bearing:** 86.0°  
 - **Wind speed:** 3.0 m/s  
-- **Wind direction:** 150.0°  
-- **Energy:** 397.93 kJ/m²  
+- **Wind direction:** 180.0°  
+- **Energy:** 268.64 kJ/m²  
 - **Status:** 0  
 - (https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
