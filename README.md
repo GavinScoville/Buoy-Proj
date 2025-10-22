@@ -1,4 +1,4 @@
-# The goal of this program is to make you aware of the wave conditions in the Straight of Juan de Fuca
+# The goal of this program is alert you if a swell is comming into the Straight of Juan de Fuca 
 
 ## Download NOAA data (waves and tides) 
 Every 15 minutes I retrieve new infomration from NOAA on the waves, tides, current, and wind. See fetch_bouy_funcitons.py to see the functions that call on the NOAA API. This data is collected by NOAA bouys such as the[New Dungeness Buoy](https://www.ndbc.noaa.gov/station_page.php?station=46088). 
@@ -23,17 +23,21 @@ Every 15 minutes I retrieve new infomration from NOAA on the waves, tides, curre
     8 Smith Island. SISW1. [48.321 N 122.831 W] (wind only).   
 
 ## Make predictions as to what windows conditions are good 
-I am currently using a very simplistic newtonian model. 
-This will hopefully will get updated with a stochastic model, which requres fewer violated assumtions. If I have free time I might look into numerical methods so I can include the coreolis effect, bathymetry, wind, tides, and currents in a deterministic model. 
+I am currently using a very simplistic newtonian model, while I keep past observations logged on my personal computer. When the dataset gets large enough to do some machine learning, I can fit a stochastic model to predict wave conditions. 
 
-OR I can use WaveWatch3, developed by NOAA and available at https://github.com/NOAA-EMC/WW3/wiki/About-WW3, and "solves the random phase spectral action density balance equation for wavenumber-direction spectra" and the model includes options for shallow-water surf zone applicaitons. THis package can do some really advanced physics if I can figure out how to harness it. Note: this is what surfline uses. Setting this up is out of my wheelhouse right now. 
+If I want to take this project a whole step farther, I could learn to use the program WaveWatch3, developed by NOAA and available at https://github.com/NOAA-EMC/WW3/wiki/About-WW3. It "solves the random phase spectral action density balance equation for wavenumber-direction spectra" and the model includes options for shallow-water surf zone applicaitons. This is the model that surfline uses, and the package can do some really advanced physics and numerical modeling. 
 
 ### Process of Building Wave Report: 
-Wave report is stored in Juan_de_Fuca.py 
-#### Step 1: Predict Waves off Pacific Ocean and when they will reach Neah Bay 
-These predictions are stored in data/predicted/Neah
+Wave report is stored in Salish_Alerts.py 
 
-#### Step 2: Predict which waves hitting Neah Bay will make it to Fort Ebey 
+#### Step 1: Look at most recent data 
+I pull the NOAA data into my program. 
+
+#### Step 2: Infer Wave's properties
+For geodesy, I use formulas for handeling spherical coordinate systems [oulined here.](https://www.movable-type.co.uk/scripts/latlong-vectors.html)
+
+For estimating the wave's properties such as steepness and celarity, I use formulas outlined here 
+
 Azimuth from Neah Bay to Fort Ebey is about 100° E of N. A wave with an 11 second period traveling in 100m water moves about 17 meters/s. Tidal Currents can add +- 1.5 meters/s to this speed. 
 
 #### Step 3: Identify when waves pass Port Angelis, and New Dungeness
