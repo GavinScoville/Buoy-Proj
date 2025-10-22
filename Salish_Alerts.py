@@ -146,7 +146,7 @@ elif wave123nd["DPD"] <8:
     print("Ocean waves have a period under 8 seconds at ND")
     wave123nd["status"]= 0
 else:
-    print("Swell is big enough to surf from ND")
+    print("Swell is big enough to surf at ND")
     wave123nd["status"]= 1  #set status to 1 (watch)
 
 change123nd = setstatus(wave124, "New Dungeness")#setting status
@@ -419,4 +419,3 @@ Summary from New Dungeness Bouy at {local_time}:
 ######################################################################
 '''Render the Report!'''
 ###################################################################### 
-#render_salish_report(wave124, wave145, wave123pa, wave123nd)

@@ -120,6 +120,25 @@ def predict_tides(station, begin_date, end_date, interval):
     df["datetime"] = pd.to_datetime(df["t"])     # convert time column to datetime
     df["v"] = df["v"].astype(float)       # convert tide height to float
 
+
+    # Merge with old data to create longer and longer df: 
+    historic_path = f"data/historic/tide_{station}_historic.csv"
+     # Save raw
+    try:
+        df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    except FileNotFoundError:
+        df_historic = pd.DataFrame()
+
+    # Combine old + new data
+    df_combined = pd.concat([df_historic, df], ignore_index=True)
+    # Remove duplicates (e.g., based on timestamp or ID)
+    df_combined = df_combined.drop_duplicates(subset=["datetime"])
+    # Sort if needed
+    df_combined = df_combined.sort_values("datetime")
+    # Save historic
+    df_combined.to_csv(historic_path, index=False)
+    print(f"Historic Tides updated to {historic_path}")
+
     return df
 
 
@@ -165,6 +184,25 @@ def predict_currents(station, begin_date, end_date, interval):
         if df[col].dtype == object:
             df[col] = df[col].astype(str).str.replace(',', '').str.strip()
         df[col] = pd.to_numeric(df[col], errors='coerce')
+
+
+
+    historic_path = f"data/historic/current_{station}_historic.csv"
+     # get old data
+    try:
+        df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    except FileNotFoundError:
+        df_historic = pd.DataFrame()
+
+    # Combine that old n new data
+    df_combined = pd.concat([df_historic, df], ignore_index=True)
+    # Remove duplicates 
+    df_combined = df_combined.drop_duplicates(subset=["datetime"])
+    # Sort if needed
+    df_combined = df_combined.sort_values("datetime")
+    # Save historic
+    df_combined.to_csv(historic_path, index=False)
+    print(f"Historic Currents updated to {historic_path}")
 
     return df
 

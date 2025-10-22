@@ -31,7 +31,7 @@ def wave_summary(df, bouy_name, timezone):
         return
 
     # Calculate wave length and energy
-    df['wave_length'] = 9.81 * (df['DPD'] ** 2) / (2 * math.pi)
+    df['wave_length'] = 9.81 * (df['APD'] ** 2) / (2 * math.pi)
     df['wave_energy'] = 1.025 * 9.81 * ((df['WVHT']) ** 2) * df['wave_length'] / 8
     df['wave_bearing'] = df['MWD']-180 
     df['datetime'] = pd.to_datetime(df['datetime'], utc=True)
@@ -40,8 +40,8 @@ def wave_summary(df, bouy_name, timezone):
     local_time = latest['datetime'].astimezone(timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
 
     print(f"\n🌊 Summary for {bouy_name} Buoy at {local_time} ")
-    print(f"  - Wave Height (WVHT): {latest['WVHT']} m")
-    print(f"  - Dominant Period (DPD): {latest['DPD']} s")
+    print(f"  - Wave Height: {latest['WVHT']} m")
+    print(f"  - Dominant Period: {latest['DPD']} s")
     print(f"  - Estimated Wave Energy: {latest['wave_energy']:.2f} kJ/m²")
     print(f"  - Wave Bearing: {latest['wave_bearing']:.2f} deg")
     return latest
