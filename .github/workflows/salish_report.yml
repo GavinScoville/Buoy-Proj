@@ -35,7 +35,8 @@ jobs:
           git config user.email "gavin.scoville@gmail.com"
           git add -A
           git commit -m "Auto-update buoy report [skip ci]" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/<GavinScoville>/<Buoy-Proj>.git HEAD:main
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/GavinScoville/Buoy_Proj.git HEAD:main
+
 
 
 
