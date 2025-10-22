@@ -6,7 +6,7 @@ date: 2025-10-22
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-22 14:37 PDT
+**Updated:** 2025-10-22 14:51 PDT
 
 ---
 
