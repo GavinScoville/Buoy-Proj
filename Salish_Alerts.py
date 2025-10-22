@@ -88,7 +88,7 @@ else:
     wave145["status"]= 1  #set status to 1 (watch)
 #update status file
 change145 = setstatus(wave145, "ocean_papa")
-if change145.loc[0]["status"]-change145.loc[0]["status"]>0: #if the status goes up, send email:
+if change145.loc[1]["status"]-change145.loc[0]["status"]>0: #if the status goes up, send email:
     send_ocean_email = "T" 
 else:
     send_ocean_email = "F"
@@ -114,7 +114,7 @@ else:
 #update status file
 
 change124 = setstatus(wave124, "Neah_Bay")
-if change124.loc[0]["status"]-change124.loc[0]["status"]>0: #if the status goes up, send email:
+if change124.loc[1]["status"]-change124.loc[0]["status"]>0: #if the status goes up, send email:
     send_strait_email = "T" 
 else:
     send_strait_email = "F"
@@ -133,7 +133,7 @@ else:
 
 change123pa = setstatus(wave124, "Port Angelis")#setting status
 
-if change123pa.loc[0]["status"]-change123pa.loc[0]["status"]>0: #if the status goes up, send email:
+if change123pa.loc[1]["status"]-change123pa.loc[0]["status"]>0: #if the status goes up, send email:
     send_PA_email = "T" 
 else:
     send_PA_email = "F"
@@ -151,7 +151,7 @@ else:
 
 change123nd = setstatus(wave124, "New Dungeness")#setting status
     
-if change123nd.loc[0]["status"]-change123nd.loc[0]["status"]>0: #if the status goes up, send email:
+if change123nd.loc[1]["status"]-change123nd.loc[0]["status"]>0: #if the status goes up, send email:
     send_ND_email = "T" 
 else:
     send_ND_email = "F"
