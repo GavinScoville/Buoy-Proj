@@ -419,3 +419,4 @@ Summary from New Dungeness Bouy at {local_time}:
 ######################################################################
 '''Render the Report!'''
 ###################################################################### 
+render_salish_report(wave145, wave124, wave123pa, wave123nd)
