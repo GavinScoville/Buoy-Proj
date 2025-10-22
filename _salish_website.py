@@ -41,7 +41,7 @@ date: {date}
 ---
 
 ## Ocean Papa 
-{arclength(49.903, 145.246, 8.2248207, 122.7701732)/1000:.2f}km {azimuth(49.903, 145.246, 8.2248207, 122.7701732):.2f}° to Fort Ebey
+{arclength(49.903, 145.246, 48.2248207, 122.7701732)/1000:.2f}km {azimuth(49.903, 145.246, 48.2248207, 122.7701732):.2f}° to Fort Ebey
 - **Wave height:** {wave145.get('WVHT', 'N/A')} m  
 - **Dominant period:** {wave145.get('DPD', 'N/A')} s  
 - **Mean direction:** {wave145.get('MWD', 'N/A')}°  
@@ -54,7 +54,7 @@ date: {date}
 ---
 
 ## Neah Bay 
-{arclength(48.493, 124.727, 8.2248207, 122.7701732)/1000:.2f}km {azimuth(48.493, 124.727,8.2248207, 122.7701732):.2f}° to Fort Ebey
+{arclength(48.493, 124.727, 48.2248207, 122.7701732)/1000:.2f}km {azimuth(48.493, 124.727,48.2248207, 122.7701732):.2f}° to Fort Ebey
 
 - **Wave height:** {wave124.get('WVHT', 'N/A')} m  
 - **Dominant period:** {wave124.get('DPD', 'N/A')} s  
@@ -68,7 +68,7 @@ date: {date}
 ---
 
 ## New Dungeness 
-{arclength(48.332, 123.179,8.2248207, 122.7701732)/1000:.2f} km {azimuth(48.332,  123.179,8.2248207, 122.7701732):.2f}° to Fort Ebey 
+{arclength(48.332, 123.179,48.2248207, 122.7701732)/1000:.2f} km {azimuth(48.332,  123.179,48.2248207, 122.7701732):.2f}° to Fort Ebey 
 
 - **Wave height:** {wave123nd.get('WVHT', 'N/A')} m  
 - **Dominant period:** {wave123nd.get('DPD', 'N/A')} s  
@@ -82,7 +82,7 @@ date: {date}
 ---
 
 ## Port Angeles 
-{arclength(48.173, 123.607, 8.2248207, 122.7701732)/1000:.2f}km {azimuth(48.173, 123.607,8.2248207, 122.7701732 ):.2f}° to Fort Ebey 
+{arclength(48.173, 123.607, 48.2248207, 122.7701732)/1000:.2f}km {azimuth(48.173, 123.607,48.2248207, 122.7701732 ):.2f}° to Fort Ebey 
 - **Dominant period:** {wave123pa.get('DPD', 'N/A')} s  
 - **Mean direction:** {wave123pa.get('MWD', 'N/A')}°  
 - **Wind speed:** {wave123pa.get('WSPD', 'N/A')} m/s  
