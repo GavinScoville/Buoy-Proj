@@ -156,7 +156,8 @@ if change123nd.loc[1]["status"]-change123nd.loc[0]["status"]>0: #if the status g
 else:
     send_ND_email = "F"
 
-
+#email list: 
+email_list = [gavin.scoville@gmail.com, 2067926770@tmomail.net]
 ######################################################################
 '''Send THe Emails!'''
 ###################################################################### 
