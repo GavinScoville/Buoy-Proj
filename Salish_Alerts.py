@@ -157,9 +157,9 @@ else:
     send_ND_email = "F"
 
 #email list: 
-email_list = [gavin.scoville@gmail.com, 2067926770@tmomail.net]
+
 ######################################################################
-'''Send THe Emails!'''
+'''Send The Emails!'''
 ###################################################################### 
 import smtplib
 from email.mime.text import MIMEText
