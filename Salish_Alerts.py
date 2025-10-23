@@ -182,7 +182,7 @@ if send_ocean_email == "T":
     wavelength = (9.81*wave145["DPD"]**2)/(2*math.pi) #L = gT2/2π
     speed = (9.81/(2*math.pi)*wave145["DPD"])
     traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay (deepwater waves)
-    landfall = (wave145['datetime'] + timedelta(traveltime)).astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    landfall = (wave145['datetime'] + timedelta(hours = traveltime)).astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
     azy = azimuth(49.903, 145.246, 48.493, 124.727)
     missshot = -(wave145["MWD"]-azimuth(49.903, 145.246, 48.493, 124.727)-180) #to Ebbyazimuth(49.903, 145.246, 48.493, 124.727) 
 # --- create the email ---
@@ -223,7 +223,7 @@ if send_strait_email == "T":
     celarity = math.sqrt((9.81*wavelength)/(2*math.pi)*math.tanh(2*math.pi*100/wavelength)) #C = sqrt(gλ/2π * tanh(2πd/λ)) #average depth of 100 m 
     speed = celarity+current124[" Velocity_Major"]/100
     traveltime = distance/(speed*60**2) # hours from Ocean Papa to Neah Bay (deepwater waves)
-    landfall = (wave124['datetime'] + timedelta(traveltime)).astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
+    landfall = (wave124['datetime'] + timedelta(hours = traveltime)).astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
  #set current status
     if current124[" Velocity_Major"]> 10:
         current_status = "FLOODING"
