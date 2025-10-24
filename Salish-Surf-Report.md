@@ -6,7 +6,7 @@ date: 2025-10-24
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-24 13:22 PDT
+**Updated:** 2025-10-24 13:42 PDT
 
 ---
 
@@ -57,7 +57,7 @@ date: 2025-10-24
 - **Mean direction:** 301.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 39.74 kJ/m²  
+- **Energy:** 49.06 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
