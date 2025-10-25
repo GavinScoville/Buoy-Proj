@@ -6,7 +6,7 @@ date: 2025-10-25
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-25 09:44 PDT
+**Updated:** 2025-10-25 09:55 PDT
 
 ---
 
@@ -27,11 +27,11 @@ date: 2025-10-25
 147.62km 100.92° to Fort Ebey
 
 - **Wave height:** 2.5 m  
-- **Dominant period:** 15.0 s  
-- **Mean bearing:** 63.0°  
-- **Wind speed:** 12.0 m/s  
+- **Dominant period:** 13.0 s  
+- **Mean bearing:** 88.0°  
+- **Wind speed:** 14.0 m/s  
 - **Wind direction:** 120.0°  
-- **Energy:** 583.94 kJ/m²  
+- **Energy:** 518.20 kJ/m²  
 - **Status:** 0  
 - (https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
@@ -40,12 +40,12 @@ date: 2025-10-25
 ## New Dungeness 
 32.52 km 111.35° to Fort Ebey 
 
-- **Wave height:** 0.9 m  
+- **Wave height:** 0.8 m  
 - **Dominant period:** 4.0 s  
-- **Mean direction:** 100.0°  
-- **Wind speed:** 9.0 m/s  
-- **Wind direction:** 110.0°  
-- **Energy:** 20.60 kJ/m²  
+- **Mean direction:** 111.0°  
+- **Wind speed:** 10.0 m/s  
+- **Wind direction:** 120.0°  
+- **Energy:** 16.28 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
