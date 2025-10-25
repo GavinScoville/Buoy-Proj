@@ -6,7 +6,7 @@ date: 2025-10-25
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-24 23:27 PDT
+**Updated:** 2025-10-24 23:47 PDT
 
 ---
 
@@ -42,10 +42,10 @@ date: 2025-10-25
 
 - **Wave height:** 0.3 m  
 - **Dominant period:** 5.0 s  
-- **Mean direction:** 256.0°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 150.0°  
-- **Energy:** 3.42 kJ/m²  
+- **Mean direction:** 259.0°  
+- **Wind speed:** 6.0 m/s  
+- **Wind direction:** 130.0°  
+- **Energy:** 3.58 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
@@ -53,11 +53,11 @@ date: 2025-10-25
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 10.0 s  
+- **Dominant period:** 11.0 s  
 - **Mean direction:** 295.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 183.88 kJ/m²  
+- **Energy:** 155.44 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
