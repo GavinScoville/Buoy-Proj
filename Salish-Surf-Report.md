@@ -2,22 +2,22 @@
 layout: single
 title: "Fort Ebey Surf Report"
 categories: [portfolio]
-date: 2025-10-24
+date: 2025-10-25
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-24 16:51 PDT
+**Updated:** 2025-10-24 18:26 PDT
 
 ---
 
 ## Ocean Papa 
 1641.84km 87.88° to Fort Ebey
-- **Wave height:** 4.4 m  
+- **Wave height:** 4.1 m  
 - **Dominant period:** 12.0 s  
-- **Mean direction:** 279.0°  
+- **Mean direction:** 282.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 3077.39 kJ/m²  
+- **Energy:** 2218.13 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
 
@@ -26,12 +26,12 @@ date: 2025-10-24
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 3.7 m  
-- **Dominant period:** 14.0 s  
-- **Mean bearing:** 86.0°  
-- **Wind speed:** 7.0 m/s  
-- **Wind direction:** 200.0°  
-- **Energy:** 2273.90 kJ/m²  
+- **Wave height:** 3.4 m  
+- **Dominant period:** 12.0 s  
+- **Mean bearing:** 91.0°  
+- **Wind speed:** 8.0 m/s  
+- **Wind direction:** 220.0°  
+- **Energy:** 1837.53 kJ/m²  
 - **Status:** 0  
 - (https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
@@ -40,12 +40,12 @@ date: 2025-10-24
 ## New Dungeness 
 32.52 km 111.35° to Fort Ebey 
 
-- **Wave height:** 0.5 m  
-- **Dominant period:** 3.0 s  
-- **Mean direction:** 275.0°  
-- **Wind speed:** 5.0 m/s  
-- **Wind direction:** 290.0°  
-- **Energy:** 5.02 kJ/m²  
+- **Wave height:** 0.4 m  
+- **Dominant period:** 10.0 s  
+- **Mean direction:** 193.0°  
+- **Wind speed:** 6.0 m/s  
+- **Wind direction:** 130.0°  
+- **Energy:** 6.64 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
@@ -53,11 +53,11 @@ date: 2025-10-24
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 11.0 s  
-- **Mean direction:** 301.0°  
+- **Dominant period:** 13.0 s  
+- **Mean direction:** 297.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 119.70 kJ/m²  
+- **Energy:** 113.35 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
