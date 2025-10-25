@@ -6,7 +6,7 @@ date: 2025-10-25
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-24 20:35 PDT
+**Updated:** 2025-10-24 20:54 PDT
 
 ---
 
@@ -26,12 +26,12 @@ date: 2025-10-25
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 3.3 m  
+- **Wave height:** 3.0 m  
 - **Dominant period:** 14.0 s  
-- **Mean bearing:** 85.0°  
-- **Wind speed:** 5.0 m/s  
-- **Wind direction:** 230.0°  
-- **Energy:** 2223.41 kJ/m²  
+- **Mean bearing:** 84.0°  
+- **Wind speed:** 8.0 m/s  
+- **Wind direction:** 220.0°  
+- **Energy:** 1462.57 kJ/m²  
 - **Status:** 0  
 - (https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
@@ -41,11 +41,11 @@ date: 2025-10-25
 32.52 km 111.35° to Fort Ebey 
 
 - **Wave height:** 0.3 m  
-- **Dominant period:** 14.0 s  
-- **Mean direction:** 233.0°  
-- **Wind speed:** 7.0 m/s  
-- **Wind direction:** 270.0°  
-- **Energy:** 1.92 kJ/m²  
+- **Dominant period:** 11.0 s  
+- **Mean direction:** 218.0°  
+- **Wind speed:** 5.0 m/s  
+- **Wind direction:** 280.0°  
+- **Energy:** 1.81 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
