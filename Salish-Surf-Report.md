@@ -6,18 +6,18 @@ date: 2025-10-25
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-24 23:47 PDT
+**Updated:** 2025-10-25 00:17 PDT
 
 ---
 
 ## Ocean Papa 
 1641.84km 87.88° to Fort Ebey
-- **Wave height:** 3.3 m  
-- **Dominant period:** 10.0 s  
-- **Mean direction:** 279.0°  
+- **Wave height:** 3.2 m  
+- **Dominant period:** 12.0 s  
+- **Mean direction:** 278.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 1436.97 kJ/m²  
+- **Energy:** 1160.70 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
 
@@ -26,12 +26,12 @@ date: 2025-10-25
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 3.0 m  
-- **Dominant period:** 14.0 s  
-- **Mean bearing:** 67.0°  
+- **Wave height:** 2.8 m  
+- **Dominant period:** 16.0 s  
+- **Mean bearing:** 80.0°  
 - **Wind speed:** 6.0 m/s  
-- **Wind direction:** 200.0°  
-- **Energy:** 1398.99 kJ/m²  
+- **Wind direction:** 170.0°  
+- **Energy:** 1218.68 kJ/m²  
 - **Status:** 0  
 - (https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
@@ -53,11 +53,11 @@ date: 2025-10-25
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 11.0 s  
-- **Mean direction:** 295.0°  
+- **Dominant period:** 10.0 s  
+- **Mean direction:** 297.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 155.44 kJ/m²  
+- **Energy:** 112.16 kJ/m²  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
