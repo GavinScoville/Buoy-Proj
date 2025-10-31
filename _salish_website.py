@@ -16,7 +16,7 @@ from _map_conditions import map_pacific
 ######################################################################
 #this needs graphs and more facotrs but I am getting tired now 
 def render_salish_report(wave145, wave124, wave123pa, wave123nd):
-    PacificTime = ZoneInfo("America/Los_Ansgeles")
+    PacificTime = ZoneInfo("America/Los_Angeles")
     timestamp = datetime.now(PacificTime).strftime("%Y-%m-%d %H:%M %Z")
     date = datetime.today().strftime("%Y-%m-%d")
 

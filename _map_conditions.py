@@ -99,9 +99,7 @@ def map_pacific(wave145, wave124, wave123pa, wave123nd):
             f.write(r.content)
         print("Download complete.")
     else:
-        print("Natural Earth shapefile already present.")
-
-    print("Cartopy data dir:", cartopy.config["data_dir"])
+        print("Natural Earth data is already local")
 
     # Ensure the nested folder exists
     shp_dir = os.path.join(data_dir, "shapefiles", "natural_earth", "physical")
@@ -118,7 +116,7 @@ def map_pacific(wave145, wave124, wave123pa, wave123nd):
             z.extractall(shp_dir)
         print("Extraction complete.")
     elif not os.path.exists(zip_path):
-        print("⚠️ Missing ne_10m_land.zip — please run your downloader once.")
+        print("⚠️ Missing ne_10m_land.zip — please download")
     else:
         print("Natural Earth shapefile already present.")
 
