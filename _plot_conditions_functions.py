@@ -77,7 +77,6 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax1.legend(lines + lines2, labels + labels2, loc='upper left')
 
-    plt.show()
     os.makedirs("plots/tidecurrent", exist_ok=True)
     fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
@@ -143,7 +142,6 @@ def plot_waves(waves, station_name, timezone="America/Los_Angeles"):
     lines3, labels3 = ax3.get_legend_handles_labels()
     ax1.legend(lines + lines2 + lines3, labels + labels2 + labels3, loc='upper left')
 
-    plt.show()
     os.makedirs("plots/waves", exist_ok=True)
     fig.savefig(f"plots/waves/{station_name}.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
@@ -212,7 +210,7 @@ def plot_neah_waves(waves, timezone="America/Los_Angeles"):
     lines3, labels3 = ax3.get_legend_handles_labels()
     ax1.legend(lines + lines2 + lines3, labels + labels2 + labels3, loc='upper left')
 
-    plt.show()
+    
     os.makedirs("plots/waves", exist_ok=True)
     fig.savefig(f"plots/waves/Neah_Bay.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
@@ -269,7 +267,7 @@ def plot_wind(waves, station_name="Neah Bay", timezone="America/Los_Angeles"):
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax1.legend(lines + lines2, labels + labels2, loc='upper left')
 
-    plt.show()
+    
     os.makedirs("plots/wind", exist_ok=True)
     fig.savefig(f"plots/wind/{station_name}.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
