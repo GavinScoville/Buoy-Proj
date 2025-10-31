@@ -90,6 +90,17 @@ def map_pacific(wave145, wave124, wave123pa, wave123nd):
     local_path = os.path.join(data_dir, "shapefiles", "natural_earth", "physical", fname)
     url = f"https://naturalearth.s3.amazonaws.com/10m_physical/{fname}"
 
+
+    if not os.path.exists(local_path):
+        print(f"Downloading {url} ...")
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()
+        with open(local_path, "wb") as f:
+            f.write(r.content)
+        print("Download complete.")
+    else:
+        print("Natural Earth shapefile already present.")
+
     print("Cartopy data dir:", cartopy.config["data_dir"])
 
     # Ensure the nested folder exists
