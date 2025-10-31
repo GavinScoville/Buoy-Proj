@@ -73,16 +73,16 @@ tide123 = tide_report(tides123, time123, PacificTime)
 ######################################################################
 '''Plot that data'''
 ######################################################################
-plot_waves(waves145, station_name="Ocean Papa", timezone="America/Los_Angeles")
+plot_waves(waves145, station_name="Ocean_Papa", timezone="America/Los_Angeles")
 plot_neah_waves(waves124, timezone="America/Los_Angeles")
-plot_waves(waves123pa, station_name="Port Angelis", timezone="America/Los_Angeles")
-plot_waves(waves123nd, station_name="New Dungeness", timezone="America/Los_Angeles")
+plot_waves(waves123pa, station_name="Port_Angelis", timezone="America/Los_Angeles")
+plot_waves(waves123nd, station_name="New_Dungeness", timezone="America/Los_Angeles")
 
-plot_wind(waves124,station_name="Neah Bay", timezone="America/Los_Angeles")
-plot_wind(waves123nd,station_name="New Dungeness", timezone="America/Los_Angeles")
+plot_wind(waves124,station_name="Neah_Bay", timezone="America/Los_Angeles")
+plot_wind(waves123nd,station_name="New_Dungeness", timezone="America/Los_Angeles")
 
-plot_tide_currents(tides124,currents124,wave124["datetime"],PacificTime,"Neah Bay")
-plot_tide_currents(tides123,currents123,wave123nd["datetime"],PacificTime,"New Dungeness")
+plot_tide_currents(tides124,currents124,wave124["datetime"],PacificTime,"Neah_Bay")
+plot_tide_currents(tides123,currents123,wave123nd["datetime"],PacificTime,"New_Dungeness")
 
 map_pacific(wave145,wave124,wave123pa,wave123nd)
 
