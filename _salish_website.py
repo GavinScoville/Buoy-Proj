@@ -42,7 +42,9 @@ date: {date}
 - **Wind direction:** {wave145.get('WDIR', 'N/A')}°  
 - **Energy:** {wave145.get('wave_energy', 0):.2f} kJ/m  
 - **Status:** {wave145.get('status', 'Unknown')}  
-![Wave Plot](/plots/waves/Ocean Papa.png)
+
+![Wave Plot](/plots/waves/Ocean Papa.png) 
+
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
 ---
 
@@ -58,8 +60,11 @@ date: {date}
 - **Status:** {wave124.get('status', 'Unknown')}  
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
-![Wind Plot](/plots/wind/Neah Bay.png)
-![Tideplot](/plots/tidecurrent/Neah Bay.png)
+
+![Wind Plot](/plots/wind/Neah Bay.png) 
+
+![Tideplot](/plots/tidecurrent/Neah Bay.png) 
+
 - (https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
 
@@ -73,7 +78,9 @@ date: {date}
 - **Energy:** {wave123pa.get('wave_energy', 0):.2f} kJ/m  
 - **Status:** {wave123pa.get('status', 'Unknown')}  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
+
 ![Wave Plot](/plots/waves/Port Angelis.png)
+
 
 
 ## New Dungeness 
@@ -87,9 +94,13 @@ date: {date}
 - **Energy:** {wave123nd.get('wave_energy', 0):.2f} kJ/m  
 - **Status:** {wave123nd.get('status', 'Unknown')}  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
+
 ![Wave Plot](/plots/waves/New Dungeness.png)
+
 ![Wind Plot](/plots/wind/New Dungeness.png)
+
 ![Tideplot](/plots/tidecurrent/New Dungeness.png)
+
 ---
 
 
