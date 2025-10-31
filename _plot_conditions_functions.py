@@ -257,7 +257,7 @@ def plot_wind(waves, station_name="Neah Bay", timezone="America/Los_Angeles"):
 
     # Title and layout
     plt.suptitle(f"Wind Conditions — Last 2 Days at {station_name}")
-    ax1.set_title(f"Wind currently blowing from {df_recent["WDIR"].iloc[-1]}°", fontsize=12) 
+    ax1.set_title(f"Wind currently blowing from {df_recent['WDIR'].iloc[-1]}°", fontsize=12) 
     fig.autofmt_xdate()
     fig.tight_layout()
     plt.grid(True)
