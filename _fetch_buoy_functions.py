@@ -63,7 +63,6 @@ def fetch_and_clean_buoy_data(buoy_id):
     df = df.dropna(subset=['datetime'])
 
     # Forward-fill all columns to deal with random gaps
-    df = df.sort_values('datetime').bfill()
 
     if df.empty:
         print("No usable data available after cleaning.")
@@ -92,7 +91,7 @@ def fetch_and_clean_buoy_data(buoy_id):
     df_combined.to_csv(historic_path, index=False)
     print(f"Historic data updated to {historic_path}")
     
-    return df_combined
+    return df_clean
 
 
 def predict_tides(station, begin_date, end_date, interval):
@@ -206,50 +205,3 @@ def predict_currents(station, begin_date, end_date, interval):
 
     return df
 
-
-def plot_currents(tide_df, station_name= "Tide Station"):
-    plt.figure(figsize=(10, 5))
-    # prefer columns 'datetime'/'t' and value column 'v' if present
-    if 't' in tide_df.columns and 'v' in tide_df.columns:
-        x = tide_df['t']
-        y = tide_df['v']
-    elif 'datetime' in tide_df.columns and 'Velocity_Major' in tide_df.columns:
-        x = tide_df['datetime']
-        y = tide_df.get('Velocity_Major', tide_df.iloc[:, 1])
-    else:
-        # fallback to first two columns
-        x = tide_df.iloc[:, 0]
-        y = tide_df.iloc[:, 1]
-
-    plt.plot(x, y, marker='o', linestyle='-')
-    plt.title(f"Tidal/Current Predictions - {station_name}")
-    plt.xlabel("Time")
-    plt.ylabel("Value")
-    plt.grid(True)
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.show()
-
-
-def plot_wave_height(df1, buoy_id1, df2, buoy_id2):
-    # Check if required columns are present
-    if 'WVHT' not in df1.columns or 'WVHT' not in df2.columns:
-        print("Wave height (WVHT) column not found in one of the DataFrames.")
-        return
-
-    # Drop rows with missing values
-    df1 = df1.dropna(subset=['datetime', 'WVHT'])
-    df2 = df2.dropna(subset=['datetime', 'WVHT'])
-
-    # Plot
-    plt.figure(figsize=(10, 5))
-    plt.plot(df1['datetime'], df1['WVHT'], label=f"Buoy {buoy_id1}", color='red')
-    plt.plot(df2['datetime'], df2['WVHT'], label=f"Buoy {buoy_id2}", color='blue')
-
-    plt.title(f"Wave Height: Buoys {buoy_id1} and {buoy_id2}")
-    plt.xlabel("Date")
-    plt.ylabel("Wave Height (m)")
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()

@@ -5,9 +5,11 @@ from zoneinfo import ZoneInfo
 import math
 import os
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data,  predict_currents, predict_tides, plot_currents
-from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
+from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents,predict_tides
 from _geodesy import arclength, azimuth
+from _plot_conditions_functions import plot_waves, plot_wind, plot_neah_waves, plot_tide_currents
+from _map_conditions import map_pacific
+from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
 from _salish_website import render_salish_report
 
 Ocean_Papa = "46246"
@@ -68,6 +70,21 @@ current123=current_report(currents123, time123, PacificTime)
 tide124 = tide_report(tides124, time124, PacificTime)
 tide123 = tide_report(tides123, time123, PacificTime)
 
+######################################################################
+'''Plot that data'''
+######################################################################
+plot_waves(waves145, station_name="Ocean Papa", timezone="America/Los_Angeles")
+plot_neah_waves(waves124, timezone="America/Los_Angeles")
+plot_waves(waves123pa, station_name="Port Angelis", timezone="America/Los_Angeles")
+plot_waves(waves123nd, station_name="New Dungeness", timezone="America/Los_Angeles")
+
+plot_wind(waves124,station_name="Neah Bay", timezone="America/Los_Angeles")
+plot_wind(waves123nd,station_name="New Dungeness", timezone="America/Los_Angeles")
+
+plot_tide_currents(tides124,currents124,wave124["datetime"],PacificTime,"Neah Bay")
+plot_tide_currents(tides123,currents123,wave123nd["datetime"],PacificTime,"New Dungeness")
+
+map_pacific(wave145,wave124,wave123pa,wave123nd)
 
 ######################################################################
 '''Decide if it might be firing'''
@@ -420,4 +437,7 @@ Summary from New Dungeness Bouy at {local_time}:
 ######################################################################
 '''Render the Report!'''
 ###################################################################### 
+print("now to render the report:")
+#map_salish_sea(wave145,wave124,wave123pa,wave123nd)
+map_pacific(wave145, wave124,wave123pa, wave123nd)
 render_salish_report(wave145, wave124, wave123pa, wave123nd)

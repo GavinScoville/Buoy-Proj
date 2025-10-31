@@ -4,7 +4,8 @@ import os
 import math
 from datetime import datetime, timezone 
 import pytz
-
+import numpy
+import numpy as np
 
 
 def wave_summary(df, bouy_name, timezone):
@@ -31,9 +32,13 @@ def wave_summary(df, bouy_name, timezone):
         return
 
     # Calculate wave length and energy
-    df['wave_length'] = 9.81 * (df['APD'] ** 2) / (2 * math.pi)
+    df['wave_length'] = 9.81 * (df['DPD'] ** 2) / (2 * math.pi)
     df['wave_energy'] = 1.025 * 9.81 * ((df['WVHT']) ** 2) * df['wave_length'] / 8
-    df['wave_bearing'] = df['MWD']-180 
+    df['wave_bearing'] = np.where(
+        df['MWD'] > 180,
+        df['MWD'] - 180,
+        df['MWD'] + 180
+    )
     df['datetime'] = pd.to_datetime(df['datetime'], utc=True)
     # Get the most recent row
     latest = df.iloc[-1]
