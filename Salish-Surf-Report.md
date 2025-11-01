@@ -6,7 +6,7 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-01 03:40 PDT
+**Updated:** 2025-11-01 03:51 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
