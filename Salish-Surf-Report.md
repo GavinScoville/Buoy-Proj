@@ -6,7 +6,7 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-01 09:41 PDT
+**Updated:** 2025-11-01 09:53 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -62,12 +62,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 14.5mph
 ## New Dungeness 
 32.52 km 111.35° to Fort Ebey 
 
-- **Wave height:** 0.3 m  
-- **Dominant period:** 10.0 s  
-- **Mean direction:** 219.0°  
-- **Wind speed:** 9.0 m/s  
+- **Wave height:** 0.4 m  
+- **Dominant period:** 9.0 s  
+- **Mean direction:** 232.0°  
+- **Wind speed:** 10.0 m/s  
 - **Wind direction:** 340.0°  
-- **Energy:** 17.66 kJ/m  
+- **Energy:** 25.43 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
