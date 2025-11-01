@@ -7,7 +7,6 @@ import pytz
 import numpy
 import numpy as np
 
-
 def wave_summary(df, bouy_name, timezone):
     # Ensure necessary columns are present
     required = ['WVHT', 'DPD','MWD','datetime']
@@ -51,8 +50,6 @@ def wave_summary(df, bouy_name, timezone):
     print(f"  - Wave Bearing: {latest['wave_bearing']:.2f} deg")
     return latest
 
-
-
 def tide_report(df, time, timezone): #is fed the dataframe of tides and looks for the one at the time of the most recent wave data, and returns the tide status (high/low/rising/falling) at that time.
     required = ['v','datetime']
     missing = [col for col in required if col not in df.columns]
@@ -87,9 +84,6 @@ def tide_report(df, time, timezone): #is fed the dataframe of tides and looks fo
     print(f"  - Tide Height: {closest_row['v']:.2f} m")
     print(f"  - Tide Status: {tide_status} by {tide_change:.2f}m in the next hour")
     return closest_row 
-
-
-
 
 def current_report(df, time, timezone): #is fed the dataframe of currents and looks for the one at the time of the most rectnt wave data, and returns the current speed and direction at that time.
     required = [' Velocity_Major', ' meanFloodDir',' meanEbbDir','datetime']
@@ -127,7 +121,6 @@ def current_report(df, time, timezone): #is fed the dataframe of currents and lo
     print(f"  - Mean Flood Bearing: {closest_row[' meanFloodDir']:.2f} deg East of North")
     return closest_row 
 
-
 def wind_report(df, bouy_name, timezone):
     # Ensure necessary columns are present
     required = ['WDIR','WSPD','GST','datetime']
@@ -161,7 +154,6 @@ def wind_report(df, bouy_name, timezone):
     print(f"  - Wind Direction: {latest['WDIR']} deg from N")
     print(f"  - Wind Gust {latest['GST']:.2f} m/s")
     return latest
-
 
 def setstatus(wave, buoy_id): 
     # Create folder if it doesn’t exist

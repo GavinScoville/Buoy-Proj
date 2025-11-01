@@ -85,8 +85,6 @@ plot_wind(waves123nd,station_name="New_Dungeness", timezone="America/Los_Angeles
 plot_tide_currents(tides124,currents124,wave124["datetime"],PacificTime,"Neah_Bay")
 plot_tide_currents(tides123,currents123,wave123nd["datetime"],PacificTime,"New_Dungeness")
 
-map_pacific(wave145,wave124,wave123pa,wave123nd)
-
 ######################################################################
 '''Decide if it might be firing'''
 ######################################################################
@@ -441,5 +439,5 @@ Summary from New Dungeness Bouy at {local_time}:
 print("now to render the report:")
 #map_salish_sea(wave145,wave124,wave123pa,wave123nd)
 pacific_waves = predict_wavepath(waves145)
-map_pacific(wave145, wave124,wave123pa, wave123nd, pacific_waves)
+map_pacific(pacific_waves, wave124, wave123pa, wave123nd)
 render_salish_report(wave145, wave124, wave123pa, wave123nd)

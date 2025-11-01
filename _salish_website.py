@@ -3,13 +3,7 @@ import numpy as np
 from datetime import date, timedelta, datetime
 from zoneinfo import ZoneInfo
 import math
-import os
-
-from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents, predict_tides
 from _geodesy import arclength, azimuth
-from _plot_conditions_functions import plot_waves, plot_wind, plot_neah_waves, plot_tide_currents
-from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
-from _map_conditions import map_pacific
 
 ######################################################################
 '''Make a website!'''
@@ -19,7 +13,6 @@ def render_salish_report(wave145, wave124, wave123pa, wave123nd):
     PacificTime = ZoneInfo("America/Los_Angeles")
     timestamp = datetime.now(PacificTime).strftime("%Y-%m-%d %H:%M %Z")
     date = datetime.today().strftime("%Y-%m-%d")
-
     md = f"""---
 layout: single
 title: "Fort Ebey Surf Report"
@@ -35,13 +28,11 @@ date: {date}
 
 ## Ocean Papa 
 {arclength(49.903, 145.246, 48.2248207, 122.7701732)/1000:.2f}km {azimuth(49.903, 145.246, 48.2248207, 122.7701732):.2f}° to Fort Ebey
-- **Wave height:** {wave145.get('WVHT', 'N/A')} m  
-- **Dominant period:** {wave145.get('DPD', 'N/A')} s  
-- **Mean direction:** {wave145.get('MWD', 'N/A')}°  
-- **Wind speed:** {wave145.get('WSPD', 'N/A')} m/s  
-- **Wind direction:** {wave145.get('WDIR', 'N/A')}°  
-- **Energy:** {wave145.get('wave_energy', 0):.2f} kJ/m  
-- **Status:** {wave145.get('status', 'Unknown')}  
+- **Wave height: {wave145['WVHT']*3.28084:.1f}ft
+- **Dominant period: {wave145['DPD']} s
+- **Wave energy: {wave145['wave_energy']:.0f} kJ/m pr. crest
+A meter of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave145['wave_energy']*2/1350)*2.23694:.1f}mph
+- **Wave bearing: {wave145['wave_bearing']:.0f}°
 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 

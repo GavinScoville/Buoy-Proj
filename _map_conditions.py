@@ -6,30 +6,6 @@ import zipfile
 from pyproj import Geod
 from zoneinfo import ZoneInfo
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents,predict_tides
-from _geodesy import arclength, azimuth
-from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
-from _some_modeling import predict_wavepath
-
-PacificTime = ZoneInfo("America/Los_Angeles")
-Ocean_Papa = "46246"
-South_Nomad = "46036"
-Northwest_Seattle = "46419"
-La_Persouse_Bank = '46204' #Off Vancouver Island
-Neah_Bay = '46087' #Neah Bay bouy
-Port_Angelis = '46267' #PA bouy
-New_Dungeness = '46088' #Off shore fort Ebey 
-
-#Funcitons for the map:
-waves145 = fetch_and_clean_buoy_data(Ocean_Papa) #returns a datafeame of the last 45 days of data
-waves124 = fetch_and_clean_buoy_data(Neah_Bay)
-waves123pa = fetch_and_clean_buoy_data(Port_Angelis)
-waves123nd= fetch_and_clean_buoy_data(New_Dungeness)
-wave145 = wave_summary(waves145, "Ocean Papa", PacificTime) # wave summary returns a dataframe with the latest data and calculated energy etc.
-wave124 = wave_summary(waves124, "Neah Bay", PacificTime)
-wave123pa = wave_summary(waves123pa, "Port Angelis", PacificTime)
-wave123nd = wave_summary(waves123nd, "New Dungeness", PacificTime)
-pacific_waves = predict_wavepath(waves145)
 
 def add_scalebar(ax, proj, length, location=(0.5, 0.1), linewidth=2, color='black', units='km'):
     """
@@ -207,7 +183,7 @@ def map_pacific(pacific_waves, wave124, wave123pa, wave123nd):
 
     # Combine latest buoy readings
     wave_data = pd.DataFrame({
-        "Ocean Papa": waves145["WVHT"].iloc[-1] if "WVHT" in pacific_waves else np.nan,
+        "Ocean Papa": pacific_waves["WVHT"].iloc[0] if "WVHT" in pacific_waves else np.nan,
         "Neah Bay": wave124.get("WVHT", np.nan),
         "Port Angeles": wave123pa.get("WVHT", np.nan),
         "New Dungeness": wave123nd.get("WVHT", np.nan)
@@ -308,7 +284,6 @@ def map_pacific(pacific_waves, wave124, wave123pa, wave123nd):
     plt.title("NOAA Wave Monitoring Stations — Northeast Pacific", fontsize=14, fontweight="bold")
     os.makedirs("plots/maps", exist_ok=True)
     plt.tight_layout()
-    plt.show()
 
     fig.savefig("plots/maps/pacific.png", bbox_inches="tight", dpi=150)
 
@@ -485,4 +460,3 @@ def map_strait(wave145, wave124, wave123pa, wave123nd):
     plt.show()
     fig.savefig(f"plots/maps/pacific.png", bbox_inches="tight", dpi=150)
 
-map_pacific(pacific_waves, wave124, wave123pa, wave123nd)

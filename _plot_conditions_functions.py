@@ -11,30 +11,7 @@ import cartopy.feature as cfeature
 
 import matplotlib.pyplot as plt
 
-
-from _fetch_buoy_functions import fetch_and_clean_buoy_data,  predict_currents, predict_tides
-from _report_funcitons import  wave_summary
 from _geodesy import azimuth
-
-PacificTime = ZoneInfo("America/Los_Angeles")
-
-Neah_Bay_Tide = "9443090"
-Neah_Bay_Current = "PUG1642"
-Neah_Bay = '46087' #Neah Bay bouy 
-waves124 = fetch_and_clean_buoy_data(Neah_Bay) 
-wave124 = wave_summary(waves124, "Neah Bay", PacificTime) 
-# today
-today = date.today()
-today_str = today.strftime("%Y%m%d")
-# tomorrow
-tomorrow = today + timedelta(days=1)
-tomorrow_str = tomorrow.strftime("%Y%m%d")
-#GMT to PT conversion:
-timezone = ZoneInfo("America/Los_Angeles")
-
-local_time = wave124['datetime'].astimezone(PacificTime).strftime("%Y-%m-%d %H:%M:%S %Z")
-
-
 
 # line plot https://matplotlib.org/stable/gallery/lines_bars_and_markers/simple_plot.html#sphx-glr-gallery-lines-bars-and-markers-simple-plot-py
 
@@ -80,8 +57,6 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     os.makedirs("plots/tidecurrent", exist_ok=True)
     fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
-
-waves = waves124
 
 def plot_waves(waves, station_name, timezone="America/Los_Angeles"):
     # Check for column existence

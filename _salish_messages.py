@@ -91,7 +91,7 @@ Ocean Papa Bouy has detected {df['WVHT']*3.28084:.0f}ft swell {distance*0.000621
 
 - Wave height: {df['WVHT']*3.28084:.1f}ft
 - Dominant period: {df['DPD']} s
-- Average wave energy: {df['wave_energy']:.2f} kJ/m²
+- Average wave energy: {df['wave_energy']:.2f} kJ/m 
 - Wave bearing: {df['wave_bearing']:.0f}°
 - The waves are propogating {missshot:.0f}° north of the {azy:.0f}° direction to Neah Bay
 - Waves will reach Neah in {traveltime:.0f} hours at {landfall}
