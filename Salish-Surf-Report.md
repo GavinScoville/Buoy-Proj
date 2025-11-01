@@ -6,7 +6,7 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-01 10:15 PDT
+**Updated:** 2025-11-01 10:37 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -27,12 +27,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 11.4mph
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 3.2 m  
-- **Dominant period:** 17.0 s  
+- **Wave height:** 3.3 m  
+- **Dominant period:** 16.0 s  
 - **Mean bearing:** 89.0°  
-- **Wind speed:** 6.0 m/s  
-- **Wind direction:** 280.0°  
-- **Energy:** 5807.51 kJ/m 
+- **Wind speed:** 9.0 m/s  
+- **Wind direction:** 290.0°  
+- **Energy:** 5470.91 kJ/m 
 - **Status:** 0  
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
@@ -47,11 +47,11 @@ A meter of wave has the same amount of kinetic energy as a prius driving 11.4mph
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 10.0 s  
-- **Mean direction:** 286.0°  
+- **Dominant period:** 13.0 s  
+- **Mean direction:** 299.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 282.59 kJ/m  
+- **Energy:** 560.49 kJ/m  
 - **Status:** 1  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
@@ -62,12 +62,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 11.4mph
 ## New Dungeness 
 32.52 km 111.35° to Fort Ebey 
 
-- **Wave height:** 0.4 m  
-- **Dominant period:** 9.0 s  
-- **Mean direction:** 232.0°  
-- **Wind speed:** 10.0 m/s  
-- **Wind direction:** 340.0°  
-- **Energy:** 25.43 kJ/m  
+- **Wave height:** 0.5 m  
+- **Dominant period:** 3.0 s  
+- **Mean direction:** 339.0°  
+- **Wind speed:** 9.0 m/s  
+- **Wind direction:** 320.0°  
+- **Energy:** 4.42 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
