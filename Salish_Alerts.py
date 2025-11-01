@@ -11,6 +11,7 @@ from _plot_conditions_functions import plot_waves, plot_wind, plot_neah_waves, p
 from _map_conditions import map_pacific
 from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
 from _salish_website import render_salish_report
+from _some_modeling import predict_wavepath
 
 Ocean_Papa = "46246"
 South_Nomad = "46036"
@@ -439,5 +440,6 @@ Summary from New Dungeness Bouy at {local_time}:
 ###################################################################### 
 print("now to render the report:")
 #map_salish_sea(wave145,wave124,wave123pa,wave123nd)
-map_pacific(wave145, wave124,wave123pa, wave123nd)
+pacific_waves = predict_wavepath(waves145)
+map_pacific(wave145, wave124,wave123pa, wave123nd, pacific_waves)
 render_salish_report(wave145, wave124, wave123pa, wave123nd)
