@@ -6,18 +6,18 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-01 06:05 PDT
+**Updated:** 2025-11-01 06:33 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
 
 ## Ocean Papa 
 1641.84km 87.88° to Fort Ebey
-- **Wave height: 23.0ft
+- **Wave height: 25.9ft
 - **Dominant period: 13.0 s
-- **Wave energy: 16251 kJ/m pr. crest
-A meter of wave has the same amount of kinetic energy as a prius driving 11.0mph
-- **Wave bearing: 97°
+- **Wave energy: 20698 kJ/m pr. crest
+A meter of wave has the same amount of kinetic energy as a prius driving 12.4mph
+- **Wave bearing: 98°
 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
@@ -28,11 +28,11 @@ A meter of wave has the same amount of kinetic energy as a prius driving 11.0mph
 147.62km 100.92° to Fort Ebey
 
 - **Wave height:** 4.0 m  
-- **Dominant period:** 14.0 s  
-- **Mean bearing:** 91.0°  
+- **Dominant period:** 17.0 s  
+- **Mean bearing:** 80.0°  
 - **Wind speed:** 5.0 m/s  
-- **Wind direction:** 360.0°  
-- **Energy:** 6154.15 kJ/m 
+- **Wind direction:** 350.0°  
+- **Energy:** 9074.23 kJ/m 
 - **Status:** 0  
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
