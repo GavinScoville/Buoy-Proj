@@ -6,7 +6,7 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-01 10:37 PDT
+**Updated:** 2025-11-01 10:51 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -27,12 +27,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 11.4mph
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 3.3 m  
-- **Dominant period:** 16.0 s  
-- **Mean bearing:** 89.0°  
-- **Wind speed:** 9.0 m/s  
-- **Wind direction:** 290.0°  
-- **Energy:** 5470.91 kJ/m 
+- **Wave height:** 3.4 m  
+- **Dominant period:** 13.0 s  
+- **Mean bearing:** 80.0°  
+- **Wind speed:** 10.0 m/s  
+- **Wind direction:** 300.0°  
+- **Energy:** 3833.86 kJ/m 
 - **Status:** 0  
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
@@ -64,9 +64,9 @@ A meter of wave has the same amount of kinetic energy as a prius driving 11.4mph
 
 - **Wave height:** 0.5 m  
 - **Dominant period:** 3.0 s  
-- **Mean direction:** 339.0°  
-- **Wind speed:** 9.0 m/s  
-- **Wind direction:** 320.0°  
+- **Mean direction:** 347.0°  
+- **Wind speed:** 7.0 m/s  
+- **Wind direction:** 300.0°  
 - **Energy:** 4.42 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
