@@ -2,11 +2,11 @@
 layout: single
 title: "Fort Ebey Surf Report"
 categories: [portfolio]
-date: 2025-10-31
+date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-31 19:56 PDT
+**Updated:** 2025-10-31 20:03 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -47,11 +47,11 @@ A meter of wave has the same amount of kinetic energy as a prius driving 13.5mph
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 12.0 s  
-- **Mean direction:** 297.0°  
+- **Dominant period:** 11.0 s  
+- **Mean direction:** 292.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 70.65 kJ/m  
+- **Energy:** 59.36 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
