@@ -6,18 +6,18 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-01 08:51 PDT
+**Updated:** 2025-11-01 09:22 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
 
 ## Ocean Papa 
 1641.84km 87.88° to Fort Ebey
-- **Wave height: 25.6ft
-- **Dominant period: 13.0 s
-- **Wave energy: 20178 kJ/m pr. crest
-A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
-- **Wave bearing: 106°
+- **Wave height: 26.2ft
+- **Dominant period: 15.0 s
+- **Wave energy: 28259 kJ/m pr. crest
+A meter of wave has the same amount of kinetic energy as a prius driving 14.5mph
+- **Wave bearing: 116°
 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
@@ -27,12 +27,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 3.5 m  
-- **Dominant period:** 16.0 s  
-- **Mean bearing:** 99.0°  
+- **Wave height:** 3.7 m  
+- **Dominant period:** 15.0 s  
+- **Mean bearing:** 86.0°  
 - **Wind speed:** 5.0 m/s  
-- **Wind direction:** 340.0°  
-- **Energy:** 6154.15 kJ/m 
+- **Wind direction:** 300.0°  
+- **Energy:** 6044.75 kJ/m 
 - **Status:** 0  
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
@@ -47,11 +47,11 @@ A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 11.0 s  
-- **Mean direction:** 300.0°  
+- **Dominant period:** 10.0 s  
+- **Mean direction:** 298.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 686.24 kJ/m  
+- **Energy:** 384.63 kJ/m  
 - **Status:** 1  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
@@ -63,11 +63,11 @@ A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
 32.52 km 111.35° to Fort Ebey 
 
 - **Wave height:** 0.3 m  
-- **Dominant period:** 12.0 s  
-- **Mean direction:** 243.0°  
-- **Wind speed:** 0.0 m/s  
-- **Wind direction:** 270.0°  
-- **Energy:** 25.43 kJ/m  
+- **Dominant period:** 10.0 s  
+- **Mean direction:** 219.0°  
+- **Wind speed:** 9.0 m/s  
+- **Wind direction:** 340.0°  
+- **Energy:** 17.66 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
