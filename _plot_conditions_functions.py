@@ -81,7 +81,6 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
 
-
 waves = waves124
 
 def plot_waves(waves, station_name, timezone="America/Los_Angeles"):

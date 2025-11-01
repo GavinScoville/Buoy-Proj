@@ -12,6 +12,7 @@
 
 
 import math 
+import numpy as np
 R = 6371000 #Radius of the earth(m)
 Omega = 7.2921159e-5 #earths rotation rate in rad/s
 
@@ -80,6 +81,17 @@ def azimuth(North1, West1, North2, West2):
     bearing = math.degrees(math.atan2(sintheta, costheta))
     return bearing
 
-azimuth(49.903, 145.246, 48.493, 124.727) #ocean papa to neah bay 
+def cartesian(North1, East1):
+    phi1 = math.radians(North1)
+    lambda1= math.radians(East1)
+    x1 = math.cos(phi1) * math.cos(lambda1) #convert to xyz
+    y1 = math.cos(phi1) * math.sin(lambda1)
+    z1 = math.sin(phi1)
+    cart=np.array([x1,y1,z1])
+    return cart
+
+
+
+
 
 

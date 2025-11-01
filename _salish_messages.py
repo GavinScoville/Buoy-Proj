@@ -63,8 +63,6 @@ currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval
 currents123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
 tides124 = predict_tides(Neah_Bay_Tide,today_str,tomorrow_str, interval="h")
 tides123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
-
-
 current124=current_report(currents124, time124, PacificTime)
 
 ######################################################################
