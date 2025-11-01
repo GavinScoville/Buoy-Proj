@@ -6,18 +6,18 @@ date: 2025-11-01
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-10-31 21:52 PDT
+**Updated:** 2025-10-31 22:19 PDT
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
 
 ## Ocean Papa 
 1641.84km 87.88° to Fort Ebey
-- **Wave height: 25.6ft
-- **Dominant period: 13.0 s
-- **Wave energy: 20178 kJ/m pr. crest
-A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
-- **Wave bearing: 97°
+- **Wave height: 25.9ft
+- **Dominant period: 14.0 s
+- **Wave energy: 24005 kJ/m pr. crest
+A meter of wave has the same amount of kinetic energy as a prius driving 13.3mph
+- **Wave bearing: 90°
 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
@@ -27,12 +27,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
 ## Neah Bay 
 147.62km 100.92° to Fort Ebey
 
-- **Wave height:** 2.9 m  
+- **Wave height:** 3.4 m  
 - **Dominant period:** 13.0 s  
-- **Mean bearing:** 84.0°  
+- **Mean bearing:** 83.0°  
 - **Wind speed:** 6.0 m/s  
 - **Wind direction:** 210.0°  
-- **Energy:** 2789.17 kJ/m 
+- **Energy:** 3833.86 kJ/m 
 - **Status:** 0  
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
@@ -47,11 +47,11 @@ A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
 
 ## Port Angeles 
 62.29km 84.38° to Fort Ebey 
-- **Dominant period:** 10.0 s  
-- **Mean direction:** 296.0°  
+- **Dominant period:** 14.0 s  
+- **Mean direction:** 303.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 49.06 kJ/m  
+- **Energy:** 96.16 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
@@ -62,12 +62,12 @@ A meter of wave has the same amount of kinetic energy as a prius driving 12.2mph
 ## New Dungeness 
 32.52 km 111.35° to Fort Ebey 
 
-- **Wave height:** 0.4 m  
-- **Dominant period:** 4.0 s  
-- **Mean direction:** 109.0°  
+- **Wave height:** 0.3 m  
+- **Dominant period:** 14.0 s  
+- **Mean direction:** 285.0°  
 - **Wind speed:** 2.0 m/s  
-- **Wind direction:** 140.0°  
-- **Energy:** 5.02 kJ/m  
+- **Wind direction:** 120.0°  
+- **Energy:** 34.62 kJ/m  
 - **Status:** 0  
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
