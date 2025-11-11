@@ -298,6 +298,7 @@ def map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave1
             f'{row["name"]}',
             transform=proj,
             fontsize=9,
+            color = "grey",
             verticalalignment="bottom",
             zorder=6
         )
