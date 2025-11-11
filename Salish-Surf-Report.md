@@ -6,22 +6,22 @@ date: 2025-11-11
 ---
 
 # Fort Ebey Surf Report
-**Updated:** 2025-11-11 14:53 PST
+**Updated:** 2025-11-11 15:05 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
 
-![Wave Map](/plots/maps/Puget Sound.png)
+![Wave Map](/plots/maps/Island.png)
 
-![Wave Map](/plots/maps/Inner Puget Sound.png)
+![Wave Map](/plots/maps/Strait.png)
 
 
 ## Ocean Papa Wave Report:
-1641.84km 87.88° to Fort Ebey
+1641.84km to Fort Ebey
 - **Wave height: 13.8ft
 - **Dominant period: 13.0 s
-- **Wave energy: 5850 kJ/m pr. crest
-A meter of wave has the same amount of kinetic energy as a prius driving 6.6mph
+- **Wave energy: 5850 kJ/m of crest
+A meter wide of wave has the same amount of kinetic energy as a prius driving 6.6mph
 - **Wave bearing: 92°
 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
@@ -30,14 +30,14 @@ A meter of wave has the same amount of kinetic energy as a prius driving 6.6mph
 ---
 
 ## Neah Bay Wave Report:  
-147.62km 100.92° to Fort Ebey
+147.62km to Fort Ebey
 
-- **Wave height:** 1.7 m  
-- **Dominant period:** 10.0 s  
-- **Mean bearing:** 66.0°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 80.0°  
-- **Energy:** 567.14 kJ/m 
+- **Wave height: 5.6ft
+- **Dominant period: 10.0 s
+- **Wave energy: 567 kJ/m of crest
+A meter wide of wave has the same amount of kinetic energy as a prius driving 6.6mph
+- **Wave bearing: 72°
+- **Wind speed:** 3.0 m/s 
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
 
@@ -45,32 +45,29 @@ A meter of wave has the same amount of kinetic energy as a prius driving 6.6mph
 
 ![Tideplot](/plots/tidecurrent/Neah_Bay.png) 
 
-- (https://www.ndbc.noaa.gov/station_page.php?station=46087)
-
+- [See Photos](https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
 
 ## Port Angeles Wave Report: 
-62.29km 84.38° to Fort Ebey 
+62.29km to Fort Ebey 
 - **Dominant period:** 11.0 s  
 - **Mean direction:** 297.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
 - **Energy:** 21.37 kJ/m  
-- [Station Page](https://www.ndbc.noaa.gov/station_page.php?station=46267)
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
 
 
 ## New Dungeness Wave Report: 
-32.52 km 111.35° to Fort Ebey 
+32.52 km to Fort Ebey 
 
-- **Wave height:** 0.3 m  
 - **Dominant period:** 3.0 s  
 - **Mean direction:** 263.0°  
 - **Wind speed:** 3.0 m/s  
 - **Wind direction:** 220.0°  
 - **Energy:** 1.59 kJ/m  
-- **Status:** 0  
+
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 
 ![Wave Plot](/plots/waves/New_Dungeness.png)
