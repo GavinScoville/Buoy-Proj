@@ -3,3 +3,4 @@
 __pycache__/
 data/raw/
 data/processed/
+GEBCO_2025_sub_ice.nc

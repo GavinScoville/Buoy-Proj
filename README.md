@@ -13,14 +13,20 @@ Every 15 minutes I retrieve new infomration from NOAA on the waves, tides, curre
     3 South Nomad. 46036.[48.360 N 133.940 W]. -(no  directional data). 
 
     4 La Perouse Bank. 46206. [48.840 N 126.000 W]. (no direcitonal data).
+
+    5 Tillamook OR. 46089. [45.928 N 125.815 W] 
     
-    5 Neah Bay. 46087. [48.493 N 124.727 W]. -(Depth 259 m) [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46087).   
+    6 Neah Bay. 46087. [48.493 N 124.727 W]. -(Depth 259 m) [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46087).   
 
-    6 Port Angles. 46267. [48.173 N 123.607 W]. -(Depth 75 m). 
+    7 Port Angles. 46267. [48.173 N 123.607 W]. -(Depth 75 m). 
 
-    7 New Dungeness. 46088. [48.332 N 123.179 W]. -(Depth 115 m).    [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46088).   
+    8 New Dungeness. 46088. [48.332 N 123.179 W]. -(Depth 115 m).    [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46088).   
 
-    8 Smith Island. SISW1. [48.321 N 122.831 W] (wind only).   
+    9 Smith Island. SISW1. [48.321 N 122.831 W] (wind only).   
+## Target Surf Spots:
+    1 Neah Bay 48.493 N, 124.727 W
+
+    2 Fort Ebey 48.2248207, 122.7701732 W
 
 ## Make predictions as to what windows conditions are good 
 I am currently using a very simplistic newtonian model, while I keep past observations logged on my personal computer. When the dataset gets large enough to do some machine learning, I can fit a stochastic model to predict wave conditions. 

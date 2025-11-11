@@ -5,26 +5,28 @@ from zoneinfo import ZoneInfo
 import math
 import os
 
-def move_wave(North=49.903, East=-145.246, azy=88, dist=1000000):
+#https://www.ndbc.noaa.gov/faq/sea_state_forecasting.shtml 
+
+def move_wave(North=10, East=10, azy=90, dist=1000000):
     P1=(math.radians(North),math.radians(East))
     azy1=math.radians(azy)
 
     #this gives us the node, or azy of the great circle as it take off from the equator towards point1
     node= math.atan2((math.sin(azy1)*math.cos(P1[0])),(math.sqrt(math.cos(azy1)**2+math.sin(azy1)**2*math.sin(P1[0])**2)))
-    #this gives us the ang. dist fomr the node to P1:
+    #this gives us the ang. dist from the node to P1:
     angd1 = math.atan2(math.tan(P1[0]),math.cos(azy1))
     #and the node longitude:
     node_long = P1[1]-math.atan2(math.sin(node)*math.sin(angd1),math.cos(angd1))
     #this is the angular distance to an arbatrary point farther along the path:
     angx = dist/6371000 #arclength/radius of earth 
     angd2 = angd1 + angx
-    P2lat = math.degrees(math.atan2((math.cos(node)*math.sin(angd2)),math.sqrt(math.cos(angd2)**2+math.sin(node)**2+math.cos(angd2)**2)))
+    P2lat = math.degrees(math.atan2((math.cos(node)*math.sin(angd2)),math.sqrt(math.cos(angd2)**2+math.sin(node)**2*math.sin(angd2)**2)))
     P2long = math.degrees(math.atan2(math.sin(node)*math.sin(angd2),math.cos(angd2))+node_long)
     P2azy = math.degrees(math.atan2(math.tan(node),math.cos(angd2)))
     return(P2lat,P2long,P2azy) 
-    
+
 #https://en.wikipedia.org/wiki/Great-circle_navigation 
-def predict_wavepath(waves145):
+def predict_pacific_wavepath(waves145):
     """
     Predicts where Ocean PAPA waves are now located based on
     their period and mean direction over the past 24 hours.
@@ -39,7 +41,6 @@ def predict_wavepath(waves145):
 
     # Compute distance traveled since the earliest timestamp
     pacific_waves["elapsed_s"] = (pacific_waves["datetime"].iloc[0] - pacific_waves["datetime"]).dt.total_seconds()
-
     pacific_waves["dist"] = pacific_waves["speed"] * pacific_waves["elapsed_s"]#m
 
     # Compute propagation azimuth 
@@ -62,7 +63,9 @@ def predict_wavepath(waves145):
 
     return pacific_waves
 
-move_wave(North=49.903, East=-145.246, azy=84, dist=1000000)
+move_wave(North=49.903, East=-145.246, azy=0, dist=1000000)
+
+
 '''
 #Can replace this with a stochastic model later: 
 if abs(wave145.iloc[-1]["MWD"]-180-azimuth(49.903, 145.246, 48.493, 124.727)) <15: #if wave direction is within 15 degrees of path to neah bay 

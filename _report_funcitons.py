@@ -9,7 +9,7 @@ import numpy as np
 
 def wave_summary(df, bouy_name, timezone):
     # Ensure necessary columns are present
-    required = ['WVHT', 'DPD','MWD','datetime']
+    required = ['WVHT', 'DPD','datetime']
     missing = [col for col in required if col not in df.columns]
     if missing:
         print(f"Missing required wave data columns: {missing}")
@@ -24,7 +24,7 @@ def wave_summary(df, bouy_name, timezone):
     df = df.sort_values('datetime').bfill()
 
     # Drop rows that still have missing required values after filling
-    df = df.dropna(subset=['WVHT','MWD','DPD'])
+    df = df.dropna(subset=['WVHT','DPD'])
 
     if df.empty:
         print("No usable data available after cleaning.")

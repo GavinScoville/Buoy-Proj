@@ -4,19 +4,24 @@ from datetime import date, timedelta, datetime
 from zoneinfo import ZoneInfo
 import math
 import os
+import xarray as xr
+
 
 from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents,predict_tides
 from _geodesy import arclength, azimuth
 from _plot_conditions_functions import plot_waves, plot_wind, plot_neah_waves, plot_tide_currents
-from _map_conditions import map_pacific
+from _map_conditions import map_pacific 
 from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
 from _salish_website import render_salish_report
-from _some_modeling import predict_wavepath
+from _some_modeling import predict_pacific_wavepath 
+from _bathymetry import intialise_ray_starts, trace_rays, plot_ray_tracing
+
+
 
 Ocean_Papa = "46246"
 South_Nomad = "46036"
-Northwest_Seattle = "46419"
 La_Persouse_Bank = '46204' #Off Vancouver Island
+Tillamok = '46089'
 Neah_Bay = '46087' #Neah Bay bouy
 Port_Angelis = '46267' #PA bouy
 New_Dungeness = '46088' #Off shore fort Ebey 
@@ -42,7 +47,9 @@ PacificTime = ZoneInfo("America/Los_Angeles")
 ######################################################################
 #naming based on latitiude
 waves145 = fetch_and_clean_buoy_data(Ocean_Papa) #returns a datafeame of the last 45 days of data
-#add northwest seattle in here when wifi
+waves133 = fetch_and_clean_buoy_data(South_Nomad)
+waves126 = fetch_and_clean_buoy_data(La_Persouse_Bank)
+waves125 = fetch_and_clean_buoy_data(Tillamok)
 waves124 = fetch_and_clean_buoy_data(Neah_Bay)
 waves123pa = fetch_and_clean_buoy_data(Port_Angelis)
 waves123nd= fetch_and_clean_buoy_data(New_Dungeness)
@@ -56,8 +63,10 @@ tides123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
 ######################################################################
 '''Make a report!'''
 ######################################################################
-
 wave145 = wave_summary(waves145, "Ocean Papa", PacificTime) # wave summary returns a dataframe with the latest data and calculated energy etc.
+wave133 = wave_summary(waves133, "South Nomad", PacificTime)
+wave126 = wave_summary(waves126, "La Pelrose Bank", PacificTime)
+wave125 = wave_summary(waves125, "Tillamok", PacificTime)
 wave124 = wave_summary(waves124, "Neah Bay", PacificTime)
 wave123pa = wave_summary(waves123pa, "Port Angelis", PacificTime)
 wave123nd = wave_summary(waves123nd, "New Dungeness", PacificTime)
@@ -118,11 +127,11 @@ azimuth(48.493, 124.727, 48.173, 123.607)-azimuth(48.493, 124.727,48.332, 123.17
 if abs(wave124["MWD"]-180)> azimuth(48.493, 124.727, 48.173, 123.607) or abs(wave124["MWD"]-180)< azimuth(48.493, 124.727, 48.173, 123.607) : #if wave direction is within 10 degrees of path to neah bay 
     print("swell is not headed down the strait")
     wave124["status"]= 0
-elif wave124["WVHT"] <3: 
+elif wave124["WVHT"] <2.5: 
     print("ocean waves are less then 3m high at Neah")
     wave124["status"]= 0
 elif wave124["DPD"] <10:
-    print("ocean waves have a period under 10s at ocean papa")
+    print("ocean waves have a period under 10s at Neah")
     wave124["status"]= 0
 else:
     print("Swell is going down the strait and is big enough to surf")
@@ -144,7 +153,7 @@ elif wave123pa["DPD"] < 8:
     print("Ocean waves have a period under 8 seconds at PA")
     wave123pa["status"]= 0
 else:
-    print("Swell is big enough tto surf at PA")
+    print("Swell is big enough to surf at PA")
     wave123pa["status"]= 1  #set status to 1 (watch)
 
 change123pa = setstatus(wave124, "Port Angelis")#setting status
@@ -167,7 +176,7 @@ else:
 
 change123nd = setstatus(wave124, "New Dungeness")#setting status
     
-if change123nd.loc[1]["status"]-change123nd.loc[0]["status"]>0: #if the status goes up, send email:
+if change123nd.loc[1]["status"]==1 and change123nd.loc[0]["status"]==0: #if the status goes up, send email:
     send_ND_email = "T" 
 else:
     send_ND_email = "F"
@@ -434,10 +443,49 @@ Summary from New Dungeness Bouy at {local_time}:
     print("New Dungeness Alert sent successfully!")
 
 ######################################################################
+'''Some modeling'''
+###################################################################### 
+pacific_waves = predict_pacific_wavepath(waves145)
+map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave123nd)
+
+#opening bathymetry datasert
+subset = xr.open_dataset("data/gebco_strait_subset.nc")
+
+# Choose your zoom area (in degrees)
+lat_min, lat_max = 48.1, 48.45
+lon_min, lon_max = -123.75, -122.5
+
+# Subset to the fort ebey area: 
+zoom = subset.sel(
+    lat=slice(lat_min, lat_max),
+    lon=slice(lon_min, lon_max)
+)
+
+ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
+rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
+rayz_startz2 = intialise_ray_starts(P1 = (48.332, -123.179), n_rays = 20,front_width = 10000, mean_wave_direction = wave123nd["MWD"], T= wave123nd["DPD"], H = wave123nd["WVHT"])
+
+puget_rays = trace_rays(ray_starts,
+                        n_steps=2000, 
+                        dt=5)
+
+Island_rays1 = trace_rays(rayz_startz1,
+                        n_steps=2000, 
+                        dt=5)
+Island_rays2 = trace_rays(rayz_startz2,
+                        n_steps=2000, 
+                        dt=5)
+Island_rayz = Island_rays1 + Island_rays2
+
+
+plot_ray_tracing(puget_rays, subset, "Puget Sound") #nice 
+
+plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
+
+######################################################################
 '''Render the Report!'''
 ###################################################################### 
 print("now to render the report:")
 #map_salish_sea(wave145,wave124,wave123pa,wave123nd)
-pacific_waves = predict_wavepath(waves145)
-map_pacific(pacific_waves, wave124, wave123pa, wave123nd)
+
 render_salish_report(wave145, wave124, wave123pa, wave123nd)
