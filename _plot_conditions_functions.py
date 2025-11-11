@@ -64,7 +64,7 @@ def plot_waves(waves, station_name, timezone="America/Los_Angeles"):
         print("Wave height (WVHT) column not found in DataFrame.")
         return
     
-    # Convert datetime column (appears to be int64 → likely UNIX timestamp)
+    # Convert datetime column 
     waves['datetime'] = pd.to_datetime(waves['datetime'], utc=True).dt.tz_convert(timezone)
     
     df = waves.sort_values('datetime').bfill()

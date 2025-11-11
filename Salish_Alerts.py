@@ -461,7 +461,7 @@ zoom = subset.sel(
     lon=slice(lon_min, lon_max)
 )
 
-ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
+ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 30_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
 rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
 rayz_startz2 = intialise_ray_starts(P1 = (48.332, -123.179), n_rays = 20,front_width = 10000, mean_wave_direction = wave123nd["MWD"], T= wave123nd["DPD"], H = wave123nd["WVHT"])
 

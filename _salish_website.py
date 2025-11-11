@@ -15,7 +15,7 @@ def render_salish_report(wave145, wave124, wave123pa, wave123nd):
     date = datetime.today().strftime("%Y-%m-%d")
     md = f"""---
 layout: single
-title: "Fort Ebey Surf Report"
+title: "Salish Sea Surf Report"
 categories: [portfolio]
 date: {date}
 ---
@@ -26,19 +26,19 @@ date: {date}
 ---
 ![Wave Map](/plots/maps/pacific.png)
 
-![Wave Map](/plots/maps/Island.png)
-
 ![Wave Map](/plots/maps/Strait.png)
 
+![Wave Map](/plots/maps/Island.png)
 
 ## Ocean Papa Wave Report:
 {arclength(49.903, 145.246, 48.2248207, 122.7701732)/1000:.2f}km to Fort Ebey
+
 - **Wave height: {wave145['WVHT']*3.28084:.1f}ft
 - **Dominant period: {wave145['DPD']} s
 - **Wave energy: {wave145['wave_energy']:.0f} kJ/m of crest
-A meter wide of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave145['wave_energy']*2/1350)*2.23694:.1f}mph
 - **Wave bearing: {wave145['wave_bearing']:.0f}°
 
+A meter wide of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave145['wave_energy']*2/1350)*2.23694:.1f}mph 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
@@ -50,7 +50,7 @@ A meter wide of wave has the same amount of kinetic energy as a prius driving {m
 - **Wave height: {wave124['WVHT']*3.28084:.1f}ft
 - **Dominant period: {wave124['DPD']} s
 - **Wave energy: {wave124['wave_energy']:.0f} kJ/m of crest
-A meter wide of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave145['wave_energy']*2/1350)*2.23694:.1f}mph
+A meter wide of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave124['wave_energy']*2/1350)*2.23694:.1f}mph
 - **Wave bearing: {wave124['wave_bearing']:.0f}°
 - **Wind speed:** {wave124.get('WSPD', 'N/A')} m/s 
 

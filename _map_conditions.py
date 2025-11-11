@@ -271,7 +271,7 @@ def map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave1
     fig = plt.figure(figsize=(8, 6))
     ax = plt.axes(projection=proj)
 
-    norm = mcolors.Normalize(vmin=0, vmax=10)
+    norm = mcolors.Normalize(vmin=0, vmax=max(pacific_waves["WVHT"]))
     cmap = cm.viridis
     bouycolor = cmap(norm(wave_data["WVHT"]))
 
@@ -321,8 +321,8 @@ def map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave1
 
     # Colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cbar = plt.colorbar(sm, ax=ax, shrink=0.4, pad=0.05)
-    cbar.set_label("Wave Height (m)")
+    cbar = plt.colorbar(sm, ax=ax, orientation="horizontal", pad=0.10, fraction=0.04, aspect=30)
+    cbar.set_label("Wave Height (m)",fontsize=11)
 
     plt.title("Known Waves in the Northeast Pacific", fontsize=14, fontweight="bold")
     os.makedirs("plots/maps", exist_ok=True)
