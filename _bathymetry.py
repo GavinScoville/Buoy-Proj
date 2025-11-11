@@ -422,6 +422,7 @@ import numpy as np
 
 
 def plot_ray_tracing(ray_dfs, subset, name):
+
     """
     Visualize multiple ray paths over bathymetry with dual colorbars.
     
@@ -496,7 +497,7 @@ def plot_ray_tracing(ray_dfs, subset, name):
     cbar_bathy.ax.invert_yaxis()  # optional: deeper = lower
 
     # --- Final polish
-    ax.set_title(f"Wave Refraction over {name} Bathymetry", fontsize=14, fontweight="bold")
+    ax.set_title(f"Wave Refraction over Salish Sea {name} Bathymetry", fontsize=14, fontweight="bold")
     ax.set_xlabel("Longitude (°)")
     ax.set_ylabel("Latitude (°)")
     ax.grid(alpha=0.3)
@@ -506,6 +507,8 @@ def plot_ray_tracing(ray_dfs, subset, name):
     # --- Save
     os.makedirs("plots/maps", exist_ok=True)
     fig.savefig(f"plots/maps/{name}.png", bbox_inches="tight", dpi=200)
+
+
 """
 ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
 rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])

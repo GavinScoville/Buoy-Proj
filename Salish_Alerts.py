@@ -478,9 +478,9 @@ Island_rays2 = trace_rays(rayz_startz2,
 Island_rayz = Island_rays1 + Island_rays2
 
 
-plot_ray_tracing(puget_rays, subset, "Puget Sound") #nice 
+plot_ray_tracing(puget_rays, subset, "Strait") #nice 
 
-plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
+plot_ray_tracing(Island_rayz, zoom, "Island")
 
 ######################################################################
 '''Render the Report!'''
