@@ -1,12 +1,12 @@
+
 ---
 layout: single
 title: "Salish Sea Surf Report"
-categories: [portfolio]
 date: 2025-11-11
 ---
 
-# Fort Ebey Surf Report
-**Updated:** 2025-11-11 16:00 PST
+# Salish Sea Surf Report
+**Updated:** 2025-11-11 18:01 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -16,28 +16,29 @@ date: 2025-11-11
 ![Wave Map](/plots/maps/Island.png)
 
 ## Ocean Papa Wave Report:
-1641.84km to Fort Ebey
+1642km to Fort Ebey
 
-- **Wave height: 13.1ft
+- **Wave height: 14.1ft
 - **Dominant period: 13.0 s
-- **Wave energy: 5306 kJ/m of crest
-- **Wave bearing: 92°
+- **Wave energy: 6132 kJ/m of crest
+- **Wave bearing: 95°
 
-A meter wide of wave has the same amount of kinetic energy as a prius driving 6.3mph 
+A meter of wave crest has the same amount of kinetic energy as a prius driving 6.7mph 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
 ---
 
 ## Neah Bay Wave Report:  
-147.62km to Fort Ebey
+148km to Fort Ebey
 
-- **Wave height: 5.9ft
+- **Wave height: 6.9ft
 - **Dominant period: 10.0 s
-- **Wave energy: 636 kJ/m of crest
-A meter wide of wave has the same amount of kinetic energy as a prius driving 2.2mph
-- **Wave bearing: 81°
-- **Wind speed:** 3.0 m/s 
+- **Wave energy: 865 kJ/m of crest
+- **Wave bearing: 94°
+- **Wind speed:** 7.0 m/s 
+
+A meter wide of wave crest has the same amount of kinetic energy as a prius driving 2.5mph
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
 
@@ -49,18 +50,18 @@ A meter wide of wave has the same amount of kinetic energy as a prius driving 2.
 
 
 ## Port Angeles Wave Report: 
-62.29km to Fort Ebey 
+62km to Fort Ebey 
 - **Dominant period:** 10.0 s  
-- **Mean direction:** 303.0°  
+- **Mean direction:** 301.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 17.66 kJ/m  
+- **Energy:** 31.40 kJ/m  
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
 
 
 ## New Dungeness Wave Report: 
-32.52 km to Fort Ebey 
+33 km to Fort Ebey 
 
 - **Dominant period:** 3.0 s  
 - **Mean direction:** 263.0°  
