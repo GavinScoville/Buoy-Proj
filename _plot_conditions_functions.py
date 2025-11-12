@@ -10,9 +10,11 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 
 import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
+
+from matplotlib.collections import LineCollection
+from datetime import timedelta
 
 from _geodesy import azimuth
 
