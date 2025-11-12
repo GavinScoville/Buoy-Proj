@@ -10,6 +10,9 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
 
 from _geodesy import azimuth
 
@@ -58,66 +61,83 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=150)
     plt.close(fig)
 
-def plot_waves(waves, station_name, timezone="America/Los_Angeles"):
-    # Check for column existence
-    if 'WVHT' not in waves.columns:
-        print("Wave height (WVHT) column not found in DataFrame.")
+def plot_waves(waves, station_name, timezone="America/Los_Angeles", lat=49.903, lon=-145.246):
+    # Check for necessary columns
+    if 'WVHT' not in waves.columns or 'DPD' not in waves.columns or 'MWD' not in waves.columns:
+        print("Missing required columns (WVHT, DPD, or MWD) in DataFrame.")
         return
-    
-    # Convert datetime column 
+
+    # Convert datetime column
     waves['datetime'] = pd.to_datetime(waves['datetime'], utc=True).dt.tz_convert(timezone)
-    
     df = waves.sort_values('datetime').bfill()
 
-     #make bearing 
-    df['wave_bearing'] = np.where(
-        df['MWD'] > 180,
-        df['MWD'] - 180,
-        df['MWD'] + 180
-    )
-    
-    # Filter only the last two days
+    # Compute wave bearing (convert from direction *from* → direction *to*)
+    df['wave_bearing'] = np.where(df['MWD'] > 180, df['MWD'] - 180, df['MWD'] + 180)
+
+    # Filter last 2 days
     local_time = df.iloc[-1]["datetime"]
     two_days_ago = local_time - timedelta(days=2)
-    df_recent = df[df['datetime'] >= two_days_ago]
+    df_recent = df[df['datetime'] >= two_days_ago].reset_index(drop=True)
 
-    
- #Create figure
+    # Compute deviation ("miss") from Fort Ebey direction
+    azy = azimuth(lat, lon, 48.2248207, 122.7701732)
+    df_recent["miss"] = (df_recent['wave_bearing'] - azy + 180) % 360 - 180  # range [-180, 180]
+
+    # Setup colormap
+    cmap = cm.viridis
+    vmin, vmax = -90, 90
+    norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
+
+    # Convert datetimes to numeric for plotting
+    times = df_recent["datetime"].map(pd.Timestamp.timestamp).to_numpy()
+
+    # --- Create figure and main axis
     fig, ax1 = plt.subplots(figsize=(10, 6))
 
-    # Plot wave height
-    ax1.plot(df_recent['datetime'], df_recent['WVHT'], color='tab:blue', label='Wave Height (m)')
-    ax1.set_xlabel("Date (Local Time)")
-    ax1.set_ylabel("Wave Height (m)", color='tab:blue')
-    ax1.tick_params(axis='y', labelcolor='tab:blue')
+    # Function to create color-mapped line segments
+    def make_colored_line(x, y, c):
+        points = np.array([x, y]).T.reshape(-1, 1, 2)
+        segments = np.concatenate([points[:-1], points[1:]], axis=1)
+        lc = LineCollection(segments, cmap=cmap, norm=norm)
+        lc.set_array(c[:-1])
+        lc.set_linewidth(2.5)
+        return lc
 
-    # Add second y-axis for DPD
+    # --- Plot Wave Height (WVHT)
+    lc1 = make_colored_line(times, df_recent["WVHT"].to_numpy(), df_recent["miss"].to_numpy())
+    ax1.add_collection(lc1)
+    ax1.set_xlim(times.min(), times.max())
+    ax1.set_ylim(df_recent["WVHT"].min(), df_recent["WVHT"].max())
+    ax1.set_ylabel("Wave Height (m)", color='black')
+
+    # Format datetime x-axis
+    import matplotlib.dates as mdates
+    ax1.xaxis_date()
+    ax1.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d %H:%M'))
+
+    # --- Second y-axis for DPD
     ax2 = ax1.twinx()
-    ax2.plot(df_recent['datetime'], df_recent['DPD'], color='tab:green', linestyle='--', label='Dominant Period (s)')
-    ax2.set_ylabel("Dominant Wave Period (s)", color='tab:green')
-    ax2.tick_params(axis='y', labelcolor='tab:green')
+    lc2 = make_colored_line(times, df_recent["DPD"].to_numpy(), df_recent["miss"].to_numpy())
+    lc2.set_linestyle("--")
+    ax2.add_collection(lc2)
+    ax2.set_xlim(times.min(), times.max())
+    ax2.set_ylim(df_recent["DPD"].min(), df_recent["DPD"].max())
+    ax2.set_ylabel("Dominant Wave Period (s)", color='black')
 
-    # Add a third y-axis for wave bearing (degrees)
-    ax3 = ax1.twinx()
-    ax3.spines["right"].set_position(("outward", 60))  # shift third axis outward
-    ax3.plot(df_recent['datetime'], df_recent['wave_bearing'], color='tab:orange', linestyle=':', label='Wave Bearing (°)')
-    ax3.set_ylabel("Wave Bearing (°)", color='tab:orange')
-    ax3.tick_params(axis='y', labelcolor='tab:orange')
+    # --- Add horizontal colorbar for wave direction miss
+    sm = cm.ScalarMappable(norm=norm, cmap=cmap)
+    cbar = fig.colorbar(sm, ax=[ax1, ax2], orientation="horizontal", pad=0.12, fraction=0.04, aspect=40)
+    cbar.set_label("Wave Bearing Miss (° from Fort Ebey)", fontsize=11)
 
-    # Title and layout
-    plt.title(f"Wave Conditions — Last 2 Days at {station_name}")
+    # --- Title and layout
+    plt.title(f"Wave Conditions — Last 2 Days at {station_name}", fontsize=14, fontweight='bold')
     fig.autofmt_xdate()
-    fig.tight_layout()
-    plt.grid(True)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
 
-    # Combine legends from all axes
-    lines, labels = ax1.get_legend_handles_labels()
-    lines2, labels2 = ax2.get_legend_handles_labels()
-    lines3, labels3 = ax3.get_legend_handles_labels()
-    ax1.legend(lines + lines2 + lines3, labels + labels2 + labels3, loc='upper left')
-
+    # Save figure
     os.makedirs("plots/waves", exist_ok=True)
-    fig.savefig(f"plots/waves/{station_name}.png", bbox_inches="tight", dpi=150)
+    fig.savefig(f"plots/waves/{station_name}.png", bbox_inches="tight", dpi=180)
     plt.close(fig)
 
 #neah waves will eb different becasue it is going to plot amount of KJ entering the staight pr. m2

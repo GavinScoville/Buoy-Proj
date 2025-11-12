@@ -13,14 +13,14 @@ def render_salish_report(wave145, wave124, wave123pa, wave123nd):
     PacificTime = ZoneInfo("America/Los_Angeles")
     timestamp = datetime.now(PacificTime).strftime("%Y-%m-%d %H:%M %Z")
     date = datetime.today().strftime("%Y-%m-%d")
-    md = f"""---
+    md = f"""
+---
 layout: single
 title: "Salish Sea Surf Report"
-categories: [portfolio]
 date: {date}
 ---
 
-# Fort Ebey Surf Report
+# Salish Sea Surf Report
 **Updated:** {timestamp}
 
 ---
@@ -31,28 +31,29 @@ date: {date}
 ![Wave Map](/plots/maps/Island.png)
 
 ## Ocean Papa Wave Report:
-{arclength(49.903, 145.246, 48.2248207, 122.7701732)/1000:.2f}km to Fort Ebey
+{arclength(49.903, 145.246, 48.2248207, 122.7701732)/1000:.0f}km to Fort Ebey
 
 - **Wave height: {wave145['WVHT']*3.28084:.1f}ft
 - **Dominant period: {wave145['DPD']} s
 - **Wave energy: {wave145['wave_energy']:.0f} kJ/m of crest
 - **Wave bearing: {wave145['wave_bearing']:.0f}°
 
-A meter wide of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave145['wave_energy']*2/1350)*2.23694:.1f}mph 
+A meter of wave crest has the same amount of kinetic energy as a prius driving {math.sqrt(wave145['wave_energy']*2/1350)*2.23694:.1f}mph 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
 ---
 
 ## Neah Bay Wave Report:  
-{arclength(48.493, 124.727, 48.2248207, 122.7701732)/1000:.2f}km to Fort Ebey
+{arclength(48.493, 124.727, 48.2248207, 122.7701732)/1000:.0f}km to Fort Ebey
 
 - **Wave height: {wave124['WVHT']*3.28084:.1f}ft
 - **Dominant period: {wave124['DPD']} s
 - **Wave energy: {wave124['wave_energy']:.0f} kJ/m of crest
-A meter wide of wave has the same amount of kinetic energy as a prius driving {math.sqrt(wave124['wave_energy']*2/1350)*2.23694:.1f}mph
 - **Wave bearing: {wave124['wave_bearing']:.0f}°
 - **Wind speed:** {wave124.get('WSPD', 'N/A')} m/s 
+
+A meter wide of wave crest has the same amount of kinetic energy as a prius driving {math.sqrt(wave124['wave_energy']*2/1350)*2.23694:.1f}mph
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
 
@@ -64,7 +65,7 @@ A meter wide of wave has the same amount of kinetic energy as a prius driving {m
 
 
 ## Port Angeles Wave Report: 
-{arclength(48.173, 123.607, 48.2248207, 122.7701732)/1000:.2f}km to Fort Ebey 
+{arclength(48.173, 123.607, 48.2248207, 122.7701732)/1000:.0f}km to Fort Ebey 
 - **Dominant period:** {wave123pa.get('DPD', 'N/A')} s  
 - **Mean direction:** {wave123pa.get('MWD', 'N/A')}°  
 - **Wind speed:** {wave123pa.get('WSPD', 'N/A')} m/s  
@@ -75,7 +76,7 @@ A meter wide of wave has the same amount of kinetic energy as a prius driving {m
 
 
 ## New Dungeness Wave Report: 
-{arclength(48.332, 123.179,48.2248207, 122.7701732)/1000:.2f} km to Fort Ebey 
+{arclength(48.332, 123.179,48.2248207, 122.7701732)/1000:.0f} km to Fort Ebey 
 
 - **Dominant period:** {wave123nd.get('DPD', 'N/A')} s  
 - **Mean direction:** {wave123nd.get('MWD', 'N/A')}°  

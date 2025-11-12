@@ -424,10 +424,10 @@ Summary from New Dungeness Bouy at {local_time}:
   - Average period: {wave123nd['APD']} s
   - Estimated wave energy: {wave123nd['wave_energy']:.2f} kJ/m²
   - Wave bearing: {wave123nd['wave_bearing']:.2f}° EoN
-  - Ebey needs waves from {azy:.2f}° EoN
+  - Ebey needs waves from {azy:.1f}° EoN
 
 
-  - Tide is {closest_row['v']:.2f}m and {tide_status}, expected to change by {tide_change:.2f}m in the next hour 
+  - Tide is {closest_row['v']:.1f}m and {tide_status}, expected to change by {tide_change:.2f}m in the next hour 
   - Current at PT is {current_status}, and moving at {current123[" Velocity_Major"]:.2f} cm/s
   - Wind is currenly {wind_status} at {wave123nd["WSPD"]} m/s, from {wave123nd["WDIR"]}° E of N. 
 
@@ -461,7 +461,7 @@ zoom = subset.sel(
     lon=slice(lon_min, lon_max)
 )
 
-ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 30_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
+ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 30,front_width = 30_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
 rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
 rayz_startz2 = intialise_ray_starts(P1 = (48.332, -123.179), n_rays = 20,front_width = 10000, mean_wave_direction = wave123nd["MWD"], T= wave123nd["DPD"], H = wave123nd["WVHT"])
 
