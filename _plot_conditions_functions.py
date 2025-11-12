@@ -41,7 +41,7 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     local_time = pd.to_datetime(local_time)
 
 # Create the figure
-    fig, ax1 = plt.subplots(figsize=(10,4))
+    fig, ax1 = plt.subplots(figsize=(10,3.5))
 
 # Plot currents on the left y-axis
     ax1.plot(currents['datetime'], currents[' Velocity_Major']/100, color=c1, label='Current Velocity (m/s)')
@@ -69,7 +69,7 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     ax1.legend(lines + lines2, labels + labels2, loc='upper left')
 
     os.makedirs("plots/tidecurrent", exist_ok=True)
-    fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=150)
+    fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
 
 
@@ -93,7 +93,7 @@ def plot_waves(waves, station_name="Ocean_Papa", timezone="America/Los_Angeles")
     df_recent = df[df["datetime"] >= two_days_ago].reset_index(drop=True)
 
     # --- Create figure
-    fig, ax1 = plt.subplots(figsize=(10, 4))
+    fig, ax1 = plt.subplots(figsize=(10, 3.5))
 
     # Plot Wave Height (WVHT)
     ax1.plot(df_recent["datetime"], df_recent["WVHT"], color=c1, linewidth=2, label="Wave Height (m)")
@@ -119,7 +119,7 @@ def plot_waves(waves, station_name="Ocean_Papa", timezone="America/Los_Angeles")
 
     # Save
     os.makedirs("plots/waves", exist_ok=True)
-    fig.savefig(f"plots/waves/{station_name}.png", bbox_inches="tight", dpi=180)
+    fig.savefig(f"plots/waves/{station_name}.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
 
 #neah waves will eb different becasue it is going to plot amount of KJ entering the staight pr. m2
@@ -153,7 +153,7 @@ def plot_neah_waves(waves, timezone="America/Los_Angeles"):
     
     df_recent = df[df['datetime'] >= two_days_ago]
  #Create figure
-    fig, ax1 = plt.subplots(figsize=(10, 4))
+    fig, ax1 = plt.subplots(figsize=(10, 3.5))
 
     # Plot wave height
     ax1.plot(df_recent['datetime'], df_recent['WVHT'], color=c1, label='Wave Height (m)')
@@ -188,7 +188,7 @@ def plot_neah_waves(waves, timezone="America/Los_Angeles"):
 
     
     os.makedirs("plots/waves", exist_ok=True)
-    fig.savefig(f"plots/waves/Neah_Bay.png", bbox_inches="tight", dpi=150)
+    fig.savefig(f"plots/waves/Neah_Bay.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
 
 
@@ -216,7 +216,7 @@ def plot_wind(waves, station_name="Neah Bay", timezone="America/Los_Angeles"):
     df_recent = df[df['datetime'] >= two_days_ago]
     
     #Create figure
-    fig, ax1 = plt.subplots(figsize=(10, 4))
+    fig, ax1 = plt.subplots(figsize=(10, 3.5))
 
     # Plot wave height
     ax1.plot(df_recent['datetime'], df_recent['WSPD'], color=c1, label='Wind Speed (m/s)')
@@ -245,5 +245,5 @@ def plot_wind(waves, station_name="Neah Bay", timezone="America/Los_Angeles"):
 
     
     os.makedirs("plots/wind", exist_ok=True)
-    fig.savefig(f"plots/wind/{station_name}.png", bbox_inches="tight", dpi=150)
+    fig.savefig(f"plots/wind/{station_name}.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
