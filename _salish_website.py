@@ -78,10 +78,9 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## Port Angeles Wave Report: 
 {arclength(48.173, 123.607, 48.2248207, 122.7701732)/1000:.0f}km to Fort Ebey 
+- **Wave height:** {wave123pa['WVHT']*3.28084:.1f}ft
 - **Dominant period:** {wave123pa.get('DPD', 'N/A')} s  
 - **Mean direction:** {wave123pa.get('MWD', 'N/A')}°  
-- **Wind speed:** {wave123pa.get('WSPD', 'N/A')} m/s  
-- **Wind direction:** {wave123pa.get('WDIR', 'N/A')}°  
 - **Energy:** {wave123pa.get('wave_energy', 0):.2f} kJ/m  
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
@@ -89,7 +88,7 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## New Dungeness Wave Report: 
 {arclength(48.332, 123.179,48.2248207, 122.7701732)/1000:.0f} km to Fort Ebey 
-
+- **Wave height:** {wave123nd['WVHT']*3.28084:.1f}ft
 - **Dominant period:** {wave123nd.get('DPD', 'N/A')} s  
 - **Mean direction:** {wave123nd.get('MWD', 'N/A')}°  
 - **Wind speed:** {wave123nd.get('WSPD', 'N/A')} m/s  

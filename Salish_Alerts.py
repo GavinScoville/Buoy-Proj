@@ -84,7 +84,7 @@ tide123 = tide_report(tides123, time123, PacificTime)
 '''Plot that data'''
 ######################################################################
 plot_waves(waves145, station_name="Ocean_Papa", timezone="America/Los_Angeles")
-plot_neah_waves(waves124, timezone="America/Los_Angeles")
+plot_waves(waves124, station_name="Neah_Bay", timezone="America/Los_Angeles")
 plot_waves(waves123pa, station_name="Port_Angelis", timezone="America/Los_Angeles")
 plot_waves(waves123nd, station_name="New_Dungeness", timezone="America/Los_Angeles")
 

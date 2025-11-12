@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-12 15:26 PST
+**Updated:** 2025-11-12 15:35 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -63,10 +63,9 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## Port Angeles Wave Report: 
 62km to Fort Ebey 
+- **Wave height:** 1.6ft
 - **Dominant period:** 13.0 s  
 - **Mean direction:** 304.0°  
-- **Wind speed:** nan m/s  
-- **Wind direction:** nan°  
 - **Energy:** 82.91 kJ/m  
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
@@ -74,7 +73,7 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## New Dungeness Wave Report: 
 33 km to Fort Ebey 
-
+- **Wave height:** 1.0ft
 - **Dominant period:** 3.0 s  
 - **Mean direction:** 263.0°  
 - **Wind speed:** 3.0 m/s  
