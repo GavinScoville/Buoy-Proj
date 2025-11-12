@@ -75,7 +75,7 @@ time124 = wave124["datetime"]  #get the time of the latest wave data
 time123 = wave123nd["datetime"]
                   
 current124=current_report(currents124, time124, PacificTime)
-current123=current_report(currents123, time123, PacificTime)
+current123=current_report(currents123, time124, PacificTime)
 
 tide124 = tide_report(tides124, time124, PacificTime)
 tide123 = tide_report(tides123, time123, PacificTime)

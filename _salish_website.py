@@ -38,10 +38,9 @@ between the rays constant.
 
 ![Wave Map](/plots/maps/Island.png)
 
-This wave map includes waves from both the New Dungeness and Port Angelis Bouys. 
-It is a demonstration of how the underwater masses can create complex and beautiful
-wavescapes as they refracts waves in strange ways. It can be used to see what areas are more likely to have converging wave energy.  
-Coming soon is hopefully some diffraction modeling, and non-linear wave interactions. 
+The rays in the wave map are linear interpolation of the waves from the Port Angelis Bouy to the New Dungeness Bouy.
+They pass over many underwater obsticles, but will only register friction when the depth is less then half the wavelength. 
+
 
 ## Ocean Papa Wave Report:  
 {arclength(49.903, 145.246, 48.2248207, 122.7701732)/1000:.0f}km to Fort Ebey
