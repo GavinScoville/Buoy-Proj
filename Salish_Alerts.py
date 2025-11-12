@@ -14,7 +14,7 @@ from _map_conditions import map_pacific
 from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
 from _salish_website import render_salish_report
 from _some_modeling import predict_pacific_wavepath 
-from _bathymetry import intialise_ray_starts, trace_rays, plot_ray_tracing
+from _bathymetry import intialise_ray_starts, intialise_advanced_starts, trace_rays, plot_ray_tracing
 
 
 
@@ -463,25 +463,24 @@ zoom = subset.sel(
 )
 
 ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 30,front_width = 30_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
-rayz_startz1 = intialise_ray_starts(P1 = (48.23, -123.607), n_rays = 20,front_width = 12000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
-rayz_startz2 = intialise_ray_starts(P1 = (48.332, -123.179), n_rays = 20,front_width = 12000, mean_wave_direction = wave123nd["MWD"], T= wave123nd["DPD"], H = wave123nd["WVHT"])
-
+rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
+                              P2 = (48.332, -123.179),#north end,
+                              n_rays = 30, mean_wave_direction1 = wave123pa["MWD"],
+                              mean_wave_direction2 = wave123nd["MWD"], 
+                              T1 = wave123pa["DPD"],
+                              T2 = wave123nd["DPD"],
+                              H1=wave123pa["WVHT"], H2=wave123nd["WVHT"])
 puget_rays = trace_rays(ray_starts,
                         n_steps=2000, 
                         dt=5)
 
-Island_rays1 = trace_rays(rayz_startz1,
+island_rays = trace_rays(rayz_startz,
                         n_steps=2000, 
                         dt=5)
-Island_rays2 = trace_rays(rayz_startz2,
-                        n_steps=2000, 
-                        dt=5)
-Island_rayz = Island_rays1 + Island_rays2
-
 
 plot_ray_tracing(puget_rays, subset, "Strait") #nice 
 
-plot_ray_tracing(Island_rayz, zoom, "Island")
+plot_ray_tracing(island_rays, zoom, "Island")
 
 ######################################################################
 '''Render the Report!'''

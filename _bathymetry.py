@@ -294,6 +294,74 @@ def intialise_ray_starts(P1,n_rays,front_width, mean_wave_direction, T, H):
     
     return(ray_starts)
 
+
+def intialise_advanced_starts(P1=(48.173, -123.607),
+                              P2 = (48.332, -123.179),
+                              n_rays = 40, mean_wave_direction1 = 255,
+                              mean_wave_direction2 = 245, T1 = 8,
+                              T2 = 6, H1=2, H2=1):
+
+
+    # conversion factors (approx)
+    lat_m = 111_000
+    lon_m = lat_m * np.cos(np.radians(P1[0]))
+
+    azy1 = (np.radians(mean_wave_direction1)+np.pi)%(np.pi*2)
+    azy2 = (np.radians(mean_wave_direction2)+np.pi)%(np.pi*2)
+
+    P1_m = np.array([P1[1] * lon_m, P1[0] * lat_m]) #x, y
+    P2_m = np.array([P2[1] * lon_m, P2[0] * lat_m])#x,y
+
+    d1 = np.array([np.sin(azy1), np.cos(azy1)])#x,y
+    d2 = np.array([np.sin(azy2), np.cos(azy2)])#x,y
+    
+    # Build linear system A * [t1, t2] = b
+    A = np.array([[d1[0], -d2[0]],
+                  [d1[1], -d2[1]]])
+    b = np.array([P2_m[0] - P1_m[0], P2_m[1] - P1_m[1]])
+
+    # Check if lines are parallel
+    det = np.linalg.det(A)
+    if abs(det) < 1e-9:
+        starts = intialise_ray_starts(P1,n_rays,20_000, mean_wave_direction1, T1, H1)  # parallel so just use the basic ray starts 
+        return starts
+    
+    t1, t2 = np.linalg.solve(A, b)
+    intersection = P1_m + t1 * d1
+    intersection2 = P2_m + t2 * d2
+
+    if np.hypot(*(intersection-intersection2)) > 1:
+        starts = intialise_ray_starts(P1,n_rays,20_000, mean_wave_direction1, T1, H1)  # parallel so just use the basic ray starts 
+        return starts
+
+    r1 = np.hypot(*(P1_m-intersection)) #distance between 
+    r2 = np.hypot(*(P2_m-intersection))#distance between 
+
+    delta_azy= (azy2-azy1+np.pi)%(2*np.pi)-np.pi #total number fo degrees we haveto cover
+
+    # create starting points evenly spaced along wave front
+    ray_starts = np.empty((n_rays, 5))  # (lat, lon, azy, T, H)
+    for i in range(n_rays):
+        frac = i / (n_rays-1) #starts at 0, ends at 1
+
+        r_i= (1-frac) * r1 + frac * r2 #weighteted average of the radius i=0 => r1
+        T_i= (1-frac) * T1 + frac * T2
+        H_i = (1-frac)*H1 + frac *H2
+
+        azy = azy1 + frac * delta_azy #direction of that ray. starts at az1 ands at azy2
+
+        #x,y. +x,y
+        P_i = intersection + np.array([np.sin(azy), np.cos(azy)])*r_i * (-1)*np.sign(t1) #t1 is negative when youhvaeto travel opposite the azy to reach the intersection 
+        
+        lat_i = P_i[1]/lat_m
+        lon_i = P_i[0]/lon_m
+
+
+        ray_starts[i] = [lat_i, lon_i, azy, T_i, H_i]
+    
+    return(ray_starts)
+
+
 # ---------------------------------------
 # TRACE MULTIPLE RAYS
 # ---------------------------------------
@@ -509,7 +577,18 @@ def plot_ray_tracing(ray_dfs, subset, name):
     fig.savefig(f"plots/maps/{name}.png", bbox_inches="tight", dpi=200)
 
 
+rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
+                              P2 = (48.332, -123.179),#north end,
+                              n_rays = 30, mean_wave_direction1 = 285,
+                              mean_wave_direction2 = 330, T1 = 8,
+                              T2 = 6, H1=2, H2=1)
+
+Island_rayz = trace_rays(rayz_startz,
+                        n_steps=1000, 
+                        dt=5)
+plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
 """
+
 ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
 rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
 rayz_startz2 = intialise_ray_starts(P1 = (48.332, -123.179), n_rays = 20,front_width = 10000, mean_wave_direction = wave123nd["MWD"], T= wave123nd["DPD"], H = wave123nd["WVHT"])
