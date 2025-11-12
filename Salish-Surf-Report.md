@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-12 12:52 PST
+**Updated:** 2025-11-12 15:26 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -23,20 +23,19 @@ between the rays constant.
 
 ![Wave Map](/plots/maps/Island.png)
 
-This wave map includes waves from both the New Dungeness and Port Angelis Bouys. 
-It is a demonstration of how the underwater masses can create complex and beautiful
-wavescapes as they refracts waves in strange ways. It can be used to see what areas are more likely to have converging wave energy.  
-Coming soon is hopefully some diffraction modeling, and non-linear wave interactions. 
+The rays in the wave map are linear interpolation of the waves from the Port Angelis Bouy to the New Dungeness Bouy.
+They pass over many underwater obsticles, but will only register friction when the depth is less then half the wavelength. 
+
 
 ## Ocean Papa Wave Report:  
 1642km to Fort Ebey
 
-- **Wave height:** 9.8ft
-- **Dominant period:** 13.0 s
-- **Wave energy:** 2985 kJ/m of crest
-- **Wave bearing:** 112°
+- **Wave height:** 10.5ft
+- **Dominant period:** 11.0 s
+- **Wave energy:** 2432 kJ/m of crest
+- **Wave bearing:** 95°
 
-A meter of wave crest has the same amount of kinetic energy as a prius driving 4.7mph 
+A meter of wave crest has the same amount of kinetic energy as a prius driving 4.2mph 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
@@ -45,13 +44,13 @@ A meter of wave crest has the same amount of kinetic energy as a prius driving 4
 ## Neah Bay Wave Report:  
 148km to Fort Ebey
 
-- **Wave height:** 6.2ft
-- **Dominant period:** 13.0 s
-- **Wave energy:** 1197 kJ/m of crest
-- **Wave bearing:** 78°
-- **Wind speed:** 10.0 m/s 
+- **Wave height:** 5.9ft
+- **Dominant period:** 12.0 s
+- **Wave energy:** 916 kJ/m of crest
+- **Wave bearing:** 110°
+- **Wind speed:** 8.0 m/s 
 
-A meter wide of wave crest has the same amount of kinetic energy as a prius driving 3.0mph
+A meter wide of wave crest has the same amount of kinetic energy as a prius driving 2.6mph
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
 
@@ -64,11 +63,11 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## Port Angeles Wave Report: 
 62km to Fort Ebey 
-- **Dominant period:** 12.0 s  
-- **Mean direction:** 295.0°  
+- **Dominant period:** 13.0 s  
+- **Mean direction:** 304.0°  
 - **Wind speed:** nan m/s  
 - **Wind direction:** nan°  
-- **Energy:** 45.21 kJ/m  
+- **Energy:** 82.91 kJ/m  
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
 

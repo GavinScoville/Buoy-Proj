@@ -457,17 +457,20 @@ def trace_rays(ray_starts, n_steps=100, dt=20):
                 J[0] = J[1]
                 J[-1] = J[-2]
 
+            if cs[i] ==0 :
+                lats[i], lons[i], azys[i], L_new, c_new = lats[i], lons[i], azys[i], Ls[i], 0
+            else: 
             # Take a physical step
-            lats[i], lons[i], azys[i], L_new, c_new = step_ray(
-                lats[i], lons[i], azys[i], Ls[i], cs[i], Hs[i], Ts[i], dt
-            )
+                lats[i], lons[i], azys[i], L_new, c_new = step_ray(
+                    lats[i], lons[i], azys[i], Ls[i], cs[i], Hs[i], Ts[i], dt
+                )
 
             # Update L and c
             Ls[i] = L_new
             cs[i] = c_new
 
             val = L0[i]/Ls[i]/J[i]
-            val = max(val, 0)#clamp for num. stability
+            val = abs(val)#clamp for num. stability
             # Recalculate new height using flux conservation and divergence
             Hs[i] =  min(H0[i] * np.sqrt(val), 2*H0[i]) #but also clamp to never be more then 2* the OG amplitude
             #ending simulation when they stop: c
@@ -570,13 +573,11 @@ def plot_ray_tracing(ray_dfs, subset, name):
     ax.set_ylabel("Latitude (°)")
     ax.grid(alpha=0.3)
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    plt.show()
-
     # --- Save
     os.makedirs("plots/maps", exist_ok=True)
     fig.savefig(f"plots/maps/{name}.png", bbox_inches="tight", dpi=200)
 
-
+"""
 rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
                               P2 = (48.332, -123.179),#north end,
                               n_rays = 30, mean_wave_direction1 = 285,
@@ -587,7 +588,7 @@ Island_rayz = trace_rays(rayz_startz,
                         n_steps=1000, 
                         dt=5)
 plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
-"""
+
 
 ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
 rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
