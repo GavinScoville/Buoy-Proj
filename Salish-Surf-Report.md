@@ -2,14 +2,14 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-12 15:35 PST
+**Updated:** 2025-11-12 16:40 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
 
 1,600 km off the coast, Ocean Papa bouy picks up wave data. 
 Using this data we can infer the trajectory of waves as they move across our spherical earth. 
-RIght now this map calculates the azimuth and trajectory of each wave non-euclidean goemetry, 
+Right now this map uses spherical geometry to calculate the azimuth and trajectory of each wave,  
 but it does not account for the coreolis effect. Comming soon... 
 
 ![Wave Map](/plots/maps/Strait.png)
@@ -30,12 +30,12 @@ They pass over many underwater obsticles, but will only register friction when t
 ## Ocean Papa Wave Report:  
 1642km to Fort Ebey
 
-- **Wave height:** 10.5ft
+- **Wave height:** 10.2ft
 - **Dominant period:** 11.0 s
-- **Wave energy:** 2432 kJ/m of crest
-- **Wave bearing:** 95°
+- **Wave energy:** 2282 kJ/m of crest
+- **Wave bearing:** 104°
 
-A meter of wave crest has the same amount of kinetic energy as a prius driving 4.2mph 
+A meter of wave crest has the same amount of kinetic energy as a prius driving 4.1mph 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
@@ -44,13 +44,13 @@ A meter of wave crest has the same amount of kinetic energy as a prius driving 4
 ## Neah Bay Wave Report:  
 148km to Fort Ebey
 
-- **Wave height:** 5.9ft
+- **Wave height:** 6.2ft
 - **Dominant period:** 12.0 s
-- **Wave energy:** 916 kJ/m of crest
-- **Wave bearing:** 110°
-- **Wind speed:** 8.0 m/s 
+- **Wave energy:** 1020 kJ/m of crest
+- **Wave bearing:** 101°
+- **Wind speed:** 9.0 m/s 
 
-A meter wide of wave crest has the same amount of kinetic energy as a prius driving 2.6mph
+A meter wide of wave crest has the same amount of kinetic energy as a prius driving 2.8mph
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
 
@@ -63,10 +63,10 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## Port Angeles Wave Report: 
 62km to Fort Ebey 
-- **Wave height:** 1.6ft
+- **Wave height:** 1.3ft
 - **Dominant period:** 13.0 s  
-- **Mean direction:** 304.0°  
-- **Energy:** 82.91 kJ/m  
+- **Mean direction:** 305.0°  
+- **Energy:** 53.06 kJ/m  
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
 

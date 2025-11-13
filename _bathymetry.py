@@ -413,7 +413,12 @@ def trace_rays(ray_starts, n_steps=100, dt=20):
     lon_m = lat_m * np.cos(np.radians(lats.mean()))
     difx = np.diff(lons) * lon_m
     dify = np.diff(lats) * lat_m
-    spacing0 = np.sqrt(difx**2 + dify**2)
+    spacing0 = np.hypot(difx, dify)
+    spacing0_full = np.empty_like(lats)
+    spacing0_full[1:-1] = (spacing0[:-1] + spacing0[1:]) / 2
+    spacing0_full[0] = spacing0[0]
+    spacing0_full[-1] = spacing0[-1]
+    spacing0 = spacing0_full
 
     # --- storage
     records = [[] for _ in range(n_rays)]
@@ -448,16 +453,21 @@ def trace_rays(ray_starts, n_steps=100, dt=20):
             J_area = abs(dx_du * dy_dv - dx_dv * dy_du)   # |det 2x2|
             '''
             #this isint actually the jacobian becasue I am only scaling a line length 
-            difx = np.diff(lons) * lon_m
-            dify = np.diff(lats) * lat_m
-            spacing = np.sqrt(difx**2 + dify**2)
-            J = np.ones(n_rays)
-            if len(spacing) > 1:
-                J[1:-1] = spacing[1:] / spacing0[1:]
-                J[0] = J[1]
-                J[-1] = J[-2]
+            distances = np.hypot((lats - lats[i]) * lat_m,
+                                (lons - lons[i]) * lon_m)
 
-            if cs[i] ==0 :
+            # ignore the zero-distance self-point
+            distances[i] = np.inf
+
+            nearest_idx = np.argmin(distances)
+            spacing = distances[nearest_idx]
+
+            J = spacing / spacing0[i]
+
+            if J == 0:
+                J = .01
+
+            if cs[i] == 0 :
                 lats[i], lons[i], azys[i], L_new, c_new = lats[i], lons[i], azys[i], Ls[i], 0
             else: 
             # Take a physical step
@@ -469,7 +479,7 @@ def trace_rays(ray_starts, n_steps=100, dt=20):
             Ls[i] = L_new
             cs[i] = c_new
 
-            val = L0[i]/Ls[i]/J[i]
+            val = L0[i] / Ls[i] / J
             val = abs(val)#clamp for num. stability
             # Recalculate new height using flux conservation and divergence
             Hs[i] =  min(H0[i] * np.sqrt(val), 2*H0[i]) #but also clamp to never be more then 2* the OG amplitude
@@ -585,7 +595,7 @@ rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
                               T2 = 6, H1=2, H2=1)
 
 Island_rayz = trace_rays(rayz_startz,
-                        n_steps=1000, 
+                        n_steps=100, 
                         dt=5)
 plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
 

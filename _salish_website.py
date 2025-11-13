@@ -24,7 +24,7 @@ def render_salish_report(wave145, wave124, wave123pa, wave123nd):
 
 1,600 km off the coast, Ocean Papa bouy picks up wave data. 
 Using this data we can infer the trajectory of waves as they move across our spherical earth. 
-RIght now this map calculates the azimuth and trajectory of each wave non-euclidean goemetry, 
+Right now this map uses spherical geometry to calculate the azimuth and trajectory of each wave,  
 but it does not account for the coreolis effect. Comming soon... 
 
 ![Wave Map](/plots/maps/Strait.png)
