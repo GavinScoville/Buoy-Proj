@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-12 16:40 PST
+**Updated:** 2025-11-12 16:47 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
