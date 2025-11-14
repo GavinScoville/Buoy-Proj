@@ -111,7 +111,7 @@ Distance: {arclength(48.173, 123.607, 48.2248207, 122.7701732)/1000:.0f} km to F
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
 
-![Wave Plot](/plots/waves/Port_Angeles.png)
+![Wave Plot](/plots/waves/Port_Angelis.png)
 
 </details>
 
