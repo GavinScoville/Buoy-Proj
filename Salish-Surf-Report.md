@@ -2,91 +2,127 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-13 13:03 PST
+**Updated:** 2025-11-14 14:10 PST
 
 ---
+
+## Pacific Wave Propagation
 ![Wave Map](/plots/maps/pacific.png)
 
-1,600 km off the coast, Ocean Papa bouy picks up wave data. 
-Using this data we can infer the trajectory of waves as they move across our spherical earth. 
-Right now this map uses spherical geometry to calculate the azimuth and trajectory of each wave,  
-but it does not account for the coreolis effect. Comming soon... 
+1,600 km off the coast, the Ocean Papa buoy collects wave data.  
+Using this information, we can infer the trajectory of waves as they travel across the Pacific.  
+This map uses spherical trigonometry to calculate the azimuth and great-circle path of each wave.  
+It does not yet include the Coriolis effect — coming soon.
 
+---
+
+## Strait of Juan de Fuca Refraction
 ![Wave Map](/plots/maps/Strait.png)
 
-At the mouth of the Salish Sea, a Neah Bay bouy gives us monocromatic directional wave data. 
-No other surf models have yet to understand how these directional waves refract across the Strait.
-This ray-tracing diagram is a heuristic model to show how the coastline will bend and refract waves at different 
-wavelengths and directions. Right now there is a cheesy algorythm to predict wave height by holding energy flux
-between the rays constant. 
+At the entrance of the Salish Sea, the Neah Bay buoy provides us basic wave data.  
+No other surf models currently incorporate how these waves refract across the Strait.  
 
+This ray-tracing diagram illustrates how the coastline bends and redirects incoming wave energy.  
+A simple algorithm currently predicts wave height by holding energy flux constant.
 
+---
+
+## Islands Region Refraction
 ![Wave Map](/plots/maps/Island.png)
 
-The rays in the wave map are linear interpolation of the waves from the Port Angelis Bouy to the New Dungeness Bouy.
-They pass over many underwater obsticles, but will only register friction when the depth is less then half the wavelength. 
+This map uses the same model. The rays linearly interpolate between the Port Angeles Buoy  
+and the New Dungeness Buoy. Waves pass over many underwater features but only experience  
+friction and thus refraction when the depth is less than half the wavelength.
 
+---
 
-## Ocean Papa Wave Report:  
-1642km to Fort Ebey
+# Wave Reports
 
-- **Wave height:** 7.5ft
-- **Dominant period:** 10.0 s
-- **Wave energy:** 1038 kJ/m of crest
-- **Wave bearing:** 98°
+## Ocean Papa Wave Report  
+Distance: 1642 km to Fort Ebey
 
-A meter of wave crest has the same amount of kinetic energy as a prius driving 2.8mph 
-![Wave Plot](/plots/waves/Ocean_Papa.png) 
+- **Wave height:** 13.5 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 3992 kJ/m of crest  
+- **Wave bearing:** 90°
+
+A meter of wave crest has the kinetic energy of a Prius traveling  
+**5.4 mph.**
+
+<details>
+<summary><strong>Click to show Ocean Papa plots</strong></summary>
+
+![Wave Plot](/plots/waves/Ocean_Papa.png)
+
+</details>
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
+
 ---
 
-## Neah Bay Wave Report:  
-148km to Fort Ebey
+## Neah Bay Wave Report  
+Distance: 148 km to Fort Ebey
 
-- **Wave height:** 8.2ft
-- **Dominant period:** 11.0 s
-- **Wave energy:** 1484 kJ/m of crest
-- **Wave bearing:** 85°
-- **Wind speed:** 6.0 m/s 
+- **Wave height:** 4.9 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 534 kJ/m of crest  
+- **Wave bearing:** 82°  
+- **Wind speed:** 5.0 m/s
 
-A meter wide of wave crest has the same amount of kinetic energy as a prius driving 3.3mph
+A meter of wave crest has the kinetic energy of a Prius traveling  
+**2.0 mph.**
 
-![Wave Plot](/plots/waves/Neah_Bay.png)
+<details>
+<summary><strong>Click to show Neah Bay plots</strong></summary>
 
-![Wind Plot](/plots/wind/Neah_Bay.png) 
+![Wave Plot](/plots/waves/Neah_Bay.png)  
+![Wind Plot](/plots/wind/Neah_Bay.png)  
+![Tide Plot](/plots/tidecurrent/Neah_Bay.png)
 
-![Tideplot](/plots/tidecurrent/Neah_Bay.png) 
+</details>
 
-- [See Photos](https://www.ndbc.noaa.gov/station_page.php?station=46087)
+- [See Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46087)
 
+---
 
-## Port Angeles Wave Report: 
-62km to Fort Ebey 
-- **Wave height:** 3.9ft
+## Port Angeles Wave Report  
+Distance: 62 km to Fort Ebey
+
+- **Wave height:** 1.3 ft  
 - **Dominant period:** 12.0 s  
-- **Mean direction:** 291.0°  
-- **Energy:** 406.93 kJ/m  
+- **Wave bearing:** 105°  
+- **Energy:** 45.21 kJ/m  
 
-![Wave Plot](/plots/waves/Port_Angelis.png)
+<details>
+<summary><strong>Click to show Port Angeles plot</strong></summary>
 
+![Wave Plot](/plots/waves/Port_Angeles.png)
 
-## New Dungeness Wave Report: 
-33 km to Fort Ebey 
-- **Wave height:** 1.0ft
-- **Dominant period:** 2.0 s  
-- **Mean direction:** 248.0°  
-- **Wind speed:** 10.0 m/s  
-- **Wind direction:** 250.0°  
-- **Energy:** 0.71 kJ/m  
-
-- [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
-
-![Wave Plot](/plots/waves/New_Dungeness.png)
-
-![Wind Plot](/plots/wind/New_Dungeness.png)
-
-![Tideplot](/plots/tidecurrent/New_Dungeness.png)
+</details>
 
 ---
+
+## New Dungeness Wave Report  
+Distance: 33 km to Fort Ebey
+
+- **Wave height:** 1.0 ft  
+- **Dominant period:** 8.0 s  
+- **Wave bearing:** 88°  
+- **Wind speed:** 2.0 m/s  
+- **Wind direction:** 120.0°  
+- **Energy:** 11.30 kJ/m  
+
+<details>
+<summary><strong>Click to show New Dungeness plots</strong></summary>
+
+![Wave Plot](/plots/waves/New_Dungeness.png)  
+![Wind Plot](/plots/wind/New_Dungeness.png)  
+![Tide Plot](/plots/tidecurrent/New_Dungeness.png)
+
+</details>
+
+---
+
 *Report auto-generated from live NOAA buoy data.*
+
+

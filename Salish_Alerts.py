@@ -55,8 +55,8 @@ waves123pa = fetch_and_clean_buoy_data(Port_Angelis)
 waves123nd= fetch_and_clean_buoy_data(New_Dungeness)
 
 #Get those tides and currents: 
-currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
-currents123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
+#currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
+#currents123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
 tides124 = predict_tides(Neah_Bay_Tide,today_str,tomorrow_str, interval="h")
 tides123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
 
@@ -74,8 +74,8 @@ wave123nd = wave_summary(waves123nd, "New Dungeness", PacificTime)
 time124 = wave124["datetime"]  #get the time of the latest wave data 
 time123 = wave123nd["datetime"]
                   
-current124=current_report(currents124, time124, PacificTime)
-current123=current_report(currents123, time124, PacificTime)
+#current124=current_report(currents124, time124, PacificTime)
+#current123=current_report(currents123, time124, PacificTime)
 
 tide124 = tide_report(tides124, time124, PacificTime)
 tide123 = tide_report(tides123, time123, PacificTime)
