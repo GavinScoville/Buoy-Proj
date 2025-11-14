@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-12 16:47 PST
+**Updated:** 2025-11-13 13:03 PST
 
 ---
 ![Wave Map](/plots/maps/pacific.png)
@@ -30,12 +30,12 @@ They pass over many underwater obsticles, but will only register friction when t
 ## Ocean Papa Wave Report:  
 1642km to Fort Ebey
 
-- **Wave height:** 10.2ft
-- **Dominant period:** 11.0 s
-- **Wave energy:** 2282 kJ/m of crest
-- **Wave bearing:** 104°
+- **Wave height:** 7.5ft
+- **Dominant period:** 10.0 s
+- **Wave energy:** 1038 kJ/m of crest
+- **Wave bearing:** 98°
 
-A meter of wave crest has the same amount of kinetic energy as a prius driving 4.1mph 
+A meter of wave crest has the same amount of kinetic energy as a prius driving 2.8mph 
 ![Wave Plot](/plots/waves/Ocean_Papa.png) 
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46246)
@@ -44,13 +44,13 @@ A meter of wave crest has the same amount of kinetic energy as a prius driving 4
 ## Neah Bay Wave Report:  
 148km to Fort Ebey
 
-- **Wave height:** 6.2ft
-- **Dominant period:** 12.0 s
-- **Wave energy:** 1020 kJ/m of crest
-- **Wave bearing:** 101°
-- **Wind speed:** 9.0 m/s 
+- **Wave height:** 8.2ft
+- **Dominant period:** 11.0 s
+- **Wave energy:** 1484 kJ/m of crest
+- **Wave bearing:** 85°
+- **Wind speed:** 6.0 m/s 
 
-A meter wide of wave crest has the same amount of kinetic energy as a prius driving 2.8mph
+A meter wide of wave crest has the same amount of kinetic energy as a prius driving 3.3mph
 
 ![Wave Plot](/plots/waves/Neah_Bay.png)
 
@@ -63,10 +63,10 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 
 ## Port Angeles Wave Report: 
 62km to Fort Ebey 
-- **Wave height:** 1.3ft
-- **Dominant period:** 13.0 s  
-- **Mean direction:** 305.0°  
-- **Energy:** 53.06 kJ/m  
+- **Wave height:** 3.9ft
+- **Dominant period:** 12.0 s  
+- **Mean direction:** 291.0°  
+- **Energy:** 406.93 kJ/m  
 
 ![Wave Plot](/plots/waves/Port_Angelis.png)
 
@@ -74,11 +74,11 @@ A meter wide of wave crest has the same amount of kinetic energy as a prius driv
 ## New Dungeness Wave Report: 
 33 km to Fort Ebey 
 - **Wave height:** 1.0ft
-- **Dominant period:** 3.0 s  
-- **Mean direction:** 263.0°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 220.0°  
-- **Energy:** 1.59 kJ/m  
+- **Dominant period:** 2.0 s  
+- **Mean direction:** 248.0°  
+- **Wind speed:** 10.0 m/s  
+- **Wind direction:** 250.0°  
+- **Energy:** 0.71 kJ/m  
 
 - [Station Page →](https://www.ndbc.noaa.gov/station_page.php?station=46088)
 

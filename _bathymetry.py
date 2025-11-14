@@ -476,8 +476,9 @@ def trace_rays(ray_starts, n_steps=100, dt=20):
                 )
 
             # Update L and c
-            Ls[i] = L_new
             cs[i] = c_new
+            if cs[i] != 0 :
+                Ls[i] = L_new
 
             val = L0[i] / Ls[i] / J
             val = abs(val)#clamp for num. stability
