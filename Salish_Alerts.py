@@ -41,6 +41,8 @@ tomorrow = today + timedelta(days=1)
 tomorrow_str = tomorrow.strftime("%Y%m%d")
 #GMT to PT conversion:
 PacificTime = ZoneInfo("America/Los_Angeles")
+# Midnight today
+today_midnight = pd.Timestamp.now(PacificTime).normalize()
 
 ######################################################################
 '''Pull that data!'''
@@ -55,10 +57,61 @@ waves123pa = fetch_and_clean_buoy_data(Port_Angelis)
 waves123nd= fetch_and_clean_buoy_data(New_Dungeness)
 
 #Get those tides and currents: 
-currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
-currents123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
-tides124 = predict_tides(Neah_Bay_Tide,today_str,tomorrow_str, interval="h")
-tides123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
+try:
+    currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
+    current124=current_report(currents124, today_midnight, PacificTime)
+except Exception as e:
+    print("NOAA tides unavailable — using fallback data")
+
+    historic_path = f"data/historic/current_{Neah_Bay_Current}_historic.csv"
+    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
+    df_today = df_historic[df_historic["datetime"] >= today_midnight]
+    currents124 = df_today
+    current124=current_report(currents124, today_midnight, PacificTime)
+#for dungensess: 
+try:
+    currents123 = predict_currents(New_Dungeness_Current,today_str,tomorrow_str, interval="h")
+    current123=current_report(currents123, today_midnight, PacificTime)
+except Exception as e:
+    print("NOAA currents unavailable — using fallback data")
+
+    historic_path = f"data/historic/current_{New_Dungeness_Current}_historic.csv"
+    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
+    df_today = df_historic[df_historic["datetime"] >= today_midnight]
+    currents123 = df_today
+    current123=current_report(currents123, today_midnight, PacificTime)
+
+
+#for neah tide: 
+try:
+    tides124 = predict_tides(Neah_Bay_Tide,today_str,tomorrow_str, interval="h")
+except Exception as e:
+    print("NOAA tides unavailable — using fallback data")
+
+    historic_path = f"data/historic/current_{Neah_Bay_Tide}_historic.csv"
+    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
+    df_today = df_historic[df_historic["datetime"] >= today_midnight]
+    tides124 = df_today
+
+tide124 = tide_report(tides124, today_midnight, PacificTime)
+
+
+#for Port Townsand tide: 
+try:
+    tides123 = predict_tides(Port_Townsend,today_str,tomorrow_str, interval="h")
+except Exception as e:
+    print("NOAA tides unavailable — using fallback data")
+
+    historic_path = f"data/historic/current_{Port_Townsend}_historic.csv"
+    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
+    df_today = df_historic[df_historic["datetime"] >= today_midnight]
+    tides123 = df_today
+tide123 = tide_report(tides123, today_midnight, PacificTime)
+
 
 ######################################################################
 '''Make a report!'''
@@ -71,14 +124,6 @@ wave124 = wave_summary(waves124, "Neah Bay", PacificTime)
 wave123pa = wave_summary(waves123pa, "Port Angelis", PacificTime)
 wave123nd = wave_summary(waves123nd, "New Dungeness", PacificTime)
 
-time124 = wave124["datetime"]  #get the time of the latest wave data 
-time123 = wave123nd["datetime"]
-                  
-current124=current_report(currents124, time124, PacificTime)
-current123=current_report(currents123, time124, PacificTime)
-
-tide124 = tide_report(tides124, time124, PacificTime)
-tide123 = tide_report(tides123, time123, PacificTime)
 
 ######################################################################
 '''Plot that data'''
@@ -447,7 +492,6 @@ Summary from New Dungeness Bouy at {local_time}:
 ###################################################################### 
 pacific_waves = predict_pacific_wavepath(waves145)
 map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave123nd)
-
 
 #opening bathymetry datasert
 subset = xr.open_dataset("data/gebco_strait_subset.nc")

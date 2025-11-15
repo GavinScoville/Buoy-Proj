@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import os 
 
+
 subset = xr.open_dataset("data/gebco_strait_subset.nc")
 
 # Choose your zoom area (in degrees)
@@ -324,7 +325,7 @@ def intialise_advanced_starts(P1=(48.173, -123.607),
     det = np.linalg.det(A)
     if abs(det) < 1e-9:
         starts = intialise_ray_starts(P1,n_rays,20_000, mean_wave_direction1, T1, H1)  # parallel so just use the basic ray starts 
-        return starts
+        print("parallel waves")
     
     t1, t2 = np.linalg.solve(A, b)
     intersection = P1_m + t1 * d1
@@ -337,28 +338,67 @@ def intialise_advanced_starts(P1=(48.173, -123.607),
     r1 = np.hypot(*(P1_m-intersection)) #distance between 
     r2 = np.hypot(*(P2_m-intersection))#distance between 
 
-    delta_azy= (azy2-azy1+np.pi)%(2*np.pi)-np.pi #total number fo degrees we haveto cover
+    delta_azy= (azy2-azy1+np.pi)%(2*np.pi)-np.pi #total number fo radswe haveto cover
 
     # create starting points evenly spaced along wave front
-    ray_starts = np.empty((n_rays, 5))  # (lat, lon, azy, T, H)
-    for i in range(n_rays):
-        frac = i / (n_rays-1) #starts at 0, ends at 1
 
-        r_i= (1-frac) * r1 + frac * r2 #weighteted average of the radius i=0 => r1
-        T_i= (1-frac) * T1 + frac * T2
-        H_i = (1-frac)*H1 + frac *H2
+    if np.sign(t1) == np.sign(t2):
 
-        azy = azy1 + frac * delta_azy #direction of that ray. starts at az1 ands at azy2
+        ray_starts = np.empty((n_rays, 5))  # (lat, lon, azy, T, H)
 
-        #x,y. +x,y
-        P_i = intersection + np.array([np.sin(azy), np.cos(azy)])*r_i * (-1)*np.sign(t1) #t1 is negative when youhvaeto travel opposite the azy to reach the intersection 
-        
-        lat_i = P_i[1]/lat_m
-        lon_i = P_i[0]/lon_m
+        for i in range(n_rays):
+            frac = i / (n_rays-1) #starts at 0, ends at 1
+
+            r_i= (1-frac) * r1 + frac * r2 #weighteted average of the radius i=0 => r1
+            T_i= (1-frac) * T1 + frac * T2
+            H_i = (1-frac)*H1 + frac *H2
+
+            azy = azy1 + frac * delta_azy #direction of that ray. starts at az1 ands at azy2
+
+            #x,y. +x,y
+            P_i = intersection + np.array([np.sin(abs(azy)), np.cos(abs(azy))])*r_i * (-1)*np.sign(t1) #t1 is negative when youhvaeto travel opposite the azy to reach the intersection 
+            
+            lat_i = P_i[1]/lat_m
+            lon_i = P_i[0]/lon_m
 
 
-        ray_starts[i] = [lat_i, lon_i, azy, T_i, H_i]
-    
+            ray_starts[i] = [lat_i, lon_i, azy, T_i, H_i]
+    else: 
+        print("rays moving in opposite directions")
+        #here is the shared vector: 
+        P_dif = P2_m-P1_m
+        n_rays2=np.int_(n_rays/2)
+        ray_starts = np.empty((n_rays2, 5))  # (lat, lon, azy, T, H)
+        ray_starts2 = np.empty((n_rays2, 5))  # (lat, lon, azy, T, H)
+        for i in range(n_rays2):
+            
+            frac = i / (n_rays2-1) #starts at 0, ends at 1
+
+            P_i= P1_m + P_dif*frac
+            T_i= (1-frac) * T1 
+            H_i = (1-frac) * H1
+
+            azy = azy1 #direction of that ray
+
+            lat_i = P_i[1]/lat_m
+            lon_i = P_i[0]/lon_m
+
+            ray_starts[i] = [lat_i, lon_i, azy, T_i, H_i]   
+
+        for i in range(n_rays2):
+            P_dif = P2_m-P1_m
+            frac = i / (n_rays2-1) #starts at 0, ends at 1
+
+            P_i= P1_m + P_dif*frac
+            T_i= (frac) * T2
+            H_i = (frac) * H2
+
+            azy = azy2 #direction of that ray
+
+            lat_i = P_i[1]/lat_m
+            lon_i = P_i[0]/lon_m
+            ray_starts2[i] = [lat_i, lon_i, azy, T_i, H_i]  
+        ray_starts=np.vstack([ray_starts,ray_starts2])
     return(ray_starts)
 
 
@@ -496,13 +536,6 @@ def trace_rays(ray_starts, n_steps=100, dt=20):
     return ray_dfs
 
 
-import os
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
-import matplotlib.colors as mcolors
-import numpy as np
-
-
 def plot_ray_tracing(ray_dfs, subset, name):
 
     """
@@ -588,11 +621,11 @@ def plot_ray_tracing(ray_dfs, subset, name):
     os.makedirs("plots/maps", exist_ok=True)
     fig.savefig(f"plots/maps/{name}.png", bbox_inches="tight", dpi=200)
 
-"""
+
 rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
                               P2 = (48.332, -123.179),#north end,
-                              n_rays = 30, mean_wave_direction1 = 285,
-                              mean_wave_direction2 = 330, T1 = 8,
+                              n_rays = 30, mean_wave_direction1 = 140,
+                              mean_wave_direction2 = 280, T1 = 8,
                               T2 = 6, H1=2, H2=1)
 
 Island_rayz = trace_rays(rayz_startz,
@@ -600,7 +633,7 @@ Island_rayz = trace_rays(rayz_startz,
                         dt=5)
 plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
 
-
+"""
 ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
 rayz_startz1 = intialise_ray_starts(P1 = (48.173, -123.607), n_rays = 10,front_width = 6000, mean_wave_direction = wave123pa["MWD"], T= wave123pa["DPD"], H = wave123pa["WVHT"])
 rayz_startz2 = intialise_ray_starts(P1 = (48.332, -123.179), n_rays = 20,front_width = 10000, mean_wave_direction = wave123nd["MWD"], T= wave123nd["DPD"], H = wave123nd["WVHT"])
