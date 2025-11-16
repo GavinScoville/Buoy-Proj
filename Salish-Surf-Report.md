@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-16 06:19 PST
+**Updated:** 2025-11-16 06:41 PST
 
 ---
 
