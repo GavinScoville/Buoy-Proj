@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-18 00:54 PST
+**Updated:** 2025-11-18 01:25 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 9.5 ft  
-- **Dominant period:** 11.0 s  
-- **Wave energy:** 1997 kJ/m of crest  
-- **Wave bearing:** 66°
+- **Wave height:** 9.2 ft  
+- **Dominant period:** 10.0 s  
+- **Wave energy:** 1539 kJ/m of crest  
+- **Wave bearing:** 63°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.8 mph.**
+**3.4 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 7.2 ft  
+- **Wave height:** 7.9 ft  
 - **Dominant period:** 11.0 s  
-- **Wave energy:** 1149 kJ/m of crest  
-- **Wave bearing:** 100°  
-- **Wind speed:** 3.0 m/s
+- **Wave energy:** 1368 kJ/m of crest  
+- **Wave bearing:** 101°  
+- **Wind speed:** 4.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.9 mph.**
+**3.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
 - **Dominant period:** 11.0 s  
-- **Wave bearing:** 127°  
+- **Wave bearing:** 120°  
 - **Energy:** 37.99 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 2.0 ft  
-- **Dominant period:** 11.0 s  
-- **Wave bearing:** 43°  
+- **Wave height:** 1.6 ft  
+- **Dominant period:** 7.0 s  
+- **Wave bearing:** 75°  
 - **Wind speed:** 2.0 m/s  
-- **Wind direction:** 260.0°  
-- **Energy:** 85.48 kJ/m  
+- **Wind direction:** 290.0°  
+- **Energy:** 24.04 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
