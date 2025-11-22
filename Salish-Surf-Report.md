@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-22 10:50 PST
+**Updated:** 2025-11-22 11:17 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 13.8 ft  
+- **Wave height:** 14.1 ft  
 - **Dominant period:** 17.0 s  
-- **Wave energy:** 10004 kJ/m of crest  
-- **Wave bearing:** 97°
+- **Wave energy:** 10486 kJ/m of crest  
+- **Wave bearing:** 98°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**8.6 mph.**
+**8.8 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 8.5 ft  
+- **Wave height:** 8.2 ft  
 - **Dominant period:** 14.0 s  
-- **Wave energy:** 2600 kJ/m of crest  
-- **Wave bearing:** 90°  
-- **Wind speed:** 8.0 m/s
+- **Wave energy:** 2404 kJ/m of crest  
+- **Wave bearing:** 99°  
+- **Wind speed:** 7.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**4.4 mph.**
+**4.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 11.0 s  
-- **Wave bearing:** 124°  
-- **Energy:** 237.45 kJ/m  
+- **Wave height:** 3.9 ft  
+- **Dominant period:** 13.0 s  
+- **Wave bearing:** 125°  
+- **Energy:** 477.57 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 282°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 130.0°  
+- **Wave bearing:** 286°  
+- **Wind speed:** 2.0 m/s  
+- **Wind direction:** 120.0°  
 - **Energy:** 1.59 kJ/m  
 
 <details>
