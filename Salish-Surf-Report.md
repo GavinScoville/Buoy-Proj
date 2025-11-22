@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-21 23:52 PST
+**Updated:** 2025-11-22 00:26 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 18.0 ft  
+- **Wave height:** 16.7 ft  
 - **Dominant period:** 17.0 s  
-- **Wave energy:** 17156 kJ/m of crest  
-- **Wave bearing:** 88°
+- **Wave energy:** 14751 kJ/m of crest  
+- **Wave bearing:** 95°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**11.3 mph.**
+**10.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 10.5 ft  
+- **Wave height:** 11.2 ft  
 - **Dominant period:** 11.0 s  
-- **Wave energy:** 2432 kJ/m of crest  
-- **Wave bearing:** 83°  
-- **Wind speed:** 4.0 m/s
+- **Wave energy:** 2745 kJ/m of crest  
+- **Wave bearing:** 84°  
+- **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**4.2 mph.**
+**4.5 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 3.0 ft  
 - **Dominant period:** 11.0 s  
-- **Wave bearing:** 97°  
+- **Wave bearing:** 99°  
 - **Energy:** 192.34 kJ/m  
 
 <details>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
-- **Dominant period:** 8.0 s  
-- **Wave bearing:** 80°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 130.0°  
-- **Energy:** 20.10 kJ/m  
+- **Dominant period:** 9.0 s  
+- **Wave bearing:** 71°  
+- **Wind speed:** 2.0 m/s  
+- **Wind direction:** 160.0°  
+- **Energy:** 25.43 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
