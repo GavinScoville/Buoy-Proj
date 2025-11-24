@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-24 11:53 PST
+**Updated:** 2025-11-24 12:26 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 8.9 ft  
-- **Dominant period:** 6.0 s  
-- **Wave energy:** 515 kJ/m of crest  
-- **Wave bearing:** 334°
+- **Wave height:** 9.2 ft  
+- **Dominant period:** 7.0 s  
+- **Wave energy:** 754 kJ/m of crest  
+- **Wave bearing:** 337°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.0 mph.**
+**2.4 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 5.6 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 1112 kJ/m of crest  
-- **Wave bearing:** 102°  
-- **Wind speed:** 3.0 m/s
+- **Wave height:** 6.6 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 950 kJ/m of crest  
+- **Wave bearing:** 96°  
+- **Wind speed:** 5.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.9 mph.**
+**2.7 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 119°  
+- **Wave bearing:** 106°  
 - **Energy:** 29.85 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 2.6 ft  
+- **Wave height:** 2.0 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 308°  
-- **Wind speed:** 8.0 m/s  
-- **Wind direction:** 140.0°  
-- **Energy:** 20.10 kJ/m  
+- **Wave bearing:** 290°  
+- **Wind speed:** 7.0 m/s  
+- **Wind direction:** 150.0°  
+- **Energy:** 11.30 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
