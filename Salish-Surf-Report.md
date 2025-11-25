@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-25 14:45 PST
+**Updated:** 2025-11-25 14:56 PST
 
 ---
 
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 4.3 ft  
+- **Wave height:** 3.6 ft  
 - **Dominant period:** 4.0 s  
-- **Wave energy:** 53 kJ/m of crest  
-- **Wave bearing:** 307°  
-- **Wind speed:** 10.0 m/s
+- **Wave energy:** 38 kJ/m of crest  
+- **Wave bearing:** 286°  
+- **Wind speed:** 9.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**0.6 mph.**
+**0.5 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
+- **Wave height:** 4.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 276°  
+- **Wave bearing:** 280°  
 - **Wind speed:** 12.0 m/s  
-- **Wind direction:** 100.0°  
-- **Energy:** 31.40 kJ/m  
+- **Wind direction:** 120.0°  
+- **Energy:** 53.06 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
