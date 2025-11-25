@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-25 12:57 PST
+**Updated:** 2025-11-25 13:22 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 14.4 ft  
+- **Wave height:** 15.7 ft  
 - **Dominant period:** 13.0 s  
-- **Wave energy:** 6421 kJ/m of crest  
-- **Wave bearing:** 78°
+- **Wave energy:** 7641 kJ/m of crest  
+- **Wave bearing:** 83°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**6.9 mph.**
+**7.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,10 +63,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 5.2 ft  
+- **Wave height:** 5.6 ft  
 - **Dominant period:** 5.0 s  
-- **Wave energy:** 126 kJ/m of crest  
-- **Wave bearing:** 290°  
+- **Wave energy:** 142 kJ/m of crest  
+- **Wave bearing:** 304°  
 - **Wind speed:** 11.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.6 ft  
-- **Dominant period:** 12.0 s  
-- **Wave bearing:** 120°  
-- **Energy:** 180.86 kJ/m  
+- **Wave height:** 3.0 ft  
+- **Dominant period:** 5.0 s  
+- **Wave bearing:** 238°  
+- **Energy:** 39.74 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
+- **Wave height:** 2.6 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 273°  
+- **Wave bearing:** 274°  
 - **Wind speed:** 11.0 m/s  
-- **Wind direction:** 80.0°  
-- **Energy:** 25.43 kJ/m  
+- **Wind direction:** 90.0°  
+- **Energy:** 20.10 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
