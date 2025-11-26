@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-25 17:43 PST
+**Updated:** 2025-11-25 19:08 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 12.8 ft  
-- **Dominant period:** 11.0 s  
-- **Wave energy:** 3612 kJ/m of crest  
-- **Wave bearing:** 59°
+- **Wave height:** 12.1 ft  
+- **Dominant period:** 15.0 s  
+- **Wave energy:** 6045 kJ/m of crest  
+- **Wave bearing:** 99°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.2 mph.**
+**6.7 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 5.9 ft  
-- **Dominant period:** 9.0 s  
-- **Wave energy:** 515 kJ/m of crest  
-- **Wave bearing:** 43°  
+- **Wave height:** 8.5 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 1605 kJ/m of crest  
+- **Wave bearing:** 48°  
 - **Wind speed:** 9.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.0 mph.**
+**3.4 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 1.6 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 226°  
-- **Energy:** 12.27 kJ/m  
+- **Wave height:** 1.3 ft  
+- **Dominant period:** 4.0 s  
+- **Wave bearing:** 229°  
+- **Energy:** 5.02 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -108,7 +108,7 @@ Distance: 33 km to Fort Ebey
 - **Wave height:** 3.0 ft  
 - **Dominant period:** 4.0 s  
 - **Wave bearing:** 281°  
-- **Wind speed:** 10.0 m/s  
+- **Wind speed:** 9.0 m/s  
 - **Wind direction:** 120.0°  
 - **Energy:** 25.43 kJ/m  
 
