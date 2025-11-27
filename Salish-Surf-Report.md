@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-27 13:52 PST
+**Updated:** 2025-11-27 14:21 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 11.5 ft  
-- **Dominant period:** 10.0 s  
-- **Wave energy:** 2404 kJ/m of crest  
-- **Wave bearing:** 78°
+- **Wave height:** 11.2 ft  
+- **Dominant period:** 9.0 s  
+- **Wave energy:** 1838 kJ/m of crest  
+- **Wave bearing:** 56°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**4.2 mph.**
+**3.7 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 5.2 ft  
-- **Dominant period:** 7.0 s  
-- **Wave energy:** 246 kJ/m of crest  
-- **Wave bearing:** 35°  
-- **Wind speed:** 8.0 m/s
+- **Wave height:** 5.6 ft  
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 363 kJ/m of crest  
+- **Wave bearing:** 29°  
+- **Wind speed:** 9.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.4 mph.**
+**1.6 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 2.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 218°  
+- **Wave bearing:** 223°  
 - **Energy:** 15.39 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 2.6 ft  
+- **Wave height:** 2.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 286°  
+- **Wave bearing:** 295°  
 - **Wind speed:** 7.0 m/s  
-- **Wind direction:** 80.0°  
-- **Energy:** 20.10 kJ/m  
+- **Wind direction:** 60.0°  
+- **Energy:** 15.39 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
