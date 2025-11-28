@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-27 17:41 PST
+**Updated:** 2025-11-27 19:04 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 10.5 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 3939 kJ/m of crest  
-- **Wave bearing:** 90°
+- **Wave height:** 9.8 ft  
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 1130 kJ/m of crest  
+- **Wave bearing:** 32°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.4 mph.**
+**2.9 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 6.9 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 1696 kJ/m of crest  
-- **Wave bearing:** 53°  
-- **Wind speed:** 10.0 m/s
+- **Wave height:** 10.5 ft  
+- **Dominant period:** 13.0 s  
+- **Wave energy:** 3396 kJ/m of crest  
+- **Wave bearing:** 42°  
+- **Wind speed:** 8.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.5 mph.**
+**5.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 2.6 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 211°  
+- **Wave bearing:** 219°  
 - **Energy:** 20.10 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
+- **Wave height:** 2.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 188°  
-- **Wind speed:** 8.0 m/s  
+- **Wave bearing:** 170°  
+- **Wind speed:** 9.0 m/s  
 - **Wind direction:** 360.0°  
-- **Energy:** 2.83 kJ/m  
+- **Energy:** 6.36 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
