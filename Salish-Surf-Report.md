@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-27 15:53 PST
+**Updated:** 2025-11-27 17:41 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 10.8 ft  
-- **Dominant period:** 8.0 s  
-- **Wave energy:** 1368 kJ/m of crest  
-- **Wave bearing:** 42°
+- **Wave height:** 10.5 ft  
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 3939 kJ/m of crest  
+- **Wave bearing:** 90°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.2 mph.**
+**5.4 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 5.6 ft  
-- **Dominant period:** 8.0 s  
-- **Wave energy:** 363 kJ/m of crest  
-- **Wave bearing:** 30°  
+- **Wave height:** 6.9 ft  
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 1696 kJ/m of crest  
+- **Wave bearing:** 53°  
 - **Wind speed:** 10.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.6 mph.**
+**3.5 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
+- **Wave height:** 2.6 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 216°  
-- **Energy:** 25.43 kJ/m  
+- **Wave bearing:** 211°  
+- **Energy:** 20.10 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 268°  
-- **Wind speed:** 7.0 m/s  
-- **Wind direction:** 30.0°  
+- **Wave bearing:** 188°  
+- **Wind speed:** 8.0 m/s  
+- **Wind direction:** 360.0°  
 - **Energy:** 2.83 kJ/m  
 
 <details>
