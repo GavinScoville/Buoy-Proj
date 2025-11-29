@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-11-29 07:40 PST
+**Updated:** 2025-11-29 07:52 PST
 
 ---
 
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.0 ft  
+- **Wave height:** 1.3 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 162°  
-- **Wind speed:** 7.0 m/s  
-- **Wind direction:** 350.0°  
-- **Energy:** 1.59 kJ/m  
+- **Wave bearing:** 183°  
+- **Wind speed:** 6.0 m/s  
+- **Wind direction:** 10.0°  
+- **Energy:** 2.83 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
