@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-12-15 06:47 PST
+**Updated:** 2025-12-15 07:27 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 16.1 ft  
-- **Dominant period:** 11.0 s  
-- **Wave energy:** 5701 kJ/m of crest  
-- **Wave bearing:** 139°
+- **Wave height:** 17.7 ft  
+- **Dominant period:** 12.0 s  
+- **Wave energy:** 8240 kJ/m of crest  
+- **Wave bearing:** 147°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**6.5 mph.**
+**7.8 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 9.8 ft  
-- **Dominant period:** 9.0 s  
-- **Wave energy:** 1431 kJ/m of crest  
-- **Wave bearing:** 48°  
-- **Wind speed:** 15.0 m/s
+- **Wave height:** 10.8 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 2586 kJ/m of crest  
+- **Wave bearing:** 71°  
+- **Wind speed:** 16.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.3 mph.**
+**4.4 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.6 ft  
 - **Dominant period:** 11.0 s  
-- **Wave bearing:** 118°  
+- **Wave bearing:** 113°  
 - **Energy:** 59.36 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
+- **Wave height:** 3.6 ft  
 - **Dominant period:** 5.0 s  
-- **Wave bearing:** 299°  
+- **Wave bearing:** 307°  
 - **Wind speed:** 11.0 m/s  
-- **Wind direction:** 130.0°  
-- **Energy:** 39.74 kJ/m  
+- **Wind direction:** 140.0°  
+- **Energy:** 59.36 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
