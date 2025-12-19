@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-12-18 17:48 PST
+**Updated:** 2025-12-18 19:27 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 15.4 ft  
-- **Dominant period:** 12.0 s  
-- **Wave energy:** 6242 kJ/m of crest  
-- **Wave bearing:** 126°
+- **Wave height:** 14.4 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 4597 kJ/m of crest  
+- **Wave bearing:** 146°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**6.8 mph.**
+**5.8 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -66,8 +66,8 @@ Distance: 148 km to Fort Ebey
 - **Wave height:** 13.5 ft  
 - **Dominant period:** 11.0 s  
 - **Wave energy:** 3992 kJ/m of crest  
-- **Wave bearing:** 63°  
-- **Wind speed:** 14.0 m/s
+- **Wave bearing:** 73°  
+- **Wind speed:** 15.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
 **5.4 mph.**
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 119°  
-- **Energy:** 49.06 kJ/m  
+- **Wave height:** 4.6 ft  
+- **Dominant period:** 6.0 s  
+- **Wave bearing:** 105°  
+- **Energy:** 138.47 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 282°  
-- **Wind speed:** 13.0 m/s  
+- **Wave height:** 4.9 ft  
+- **Dominant period:** 6.0 s  
+- **Wave bearing:** 70°  
+- **Wind speed:** 14.0 m/s  
 - **Wind direction:** 260.0°  
-- **Energy:** 39.74 kJ/m  
+- **Energy:** 158.96 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
