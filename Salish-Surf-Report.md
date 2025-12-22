@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-12-22 12:46 PST
+**Updated:** 2025-12-22 12:58 PST
 
 ---
 
@@ -89,9 +89,9 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.6 ft  
-- **Dominant period:** 4.0 s  
-- **Wave bearing:** 228°  
-- **Energy:** 7.85 kJ/m  
+- **Dominant period:** 5.0 s  
+- **Wave bearing:** 230°  
+- **Energy:** 12.27 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.9 ft  
+- **Wave height:** 4.6 ft  
 - **Dominant period:** 5.0 s  
-- **Wave bearing:** 296°  
-- **Wind speed:** 11.0 m/s  
+- **Wave bearing:** 307°  
+- **Wind speed:** 12.0 m/s  
 - **Wind direction:** 150.0°  
-- **Energy:** 70.65 kJ/m  
+- **Energy:** 96.16 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
