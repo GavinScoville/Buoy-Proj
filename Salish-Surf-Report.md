@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-12-22 06:47 PST
+**Updated:** 2025-12-22 07:25 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 21.0 ft  
-- **Dominant period:** 13.0 s  
-- **Wave energy:** 13584 kJ/m of crest  
-- **Wave bearing:** 167°
+- **Wave height:** 19.4 ft  
+- **Dominant period:** 12.0 s  
+- **Wave energy:** 9837 kJ/m of crest  
+- **Wave bearing:** 174°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**10.0 mph.**
+**8.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 5.9 ft  
+- **Wave height:** 5.6 ft  
 - **Dominant period:** 8.0 s  
-- **Wave energy:** 407 kJ/m of crest  
-- **Wave bearing:** 82°  
-- **Wind speed:** 9.0 m/s
+- **Wave energy:** 363 kJ/m of crest  
+- **Wave bearing:** 62°  
+- **Wind speed:** 8.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.7 mph.**
+**1.6 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -89,9 +89,9 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
-- **Dominant period:** 9.0 s  
-- **Wave bearing:** 125°  
-- **Energy:** 14.31 kJ/m  
+- **Dominant period:** 10.0 s  
+- **Wave bearing:** 124°  
+- **Energy:** 17.66 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 276°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 170.0°  
+- **Wave bearing:** 272°  
+- **Wind speed:** 4.0 m/s  
+- **Wind direction:** 150.0°  
 - **Energy:** 5.02 kJ/m  
 
 <details>
