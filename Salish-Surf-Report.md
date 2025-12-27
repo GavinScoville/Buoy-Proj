@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-12-27 01:54 PST
+**Updated:** 2025-12-27 02:23 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 9.2 ft  
-- **Dominant period:** 7.0 s  
-- **Wave energy:** 754 kJ/m of crest  
-- **Wave bearing:** 38°
+- **Wave height:** 10.8 ft  
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 1368 kJ/m of crest  
+- **Wave bearing:** 54°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.4 mph.**
+**3.2 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -66,8 +66,8 @@ Distance: 148 km to Fort Ebey
 - **Wave height:** 10.8 ft  
 - **Dominant period:** 11.0 s  
 - **Wave energy:** 2586 kJ/m of crest  
-- **Wave bearing:** 98°  
-- **Wind speed:** 8.0 m/s
+- **Wave bearing:** 95°  
+- **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
 **4.4 mph.**
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 4.6 ft  
-- **Dominant period:** 9.0 s  
-- **Wave bearing:** 110°  
-- **Energy:** 311.55 kJ/m  
+- **Wave height:** 4.3 ft  
+- **Dominant period:** 10.0 s  
+- **Wave bearing:** 101°  
+- **Energy:** 331.65 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 2.3 ft  
+- **Wave height:** 2.0 ft  
 - **Dominant period:** 5.0 s  
-- **Wave bearing:** 69°  
-- **Wind speed:** 5.0 m/s  
-- **Wind direction:** 330.0°  
-- **Energy:** 24.04 kJ/m  
+- **Wave bearing:** 78°  
+- **Wind speed:** 4.0 m/s  
+- **Wind direction:** 320.0°  
+- **Energy:** 17.66 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
