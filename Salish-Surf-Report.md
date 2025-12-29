@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2025-12-28 23:55 PST
+**Updated:** 2025-12-29 00:35 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 14.4 ft  
+- **Wave height:** 15.1 ft  
 - **Dominant period:** 11.0 s  
-- **Wave energy:** 4597 kJ/m of crest  
-- **Wave bearing:** 15°
+- **Wave energy:** 5025 kJ/m of crest  
+- **Wave bearing:** 11°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.8 mph.**
+**6.1 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 4.6 ft  
+- **Wave height:** 4.9 ft  
 - **Dominant period:** 11.0 s  
-- **Wave energy:** 465 kJ/m of crest  
-- **Wave bearing:** 87°  
-- **Wind speed:** 7.0 m/s
+- **Wave energy:** 534 kJ/m of crest  
+- **Wave bearing:** 93°  
+- **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.9 mph.**
+**2.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 1.6 ft  
-- **Dominant period:** 7.0 s  
-- **Wave bearing:** 108°  
-- **Energy:** 24.04 kJ/m  
+- **Wave height:** 2.0 ft  
+- **Dominant period:** 11.0 s  
+- **Wave bearing:** 113°  
+- **Energy:** 85.48 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 244°  
+- **Wave bearing:** 266°  
 - **Wind speed:** 4.0 m/s  
-- **Wind direction:** 60.0°  
+- **Wind direction:** 70.0°  
 - **Energy:** 1.59 kJ/m  
 
 <details>
