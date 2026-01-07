@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-07 07:59 PST
+**Updated:** 2026-01-07 08:42 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 20.7 ft  
-- **Dominant period:** 15.0 s  
-- **Wave energy:** 17525 kJ/m of crest  
-- **Wave bearing:** 104°
+- **Wave height:** 22.0 ft  
+- **Dominant period:** 13.0 s  
+- **Wave energy:** 14888 kJ/m of crest  
+- **Wave bearing:** 105°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**11.4 mph.**
+**10.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 9.5 ft  
+- **Wave height:** 10.5 ft  
 - **Dominant period:** 11.0 s  
-- **Wave energy:** 1997 kJ/m of crest  
-- **Wave bearing:** 96°  
-- **Wind speed:** 7.0 m/s
+- **Wave energy:** 2432 kJ/m of crest  
+- **Wave bearing:** 94°  
+- **Wind speed:** 8.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.8 mph.**
+**4.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 12.0 s  
+- **Wave height:** 3.0 ft  
+- **Dominant period:** 11.0 s  
 - **Wave bearing:** 127°  
-- **Energy:** 282.59 kJ/m  
+- **Energy:** 192.34 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
-- **Dominant period:** 8.0 s  
-- **Wave bearing:** 87°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 160.0°  
-- **Energy:** 20.10 kJ/m  
+- **Dominant period:** 3.0 s  
+- **Wave bearing:** 285°  
+- **Wind speed:** 5.0 m/s  
+- **Wind direction:** 130.0°  
+- **Energy:** 2.83 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
