@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-07 11:53 PST
+**Updated:** 2026-01-07 12:29 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 21.0 ft  
-- **Dominant period:** 17.0 s  
-- **Wave energy:** 23230 kJ/m of crest  
-- **Wave bearing:** 104°
+- **Wave height:** 20.0 ft  
+- **Dominant period:** 15.0 s  
+- **Wave energy:** 16430 kJ/m of crest  
+- **Wave bearing:** 105°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**13.1 mph.**
+**11.0 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 10.8 ft  
+- **Wave height:** 11.8 ft  
 - **Dominant period:** 12.0 s  
-- **Wave energy:** 3077 kJ/m of crest  
-- **Wave bearing:** 96°  
-- **Wind speed:** 2.0 m/s
+- **Wave energy:** 3662 kJ/m of crest  
+- **Wave bearing:** 95°  
+- **Wind speed:** 5.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**4.8 mph.**
+**5.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 1.0 ft  
+- **Wave height:** 1.3 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 124°  
-- **Energy:** 29.85 kJ/m  
+- **Wave bearing:** 114°  
+- **Energy:** 53.06 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 3.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 312°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 220.0°  
+- **Wave bearing:** 314°  
+- **Wind speed:** 5.0 m/s  
+- **Wind direction:** 180.0°  
 - **Energy:** 31.40 kJ/m  
 
 <details>
