@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-08 12:49 PST
+**Updated:** 2026-01-08 13:23 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 13.5 ft  
-- **Dominant period:** 8.0 s  
-- **Wave energy:** 2111 kJ/m of crest  
-- **Wave bearing:** 8°
+- **Wave height:** 15.4 ft  
+- **Dominant period:** 9.0 s  
+- **Wave energy:** 3511 kJ/m of crest  
+- **Wave bearing:** 29°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**4.0 mph.**
+**5.1 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 13.1 ft  
-- **Dominant period:** 16.0 s  
-- **Wave energy:** 8038 kJ/m of crest  
-- **Wave bearing:** 74°  
-- **Wind speed:** 5.0 m/s
+- **Wave height:** 12.1 ft  
+- **Dominant period:** 15.0 s  
+- **Wave energy:** 6045 kJ/m of crest  
+- **Wave bearing:** 89°  
+- **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**7.7 mph.**
+**6.7 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.0 ft  
+- **Wave height:** 2.6 ft  
 - **Dominant period:** 14.0 s  
-- **Wave bearing:** 121°  
-- **Energy:** 138.47 kJ/m  
+- **Wave bearing:** 120°  
+- **Energy:** 246.17 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,7 +107,7 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.6 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 60°  
+- **Wave bearing:** 86°  
 - **Wind speed:** 6.0 m/s  
 - **Wind direction:** 280.0°  
 - **Energy:** 82.91 kJ/m  
