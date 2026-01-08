@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-07 21:57 PST
+**Updated:** 2026-01-07 22:38 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 17.4 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 10804 kJ/m of crest  
-- **Wave bearing:** 113°
+- **Wave height:** 15.4 ft  
+- **Dominant period:** 13.0 s  
+- **Wave energy:** 7326 kJ/m of crest  
+- **Wave bearing:** 120°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**8.9 mph.**
+**7.4 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 12.5 ft  
-- **Dominant period:** 16.0 s  
-- **Wave energy:** 7254 kJ/m of crest  
-- **Wave bearing:** 80°  
-- **Wind speed:** 12.0 m/s
+- **Wave height:** 14.4 ft  
+- **Dominant period:** 15.0 s  
+- **Wave energy:** 8548 kJ/m of crest  
+- **Wave bearing:** 88°  
+- **Wind speed:** 14.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**7.3 mph.**
+**8.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 3.3 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 116°  
+- **Wave bearing:** 120°  
 - **Energy:** 331.65 kJ/m  
 
 <details>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
-- **Dominant period:** 13.0 s  
-- **Wave bearing:** 335°  
-- **Wind speed:** 2.0 m/s  
-- **Wind direction:** 270.0°  
-- **Energy:** 29.85 kJ/m  
+- **Dominant period:** 12.0 s  
+- **Wave bearing:** 101°  
+- **Wind speed:** 5.0 m/s  
+- **Wind direction:** 260.0°  
+- **Energy:** 25.43 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
