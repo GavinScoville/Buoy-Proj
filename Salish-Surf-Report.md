@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-07 20:59 PST
+**Updated:** 2026-01-07 21:34 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 16.7 ft  
-- **Dominant period:** 13.0 s  
-- **Wave energy:** 8626 kJ/m of crest  
-- **Wave bearing:** 116°
+- **Wave height:** 17.4 ft  
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 10804 kJ/m of crest  
+- **Wave bearing:** 113°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**8.0 mph.**
+**8.9 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 13.1 ft  
-- **Dominant period:** 15.0 s  
-- **Wave energy:** 7065 kJ/m of crest  
-- **Wave bearing:** 87°  
-- **Wind speed:** 8.0 m/s
+- **Wave height:** 13.5 ft  
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 6466 kJ/m of crest  
+- **Wave bearing:** 91°  
+- **Wind speed:** 9.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**7.2 mph.**
+**6.9 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 3.3 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 114°  
+- **Wave bearing:** 116°  
 - **Energy:** 331.65 kJ/m  
 
 <details>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
-- **Dominant period:** 14.0 s  
-- **Wave bearing:** 51°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 300.0°  
-- **Energy:** 34.62 kJ/m  
+- **Dominant period:** 15.0 s  
+- **Wave bearing:** 139°  
+- **Wind speed:** 2.0 m/s  
+- **Wind direction:** 310.0°  
+- **Energy:** 39.74 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
