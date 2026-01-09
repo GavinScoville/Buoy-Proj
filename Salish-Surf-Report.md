@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-08 23:54 PST
+**Updated:** 2026-01-09 00:33 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 18.4 ft  
-- **Dominant period:** 11.0 s  
-- **Wave energy:** 7447 kJ/m of crest  
-- **Wave bearing:** 22°
+- **Wave height:** 19.4 ft  
+- **Dominant period:** 12.0 s  
+- **Wave energy:** 9837 kJ/m of crest  
+- **Wave bearing:** 26°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**7.4 mph.**
+**8.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -64,13 +64,13 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 148 km to Fort Ebey
 
 - **Wave height:** 9.5 ft  
-- **Dominant period:** 15.0 s  
-- **Wave energy:** 3713 kJ/m of crest  
-- **Wave bearing:** 98°  
+- **Dominant period:** 12.0 s  
+- **Wave energy:** 2377 kJ/m of crest  
+- **Wave bearing:** 88°  
 - **Wind speed:** 7.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.2 mph.**
+**4.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.0 ft  
-- **Dominant period:** 10.0 s  
-- **Wave bearing:** 113°  
-- **Energy:** 70.65 kJ/m  
+- **Wave height:** 2.3 ft  
+- **Dominant period:** 11.0 s  
+- **Wave bearing:** 118°  
+- **Energy:** 116.35 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 15.0 s  
-- **Wave bearing:** 195°  
-- **Wind speed:** 2.0 m/s  
-- **Wind direction:** 150.0°  
+- **Wave bearing:** 43°  
+- **Wind speed:** 1.0 m/s  
+- **Wind direction:** 190.0°  
 - **Energy:** 39.74 kJ/m  
 
 <details>
