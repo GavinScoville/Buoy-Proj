@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-09 06:59 PST
+**Updated:** 2026-01-09 07:33 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 15.7 ft  
-- **Dominant period:** 12.0 s  
-- **Wave energy:** 6511 kJ/m of crest  
-- **Wave bearing:** 21°
+- **Wave height:** 16.1 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 5701 kJ/m of crest  
+- **Wave bearing:** 358°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**6.9 mph.**
+**6.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 8.5 ft  
-- **Dominant period:** 12.0 s  
-- **Wave energy:** 1910 kJ/m of crest  
+- **Wave height:** 8.9 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 1731 kJ/m of crest  
 - **Wave bearing:** 101°  
-- **Wind speed:** 7.0 m/s
+- **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.8 mph.**
+**3.6 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 2.3 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 124°  
+- **Wave bearing:** 117°  
 - **Energy:** 162.51 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.6 ft  
-- **Dominant period:** 9.0 s  
-- **Wave bearing:** 50°  
-- **Wind speed:** 6.0 m/s  
+- **Wave height:** 1.0 ft  
+- **Dominant period:** 3.0 s  
+- **Wave bearing:** 280°  
+- **Wind speed:** 4.0 m/s  
 - **Wind direction:** 130.0°  
-- **Energy:** 39.74 kJ/m  
+- **Energy:** 1.59 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
