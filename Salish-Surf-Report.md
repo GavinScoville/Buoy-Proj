@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-09 09:03 PST
+**Updated:** 2026-01-09 09:40 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 16.7 ft  
-- **Dominant period:** 12.0 s  
-- **Wave energy:** 7350 kJ/m of crest  
-- **Wave bearing:** 22°
+- **Wave height:** 14.8 ft  
+- **Dominant period:** 13.0 s  
+- **Wave energy:** 6716 kJ/m of crest  
+- **Wave bearing:** 29°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**7.4 mph.**
+**7.1 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -64,13 +64,13 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 148 km to Fort Ebey
 
 - **Wave height:** 7.9 ft  
-- **Dominant period:** 10.0 s  
-- **Wave energy:** 1130 kJ/m of crest  
-- **Wave bearing:** 101°  
-- **Wind speed:** 8.0 m/s
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 2215 kJ/m of crest  
+- **Wave bearing:** 99°  
+- **Wind speed:** 7.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.9 mph.**
+**4.1 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.3 ft  
-- **Dominant period:** 13.0 s  
-- **Wave bearing:** 120°  
-- **Energy:** 162.51 kJ/m  
+- **Wave height:** 2.0 ft  
+- **Dominant period:** 12.0 s  
+- **Wave bearing:** 115°  
+- **Energy:** 101.73 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 260°  
-- **Wind speed:** 5.0 m/s  
-- **Wind direction:** 130.0°  
+- **Wave bearing:** 242°  
+- **Wind speed:** 4.0 m/s  
+- **Wind direction:** 140.0°  
 - **Energy:** 1.59 kJ/m  
 
 <details>
