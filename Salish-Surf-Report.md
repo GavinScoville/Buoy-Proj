@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-10 13:53 PST
+**Updated:** 2026-01-10 14:22 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 25.3 ft  
-- **Dominant period:** 13.0 s  
-- **Wave energy:** 19663 kJ/m of crest  
-- **Wave bearing:** 40°
+- **Wave height:** 24.3 ft  
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 21063 kJ/m of crest  
+- **Wave bearing:** 74°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**12.1 mph.**
+**12.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 12.5 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 5554 kJ/m of crest  
-- **Wave bearing:** 62°  
-- **Wind speed:** 8.0 m/s
+- **Wave height:** 12.1 ft  
+- **Dominant period:** 11.0 s  
+- **Wave energy:** 3251 kJ/m of crest  
+- **Wave bearing:** 58°  
+- **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**6.4 mph.**
+**4.9 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -89,9 +89,9 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.6 ft  
-- **Dominant period:** 13.0 s  
-- **Wave bearing:** 126°  
-- **Energy:** 82.91 kJ/m  
+- **Dominant period:** 12.0 s  
+- **Wave bearing:** 127°  
+- **Energy:** 70.65 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 311°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 140.0°  
+- **Wave bearing:** 308°  
+- **Wind speed:** 2.0 m/s  
+- **Wind direction:** 100.0°  
 - **Energy:** 2.83 kJ/m  
 
 <details>
