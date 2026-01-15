@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-14 17:50 PST
+**Updated:** 2026-01-14 19:43 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 11.8 ft  
-- **Dominant period:** 13.0 s  
-- **Wave energy:** 4298 kJ/m of crest  
-- **Wave bearing:** 357°
+- **Wave height:** 11.2 ft  
+- **Dominant period:** 10.0 s  
+- **Wave energy:** 2269 kJ/m of crest  
+- **Wave bearing:** 35°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.6 mph.**
+**4.1 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 11.2 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 4446 kJ/m of crest  
-- **Wave bearing:** 74°  
-- **Wind speed:** 5.0 m/s
+- **Wave height:** 10.5 ft  
+- **Dominant period:** 13.0 s  
+- **Wave energy:** 3396 kJ/m of crest  
+- **Wave bearing:** 69°  
+- **Wind speed:** 4.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.7 mph.**
+**5.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 130°  
+- **Wave bearing:** 115°  
 - **Energy:** 53.06 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.0 ft  
+- **Wave height:** 1.6 ft  
 - **Dominant period:** 12.0 s  
-- **Wave bearing:** 61°  
-- **Wind speed:** 1.0 m/s  
-- **Wind direction:** 130.0°  
-- **Energy:** 25.43 kJ/m  
+- **Wave bearing:** 73°  
+- **Wind speed:** 0.0 m/s  
+- **Wind direction:** 350.0°  
+- **Energy:** 70.65 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
