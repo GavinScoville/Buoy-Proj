@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-01-26 15:47 PST
+**Updated:** 2026-01-26 17:58 PST
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 12.5 ft  
-- **Dominant period:** 10.0 s  
-- **Wave energy:** 2834 kJ/m of crest  
-- **Wave bearing:** 354°
+- **Wave height:** 13.8 ft  
+- **Dominant period:** 10 s  
+- **Wave energy:** 3462 kJ/m of crest  
+- **Wave bearing:** 358°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**4.6 mph.**
+**5.1 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 10.0 s  
-- **Wave energy:** 196 kJ/m of crest  
-- **Wave bearing:** 80°  
-- **Wind speed:** 9.0 m/s
+- **Wave height:** 3.6 ft  
+- **Dominant period:** 14.0 s  
+- **Wave energy:** 465 kJ/m of crest  
+- **Wave bearing:** 28°  
+- **Wind speed:** 10.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.2 mph.**
+**1.9 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 10.0 s  
-- **Wave bearing:** 104°  
+- **Wave bearing:** 111°  
 - **Energy:** 17.66 kJ/m  
 
 <details>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
+- **Wave height:** 1.0 ft  
 - **Dominant period:** 9.0 s  
-- **Wave bearing:** 61°  
+- **Wave bearing:** 12°  
 - **Wind speed:** 3.0 m/s  
-- **Wind direction:** 80.0°  
-- **Energy:** 25.43 kJ/m  
+- **Wind direction:** 70.0°  
+- **Energy:** 14.31 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
