@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-02-01 15:27 PST
+**Updated:** 2026-02-01 15:50 PST
 
 ---
 
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 13.0 s  
-- **Wave bearing:** 119°  
+- **Wave bearing:** 120°  
 - **Energy:** 29.85 kJ/m  
 
 <details>
