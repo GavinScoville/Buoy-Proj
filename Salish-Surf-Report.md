@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-03-16 13:23 PDT
+**Updated:** 2026-03-16 14:07 PDT
 
 ---
 
@@ -66,7 +66,7 @@ Distance: 148 km to Fort Ebey
 - **Wave height:** 6.6 ft  
 - **Dominant period:** 8.0 s  
 - **Wave energy:** 502 kJ/m of crest  
-- **Wave bearing:** 55°  
+- **Wave bearing:** 54°  
 - **Wind speed:** 4.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 273°  
+- **Wave bearing:** 281°  
 - **Wind speed:** 1.0 m/s  
-- **Wind direction:** 300.0°  
+- **Wind direction:** 170.0°  
 - **Energy:** 5.02 kJ/m  
 
 <details>
