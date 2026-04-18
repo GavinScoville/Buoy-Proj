@@ -56,8 +56,8 @@ waves124 = fetch_and_clean_buoy_data(Neah_Bay)
 waves123pa = fetch_and_clean_buoy_data(Port_Angelis)
 waves123nd= fetch_and_clean_buoy_data(New_Dungeness)
 
-#Get those tides and currents: 
-try:
+#GETTING THOSE TIDES AND CURRENTS 
+try: #we haveto do this becasue the NOAA API is often down, especially aorund the hour mark
     currents124 = predict_currents(Neah_Bay_Current,today_str,tomorrow_str, interval="h")
     current124=current_report(currents124, today_midnight, PacificTime)
 except Exception as e:
