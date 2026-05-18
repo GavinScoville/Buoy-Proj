@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-05-18 13:48 PDT
+**Updated:** 2026-05-18 16:20 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 11.2 ft  
+- **Wave height:** 8.2 ft  
 - **Dominant period:** 13 s  
-- **Wave energy:** 3834 kJ/m of crest  
-- **Wave bearing:** 99°
+- **Wave energy:** 2073 kJ/m of crest  
+- **Wave bearing:** 91°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.3 mph.**
+**3.9 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,11 +63,11 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 4.9 ft  
-- **Dominant period:** 16.0 s  
+- **Wave height:** 5.2 ft  
+- **Dominant period:** 15.0 s  
 - **Wave energy:** 1130 kJ/m of crest  
-- **Wave bearing:** 61°  
-- **Wind speed:** 4.0 m/s
+- **Wave bearing:** 94°  
+- **Wind speed:** 5.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
 **2.9 mph.**
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.3 ft  
-- **Dominant period:** 9.0 s  
-- **Wave bearing:** 114°  
-- **Energy:** 77.89 kJ/m  
+- **Wave height:** 3.6 ft  
+- **Dominant period:** 4.0 s  
+- **Wave bearing:** 116°  
+- **Energy:** 37.99 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 2.6 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 64°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 240.0°  
-- **Energy:** 31.40 kJ/m  
+- **Dominant period:** 3.0 s  
+- **Wave bearing:** 72°  
+- **Wind speed:** 5.0 m/s  
+- **Wind direction:** 280.0°  
+- **Energy:** 11.30 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
