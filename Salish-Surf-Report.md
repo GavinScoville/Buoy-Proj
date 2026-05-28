@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-05-28 00:45 PDT
+**Updated:** 2026-05-28 04:26 PDT
 
 ---
 
@@ -42,12 +42,12 @@ friction and thus refraction when the depth is less than half the wavelength.
 Distance: 1642 km to Fort Ebey
 
 - **Wave height:** 11.8 ft  
-- **Dominant period:** 14 s  
-- **Wave energy:** 4985 kJ/m of crest  
-- **Wave bearing:** 85°
+- **Dominant period:** 13 s  
+- **Wave energy:** 4298 kJ/m of crest  
+- **Wave bearing:** 95°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**6.1 mph.**
+**5.6 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 7.2 ft  
-- **Dominant period:** 19.0 s  
-- **Wave energy:** 3429 kJ/m of crest  
-- **Wave bearing:** 110°  
-- **Wind speed:** 3.0 m/s
+- **Wave height:** 6.9 ft  
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 554 kJ/m of crest  
+- **Wave bearing:** 105°  
+- **Wind speed:** 0.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.0 mph.**
+**2.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.3 ft  
-- **Dominant period:** 8.0 s  
-- **Wave bearing:** 106°  
-- **Energy:** 61.54 kJ/m  
+- **Wave height:** 3.3 ft  
+- **Dominant period:** 9.0 s  
+- **Wave bearing:** 114°  
+- **Energy:** 158.96 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 75°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 240.0°  
+- **Wave bearing:** 76°  
+- **Wind speed:** 3.0 m/s  
+- **Wind direction:** 250.0°  
 - **Energy:** 1.59 kJ/m  
 
 <details>
