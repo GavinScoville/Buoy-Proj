@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-06-08 21:38 PDT
+**Updated:** 2026-06-09 01:23 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 6.6 ft  
-- **Dominant period:** 8 s  
-- **Wave energy:** 502 kJ/m of crest  
-- **Wave bearing:** 57°
+- **Wave height:** 7.2 ft  
+- **Dominant period:** 10 s  
+- **Wave energy:** 950 kJ/m of crest  
+- **Wave bearing:** 40°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.9 mph.**
+**2.7 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -64,13 +64,13 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 148 km to Fort Ebey
 
 - **Wave height:** 3.9 ft  
-- **Dominant period:** 7.0 s  
-- **Wave energy:** 138 kJ/m of crest  
-- **Wave bearing:** 34°  
-- **Wind speed:** 0.0 m/s
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 181 kJ/m of crest  
+- **Wave bearing:** 24°  
+- **Wind speed:** 7.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.0 mph.**
+**1.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 2.0 ft  
+- **Wave height:** 1.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 251°  
-- **Energy:** 11.30 kJ/m  
+- **Wave bearing:** 242°  
+- **Energy:** 5.02 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 288°  
-- **Wind speed:** 4.0 m/s  
-- **Wind direction:** 70.0°  
+- **Wave bearing:** 201°  
+- **Wind speed:** 6.0 m/s  
+- **Wind direction:** 340.0°  
 - **Energy:** 1.59 kJ/m  
 
 <details>
