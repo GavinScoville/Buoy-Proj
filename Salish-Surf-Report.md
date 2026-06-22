@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-06-22 06:08 PDT
+**Updated:** 2026-06-22 10:52 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 4.6 ft  
+- **Wave height:** 3.9 ft  
 - **Dominant period:** 15 s  
-- **Wave energy:** 865 kJ/m of crest  
-- **Wave bearing:** 16°
+- **Wave energy:** 636 kJ/m of crest  
+- **Wave bearing:** 358°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.5 mph.**
+**2.2 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,10 +63,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 8.0 s  
-- **Wave energy:** 126 kJ/m of crest  
-- **Wave bearing:** 104°  
+- **Wave height:** 3.9 ft  
+- **Dominant period:** 7.0 s  
+- **Wave energy:** 138 kJ/m of crest  
+- **Wave bearing:** 117°  
 - **Wind speed:** 2.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
@@ -89,9 +89,9 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.6 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 96°  
-- **Energy:** 12.27 kJ/m  
+- **Dominant period:** 8.0 s  
+- **Wave bearing:** 111°  
+- **Energy:** 31.40 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 2.0 ft  
-- **Dominant period:** 6.0 s  
-- **Wave bearing:** 52°  
-- **Wind speed:** 5.0 m/s  
-- **Wind direction:** 270.0°  
-- **Energy:** 25.43 kJ/m  
+- **Wave height:** 1.6 ft  
+- **Dominant period:** 5.0 s  
+- **Wave bearing:** 78°  
+- **Wind speed:** 4.0 m/s  
+- **Wind direction:** 260.0°  
+- **Energy:** 12.27 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
