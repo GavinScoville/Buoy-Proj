@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-06-28 14:03 PDT
+**Updated:** 2026-06-28 15:16 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 4.9 ft  
-- **Dominant period:** 11 s  
-- **Wave energy:** 534 kJ/m of crest  
-- **Wave bearing:** 83°
+- **Wave height:** 4.6 ft  
+- **Dominant period:** 9 s  
+- **Wave energy:** 312 kJ/m of crest  
+- **Wave bearing:** 87°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.0 mph.**
+**1.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -64,13 +64,13 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 148 km to Fort Ebey
 
 - **Wave height:** 6.9 ft  
-- **Dominant period:** 9.0 s  
-- **Wave energy:** 701 kJ/m of crest  
-- **Wave bearing:** 86°  
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 554 kJ/m of crest  
+- **Wave bearing:** 82°  
 - **Wind speed:** 2.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.3 mph.**
+**2.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 5.2 ft  
-- **Dominant period:** 9.0 s  
-- **Wave bearing:** 112°  
-- **Energy:** 406.93 kJ/m  
+- **Wave height:** 4.3 ft  
+- **Dominant period:** 8.0 s  
+- **Wave bearing:** 113°  
+- **Energy:** 212.26 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.6 ft  
+- **Wave height:** 2.3 ft  
 - **Dominant period:** 8.0 s  
-- **Wave bearing:** 63°  
+- **Wave bearing:** 67°  
 - **Wind speed:** 2.0 m/s  
 - **Wind direction:** 200.0°  
-- **Energy:** 151.97 kJ/m  
+- **Energy:** 61.54 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
