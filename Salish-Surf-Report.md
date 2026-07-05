@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-07-04 16:46 PDT
+**Updated:** 2026-07-04 18:28 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 6.2 ft  
+- **Wave height:** 6.9 ft  
 - **Dominant period:** 11 s  
-- **Wave energy:** 857 kJ/m of crest  
-- **Wave bearing:** 99°
+- **Wave energy:** 1047 kJ/m of crest  
+- **Wave bearing:** 94°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.5 mph.**
+**2.8 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -66,8 +66,8 @@ Distance: 148 km to Fort Ebey
 - **Wave height:** 3.0 ft  
 - **Dominant period:** 8.0 s  
 - **Wave energy:** 102 kJ/m of crest  
-- **Wave bearing:** 107°  
-- **Wind speed:** 4.0 m/s
+- **Wave bearing:** 99°  
+- **Wind speed:** 3.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
 **0.9 mph.**
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 108°  
-- **Energy:** 39.74 kJ/m  
+- **Wave height:** 3.6 ft  
+- **Dominant period:** 8.0 s  
+- **Wave bearing:** 112°  
+- **Energy:** 151.97 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 90°  
-- **Wind speed:** 6.0 m/s  
-- **Wind direction:** 230.0°  
-- **Energy:** 39.74 kJ/m  
+- **Wave height:** 3.3 ft  
+- **Dominant period:** 4.0 s  
+- **Wave bearing:** 77°  
+- **Wind speed:** 10.0 m/s  
+- **Wind direction:** 260.0°  
+- **Energy:** 31.40 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
