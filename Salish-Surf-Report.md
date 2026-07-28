@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-07-27 21:29 PDT
+**Updated:** 2026-07-28 00:18 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 5.9 ft  
-- **Dominant period:** 8 s  
-- **Wave energy:** 407 kJ/m of crest  
-- **Wave bearing:** 115°
+- **Wave height:** 5.6 ft  
+- **Dominant period:** 20 s  
+- **Wave energy:** 2269 kJ/m of crest  
+- **Wave bearing:** 4°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.7 mph.**
+**4.1 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 2.3 ft  
-- **Dominant period:** 19.0 s  
-- **Wave energy:** 347 kJ/m of crest  
-- **Wave bearing:** 43°  
+- **Wave height:** 3.0 ft  
+- **Dominant period:** 17.0 s  
+- **Wave energy:** 459 kJ/m of crest  
+- **Wave bearing:** 60°  
 - **Wind speed:** 2.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.6 mph.**
+**1.8 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
+- **Wave height:** 1.0 ft  
 - **Dominant period:** 9.0 s  
-- **Wave bearing:** 126°  
-- **Energy:** 25.43 kJ/m  
+- **Wave bearing:** 125°  
+- **Energy:** 14.31 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -107,9 +107,9 @@ Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 74°  
-- **Wind speed:** 5.0 m/s  
-- **Wind direction:** 250.0°  
+- **Wave bearing:** 71°  
+- **Wind speed:** 4.0 m/s  
+- **Wind direction:** 240.0°  
 - **Energy:** 1.59 kJ/m  
 
 <details>
