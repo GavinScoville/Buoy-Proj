@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-08-16 17:00 PDT
+**Updated:** 2026-08-16 18:50 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 4.6 ft  
+- **Wave height:** 6.9 ft  
 - **Dominant period:** 17 s  
-- **Wave energy:** 1112 kJ/m of crest  
-- **Wave bearing:** 16°
+- **Wave energy:** 2501 kJ/m of crest  
+- **Wave bearing:** 12°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.9 mph.**
+**4.3 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,10 +63,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 2.6 ft  
-- **Dominant period:** 14.0 s  
+- **Wave height:** 2.3 ft  
+- **Dominant period:** 16.0 s  
 - **Wave energy:** 246 kJ/m of crest  
-- **Wave bearing:** 45°  
+- **Wave bearing:** 30°  
 - **Wind speed:** 3.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
-- **Dominant period:** 7.0 s  
+- **Wave height:** 1.6 ft  
+- **Dominant period:** 3.0 s  
 - **Wave bearing:** 129°  
-- **Energy:** 15.39 kJ/m  
+- **Energy:** 4.42 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
+- **Wave height:** 1.6 ft  
 - **Dominant period:** 3.0 s  
-- **Wave bearing:** 85°  
-- **Wind speed:** 6.0 m/s  
+- **Wave bearing:** 76°  
+- **Wind speed:** 7.0 m/s  
 - **Wind direction:** 250.0°  
-- **Energy:** 2.83 kJ/m  
+- **Energy:** 4.42 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
