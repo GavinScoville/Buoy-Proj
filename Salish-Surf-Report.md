@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-08-18 05:48 PDT
+**Updated:** 2026-08-18 06:44 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 6.2 ft  
-- **Dominant period:** 10 s  
-- **Wave energy:** 708 kJ/m of crest  
-- **Wave bearing:** 80°
+- **Wave height:** 6.9 ft  
+- **Dominant period:** 11 s  
+- **Wave energy:** 1047 kJ/m of crest  
+- **Wave bearing:** 71°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**2.3 mph.**
+**2.8 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 15.0 s  
-- **Wave energy:** 442 kJ/m of crest  
-- **Wave bearing:** 47°  
-- **Wind speed:** 3.0 m/s
+- **Wave height:** 3.6 ft  
+- **Dominant period:** 7.0 s  
+- **Wave energy:** 116 kJ/m of crest  
+- **Wave bearing:** 90°  
+- **Wind speed:** 1.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.8 mph.**
+**0.9 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -90,7 +90,7 @@ Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.3 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 105°  
+- **Wave bearing:** 116°  
 - **Energy:** 5.02 kJ/m  
 
 <details>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 2.6 ft  
-- **Dominant period:** 5.0 s  
-- **Wave bearing:** 79°  
-- **Wind speed:** 6.0 m/s  
-- **Wind direction:** 230.0°  
-- **Energy:** 31.40 kJ/m  
+- **Dominant period:** 4.0 s  
+- **Wave bearing:** 67°  
+- **Wind speed:** 5.0 m/s  
+- **Wind direction:** 250.0°  
+- **Energy:** 20.10 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
