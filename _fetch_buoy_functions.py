@@ -1,9 +1,48 @@
 import os
+import glob
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
 from io import StringIO
+
+
+def _write_historic_partitions(df, key):
+    """
+    Append df to monthly Parquet partitions under data/historic/{key}/YYYY-MM.parquet.
+    Only the month(s) present in df are read/rewritten, so months that are done
+    accumulating data stay untouched and git doesn't have to re-store the whole
+    history on every run.
+    """
+    if df is None or df.empty or "datetime" not in df:
+        return
+    base_dir = f"data/historic/{key}"
+    os.makedirs(base_dir, exist_ok=True)
+    df = df.copy()
+    df["datetime"] = pd.to_datetime(df["datetime"])
+    for month, month_df in df.groupby(df["datetime"].dt.to_period("M")):
+        path = f"{base_dir}/{month}.parquet"
+        if os.path.exists(path):
+            combined = pd.concat([pd.read_parquet(path), month_df], ignore_index=True)
+        else:
+            combined = month_df
+        combined = combined.drop_duplicates(subset=["datetime"]).sort_values("datetime")
+        combined.to_parquet(path, index=False)
+    print(f"Historic data updated under {base_dir}/")
+
+
+def read_recent_historic(key, months_back=1):
+    """
+    Load the most recent monthly historic partitions written by
+    _write_historic_partitions, for use as a fallback when the live NOAA
+    API is unavailable. Returns an empty DataFrame if nothing is stored yet.
+    """
+    base_dir = f"data/historic/{key}"
+    paths = sorted(glob.glob(f"{base_dir}/*.parquet"))[-(months_back + 1):]
+    if not paths:
+        return pd.DataFrame()
+    return pd.concat([pd.read_parquet(p) for p in paths], ignore_index=True).sort_values("datetime")
+
 
 def fetch_and_clean_buoy_data(buoy_id):
     """
@@ -73,24 +112,9 @@ def fetch_and_clean_buoy_data(buoy_id):
     df_clean.to_csv(clean_path, index=False)
     print(f"Cleaned data saved to {clean_path}")
 
-    # Merge with old data to create longer and longer df: 
-    historic_path = f"data/historic/buoy_{buoy_id}_historic.csv"
-     # Save raw
-    try:
-        df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
-    except FileNotFoundError:
-        df_historic = pd.DataFrame()
+    # Append to monthly-partitioned historic store (for model training later)
+    _write_historic_partitions(df_clean, f"buoy_{buoy_id}")
 
-        # Combine old + new data
-    df_combined = pd.concat([df_historic, df_clean], ignore_index=True)
-    # Remove duplicates (e.g., based on timestamp or ID)
-    df_combined = df_combined.drop_duplicates(subset=["datetime"])
-    # Sort if needed
-    df_combined = df_combined.sort_values("datetime")
-    # Save historic
-    df_combined.to_csv(historic_path, index=False)
-    print(f"Historic data updated to {historic_path}")
-    
     return df_clean
 
 
@@ -120,23 +144,8 @@ def predict_tides(station, begin_date, end_date, interval):
     df["v"] = df["v"].astype(float)       # convert tide height to float
 
 
-    # Merge with old data to create longer and longer df: 
-    historic_path = f"data/historic/tide_{station}_historic.csv"
-     # Save raw
-    try:
-        df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
-    except FileNotFoundError:
-        df_historic = pd.DataFrame()
-
-    # Combine old + new data
-    df_combined = pd.concat([df_historic, df], ignore_index=True)
-    # Remove duplicates (e.g., based on timestamp or ID)
-    df_combined = df_combined.drop_duplicates(subset=["datetime"])
-    # Sort if needed
-    df_combined = df_combined.sort_values("datetime")
-    # Save historic
-    df_combined.to_csv(historic_path, index=False)
-    print(f"Historic Tides updated to {historic_path}")
+    # Append to monthly-partitioned historic store
+    _write_historic_partitions(df, f"tide_{station}")
 
     return df
 
@@ -186,22 +195,8 @@ def predict_currents(station, begin_date, end_date, interval):
 
 
 
-    historic_path = f"data/historic/current_{station}_historic.csv"
-     # get old data
-    try:
-        df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
-    except FileNotFoundError:
-        df_historic = pd.DataFrame()
-
-    # Combine that old n new data
-    df_combined = pd.concat([df_historic, df], ignore_index=True)
-    # Remove duplicates 
-    df_combined = df_combined.drop_duplicates(subset=["datetime"])
-    # Sort if needed
-    df_combined = df_combined.sort_values("datetime")
-    # Save historic
-    df_combined.to_csv(historic_path, index=False)
-    print(f"Historic Currents updated to {historic_path}")
+    # Append to monthly-partitioned historic store
+    _write_historic_partitions(df, f"current_{station}")
 
     return df
 

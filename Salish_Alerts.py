@@ -7,7 +7,7 @@ import os
 import xarray as xr
 
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents,predict_tides
+from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents, predict_tides, read_recent_historic
 from _geodesy import arclength, azimuth
 from _plot_conditions_functions import plot_waves, plot_wind, plot_neah_waves, plot_tide_currents
 from _map_conditions import map_pacific 
@@ -63,8 +63,7 @@ try: #we haveto do this becasue the NOAA API is often down, especially aorund th
 except Exception as e:
     print("NOAA tides unavailable — using fallback data")
 
-    historic_path = f"data/historic/current_{Neah_Bay_Current}_historic.csv"
-    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic = read_recent_historic(f"current_{Neah_Bay_Current}")
     df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
     df_today = df_historic[df_historic["datetime"] >= today_midnight]
     currents124 = df_today
@@ -76,8 +75,7 @@ try:
 except Exception as e:
     print("NOAA currents unavailable — using fallback data")
 
-    historic_path = f"data/historic/current_{New_Dungeness_Current}_historic.csv"
-    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic = read_recent_historic(f"current_{New_Dungeness_Current}")
     df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
     df_today = df_historic[df_historic["datetime"] >= today_midnight]
     currents123 = df_today
@@ -90,8 +88,7 @@ try:
 except Exception as e:
     print("NOAA tides unavailable — using fallback data")
 
-    historic_path = f"data/historic/current_{Neah_Bay_Tide}_historic.csv"
-    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic = read_recent_historic(f"tide_{Neah_Bay_Tide}")
     df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
     df_today = df_historic[df_historic["datetime"] >= today_midnight]
     tides124 = df_today
@@ -105,8 +102,7 @@ try:
 except Exception as e:
     print("NOAA tides unavailable — using fallback data")
 
-    historic_path = f"data/historic/current_{Port_Townsend}_historic.csv"
-    df_historic = pd.read_csv(historic_path, parse_dates=["datetime"])
+    df_historic = read_recent_historic(f"tide_{Port_Townsend}")
     df_historic["datetime"] = pd.to_datetime(df_historic["datetime"], utc=True).dt.tz_convert(PacificTime)
     df_today = df_historic[df_historic["datetime"] >= today_midnight]
     tides123 = df_today
