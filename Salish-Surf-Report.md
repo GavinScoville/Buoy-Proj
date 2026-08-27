@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-08-27 07:29 PDT
+**Updated:** 2026-08-27 16:56 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 5.9 ft  
-- **Dominant period:** 7 s  
-- **Wave energy:** 312 kJ/m of crest  
-- **Wave bearing:** 116°
+- **Wave height:** 5.2 ft  
+- **Dominant period:** 14 s  
+- **Wave energy:** 985 kJ/m of crest  
+- **Wave bearing:** 351°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.5 mph.**
+**2.7 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,10 +63,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
+- **Wave height:** 3.3 ft  
 - **Dominant period:** 7.0 s  
-- **Wave energy:** 78 kJ/m of crest  
-- **Wave bearing:** 59°  
+- **Wave energy:** 96 kJ/m of crest  
+- **Wave bearing:** 31°  
 - **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
@@ -89,9 +89,9 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 62 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
-- **Dominant period:** 9.0 s  
-- **Wave bearing:** 111°  
-- **Energy:** 14.31 kJ/m  
+- **Dominant period:** 7.0 s  
+- **Wave bearing:** 115°  
+- **Energy:** 8.65 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -106,11 +106,11 @@ Distance: 62 km to Fort Ebey
 Distance: 33 km to Fort Ebey
 
 - **Wave height:** 1.0 ft  
-- **Dominant period:** 3.0 s  
-- **Wave bearing:** 76°  
-- **Wind speed:** 3.0 m/s  
-- **Wind direction:** 250.0°  
-- **Energy:** 1.59 kJ/m  
+- **Dominant period:** 6.0 s  
+- **Wave bearing:** 47°  
+- **Wind speed:** 2.0 m/s  
+- **Wind direction:** 190.0°  
+- **Energy:** 6.36 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
