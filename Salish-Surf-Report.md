@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-09-15 04:17 PDT
+**Updated:** 2026-09-15 08:39 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
-- **Dominant period:** 14 s  
-- **Wave energy:** 312 kJ/m of crest  
-- **Wave bearing:** 348°
+- **Wave height:** 3.3 ft  
+- **Dominant period:** 13 s  
+- **Wave energy:** 332 kJ/m of crest  
+- **Wave bearing:** 350°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.5 mph.**
+**1.6 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,11 +63,11 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 3.3 ft  
-- **Dominant period:** 7.0 s  
-- **Wave energy:** 96 kJ/m of crest  
-- **Wave bearing:** 96°  
-- **Wind speed:** 0.0 m/s
+- **Wave height:** 2.6 ft  
+- **Dominant period:** 8.0 s  
+- **Wave energy:** 80 kJ/m of crest  
+- **Wave bearing:** 106°  
+- **Wind speed:** 1.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
 **0.8 mph.**
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
+- **Wave height:** 1.0 ft  
 - **Dominant period:** 7.0 s  
-- **Wave bearing:** 129°  
-- **Energy:** 15.39 kJ/m  
+- **Wave bearing:** 100°  
+- **Energy:** 8.65 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 1.3 ft  
-- **Dominant period:** 7.0 s  
-- **Wave bearing:** 71°  
-- **Wind speed:** 5.0 m/s  
+- **Wave height:** 1.0 ft  
+- **Dominant period:** 3.0 s  
+- **Wave bearing:** 73°  
+- **Wind speed:** 4.0 m/s  
 - **Wind direction:** 250.0°  
-- **Energy:** 15.39 kJ/m  
+- **Energy:** 1.59 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
