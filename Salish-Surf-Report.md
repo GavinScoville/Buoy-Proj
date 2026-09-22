@@ -2,7 +2,7 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-09-21 23:15 PDT
+**Updated:** 2026-09-22 04:48 PDT
 
 ---
 
@@ -41,13 +41,13 @@ friction and thus refraction when the depth is less than half the wavelength.
 ## Ocean Papa Wave Report  
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 14.1 ft  
+- **Wave height:** 14.4 ft  
 - **Dominant period:** 10 s  
-- **Wave energy:** 3629 kJ/m of crest  
-- **Wave bearing:** 99°
+- **Wave energy:** 3799 kJ/m of crest  
+- **Wave bearing:** 101°
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**5.2 mph.**
+**5.3 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -63,14 +63,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 6.2 ft  
-- **Dominant period:** 14.0 s  
-- **Wave energy:** 1389 kJ/m of crest  
-- **Wave bearing:** 93°  
+- **Wave height:** 6.6 ft  
+- **Dominant period:** 13.0 s  
+- **Wave energy:** 1327 kJ/m of crest  
+- **Wave bearing:** 94°  
 - **Wind speed:** 3.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**3.2 mph.**
+**3.1 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -88,10 +88,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report  
 Distance: 62 km to Fort Ebey
 
-- **Wave height:** 3.6 ft  
+- **Wave height:** 3.9 ft  
 - **Dominant period:** 11.0 s  
-- **Wave bearing:** 114°  
-- **Energy:** 287.32 kJ/m  
+- **Wave bearing:** 118°  
+- **Energy:** 341.93 kJ/m  
 
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
@@ -105,12 +105,12 @@ Distance: 62 km to Fort Ebey
 ## New Dungeness Wave Report  
 Distance: 33 km to Fort Ebey
 
-- **Wave height:** 3.0 ft  
+- **Wave height:** 2.0 ft  
 - **Dominant period:** 4.0 s  
-- **Wave bearing:** 82°  
-- **Wind speed:** 10.0 m/s  
+- **Wave bearing:** 70°  
+- **Wind speed:** 7.0 m/s  
 - **Wind direction:** 270.0°  
-- **Energy:** 25.43 kJ/m  
+- **Energy:** 11.30 kJ/m  
 
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
