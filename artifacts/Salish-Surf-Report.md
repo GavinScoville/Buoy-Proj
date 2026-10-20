@@ -2,12 +2,12 @@
 ---
 
 # Salish Sea Surf Report
-**Updated:** 2026-10-20 00:20 PDT
+**Updated:** 2026-10-20 00:31 PDT
 
 ---
 
 ## Pacific Wave Propagation
-![Wave Map](/plots/maps/pacific.png)
+![Wave Map](plots/maps/pacific.png)
 
 1,600 km off the coast, the Ocean Papa buoy collects wave data.  
 Using this information, we can infer the trajectory of waves as they travel across the Pacific.  
@@ -17,7 +17,7 @@ It does not yet include the Coriolis effect — coming soon.
 ---
 
 ## Strait of Juan de Fuca Refraction
-![Wave Map](/plots/maps/Strait.png)
+![Wave Map](plots/maps/Strait.png)
 
 At the entrance of the Salish Sea, the Neah Bay buoy provides us basic wave data.  
 No other surf models currently incorporate how these waves refract across the Strait.  
@@ -28,7 +28,7 @@ A simple algorithm currently predicts wave height by holding energy flux constan
 ---
 
 ## Islands Region Refraction
-![Wave Map](/plots/maps/Island.png)
+![Wave Map](plots/maps/Island.png)
 
 This map uses the same model. The rays linearly interpolate between the Port Angeles Buoy  
 and the New Dungeness Buoy. Waves pass over many underwater features but only experience  
@@ -52,7 +52,7 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
 
-![Wave Plot](/plots/waves/Ocean_Papa.png)
+![Wave Plot](plots/waves/Ocean_Papa.png)
 
 </details>
 
@@ -63,21 +63,21 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report  
 Distance: 148 km to Fort Ebey
 
-- **Wave height:** 4.6 ft  
-- **Dominant period:** 11.0 s  
-- **Wave energy:** 465 kJ/m of crest  
-- **Wave bearing:** 86°  
+- **Wave height:** 4.3 ft  
+- **Dominant period:** 9.0 s  
+- **Wave energy:** 269 kJ/m of crest  
+- **Wave bearing:** 76°  
 - **Wind speed:** 6.0 m/s
 
 A meter of wave crest has the kinetic energy of a Prius traveling  
-**1.9 mph.**
+**1.4 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
 
-![Wave Plot](/plots/waves/Neah_Bay.png)  
-![Wind Plot](/plots/wind/Neah_Bay.png)  
-![Tide Plot](/plots/tidecurrent/Neah_Bay.png)
+![Wave Plot](plots/waves/Neah_Bay.png)  
+![Wind Plot](plots/wind/Neah_Bay.png)  
+![Tide Plot](plots/tidecurrent/Neah_Bay.png)
 
 </details>
 
@@ -96,7 +96,7 @@ Distance: 62 km to Fort Ebey
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
 
-![Wave Plot](/plots/waves/Port_Angelis.png)
+![Wave Plot](plots/waves/Port_Angelis.png)
 
 </details>
 
@@ -115,9 +115,9 @@ Distance: 33 km to Fort Ebey
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
 
-![Wave Plot](/plots/waves/New_Dungeness.png)  
-![Wind Plot](/plots/wind/New_Dungeness.png)  
-![Tide Plot](/plots/tidecurrent/New_Dungeness.png)
+![Wave Plot](plots/waves/New_Dungeness.png)  
+![Wind Plot](plots/wind/New_Dungeness.png)  
+![Tide Plot](plots/tidecurrent/New_Dungeness.png)
 
 </details>
 

@@ -606,16 +606,20 @@ def plot_ray_tracing(ray_dfs, subset, name):
     fig.savefig(PLOTS / "maps" / f"{name}.png", bbox_inches="tight", dpi=200)
 
 
-rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
-                              P2 = (48.332, -123.179),#north end,
-                              n_rays = 30, mean_wave_direction1 = 140,
-                              mean_wave_direction2 = 280, T1 = 8,
-                              T2 = 6, H1=2, H2=1)
+# Demo run for working on this module directly. Guarded so that importing
+# ray_tracing (as salish/pipeline.py does, for the four helpers above) does
+# not silently re-run a ray trace and overwrite the Inner Puget Sound map.
+if __name__ == "__main__":
+    rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),
+                                  P2 = (48.332, -123.179),#north end,
+                                  n_rays = 30, mean_wave_direction1 = 140,
+                                  mean_wave_direction2 = 280, T1 = 8,
+                                  T2 = 6, H1=2, H2=1)
 
-Island_rayz = trace_rays(rayz_startz,
-                        n_steps=100, 
-                        dt=5)
-plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
+    Island_rayz = trace_rays(rayz_startz,
+                            n_steps=100,
+                            dt=5)
+    plot_ray_tracing(Island_rayz, zoom, "Inner Puget Sound")
 
 """
 ray_starts = intialise_ray_starts(P1 = (48.5, -124.8),n_rays = 40,front_width = 20_000, mean_wave_direction = wave124["MWD"], T= wave124["DPD"], H = wave124["WVHT"])
