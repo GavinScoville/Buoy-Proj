@@ -9,9 +9,10 @@ import os
 import yaml
 import pandas as pd
 from pathlib import Path
+from salish.paths import BUOY_ARCHIVE, STATIONS_YAML
 
 
-def load_station_config(config_file="data/stations.yaml"):
+def load_station_config(config_file=STATIONS_YAML):
     """
     Load station metadata from YAML.
 
@@ -27,7 +28,7 @@ def load_station_config(config_file="data/stations.yaml"):
     return data.get("stations", {})
 
 
-def get_station(station_id, config_file="data/stations.yaml"):
+def get_station(station_id, config_file=STATIONS_YAML):
     """
     Fetch metadata for a single station by ID.
 
@@ -45,7 +46,7 @@ def get_station(station_id, config_file="data/stations.yaml"):
     return config[station_id]
 
 
-def load_buoy_timeseries(station_id, data_dir="data/buoy_archive"):
+def load_buoy_timeseries(station_id, data_dir=BUOY_ARCHIVE):
     """
     Load wind and wave timeseries for a station from parquet.
 
@@ -63,7 +64,7 @@ def load_buoy_timeseries(station_id, data_dir="data/buoy_archive"):
     return pd.read_parquet(path)
 
 
-def save_buoy_timeseries(df, station_id, data_dir="data/buoy_archive"):
+def save_buoy_timeseries(df, station_id, data_dir=BUOY_ARCHIVE):
     """
     Save or append wind/wave timeseries to parquet.
 
@@ -97,7 +98,7 @@ def save_buoy_timeseries(df, station_id, data_dir="data/buoy_archive"):
     df.to_parquet(path, index=False)
 
 
-def get_all_stations(config_file="data/stations.yaml"):
+def get_all_stations(config_file=STATIONS_YAML):
     """
     Return all station IDs from the config.
 
@@ -108,7 +109,7 @@ def get_all_stations(config_file="data/stations.yaml"):
     return list(config.keys())
 
 
-def get_station_dataframe(config_file="data/stations.yaml"):
+def get_station_dataframe(config_file=STATIONS_YAML):
     """
     Build a DataFrame from station metadata for easy plotting/filtering.
 

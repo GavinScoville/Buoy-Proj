@@ -4,6 +4,7 @@ from datetime import date, timedelta, datetime
 from zoneinfo import ZoneInfo
 import math
 import os
+from salish.paths import PREDICTED
 
 #https://www.ndbc.noaa.gov/faq/sea_state_forecasting.shtml 
 
@@ -84,7 +85,7 @@ if abs(wave145.iloc[-1]["MWD"]-180-azimuth(49.903, 145.246, 48.493, 124.727)) <1
         'DPD':  wave145.iloc[-1]['DPD'],
         'MWD':  wave145.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
     }
-    prediction_update(new_row, "data/predicted/neah.csv")
+    prediction_update(new_row, PREDICTED / "neah.csv")
 else:
     print("waves are NOT on path to neah bay, no update made")
 ################################################################################################
@@ -141,7 +142,7 @@ if abs(wave124.iloc[-1]["MWD"]-180-azimuth(48.493, 124.727, 48.2248207, 122.7701
         'DPD':  wave124.iloc[-1]['DPD'],
         'MWD':  wave124.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
     }
-    prediction_update(new_row, "data/predicted/ebey.csv")
+    prediction_update(new_row, PREDICTED / "ebey.csv")
 else:
     print("waves are NOT on path from Neah to Ebey, no update made")
 ################################################################################################
@@ -165,7 +166,7 @@ if abs(wave123.iloc[-1]["MWD"]-180-azimuth(48.173, 123.607, 48.2248207, 122.7701
         'DPD':  wave123.iloc[-1]['DPD'],
         'MWD':  wave123.iloc[-1]['MWD'],  # make sure this is MWD (not WMD)
     }
-    prediction_update(new_row, "data/predicted/ebey.csv")
+    prediction_update(new_row, PREDICTED / "ebey.csv")
 else:
     print("waves are NOT on path from PA to Ebey, no update made")
 '''

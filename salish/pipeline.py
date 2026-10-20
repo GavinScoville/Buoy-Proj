@@ -7,14 +7,15 @@ import os
 import xarray as xr
 
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_currents, predict_tides, read_recent_historic
-from _geodesy import arclength, azimuth
-from _plot_conditions_functions import plot_waves, plot_wind, plot_neah_waves, plot_tide_currents
-from _map_conditions import map_pacific 
-from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
-from _salish_website import render_salish_report
-from _some_modeling import predict_pacific_wavepath 
-from _bathymetry import intialise_ray_starts, intialise_advanced_starts, trace_rays, plot_ray_tracing
+from salish.fetch_buoy import fetch_and_clean_buoy_data, predict_currents, predict_tides, read_recent_historic
+from salish.geodesy import arclength, azimuth
+from salish.plot_conditions import plot_waves, plot_wind, plot_neah_waves, plot_tide_currents
+from salish.map_conditions import map_pacific 
+from salish.report import  wave_summary, current_report, tide_report, wind_report, setstatus
+from salish.website import render_salish_report
+from salish.wavepath import predict_pacific_wavepath 
+from salish.ray_tracing import intialise_ray_starts, intialise_advanced_starts, trace_rays, plot_ray_tracing
+from salish.paths import BATHYMETRY
 
 
 
@@ -238,7 +239,25 @@ load_dotenv()
 # Retrieve them
 sender_email = os.getenv("EMAIL_USER")
 password = os.getenv("EMAIL_PASS")
-receiver_email = "gavin.scoville@gmail.com" 
+receiver_email = "gavin.scoville@gmail.com"
+
+# Set SALISH_NO_EMAIL=1 to run the full pipeline (fetch, model, plot, report)
+# without delivering alerts - used for local test runs and CI dry runs.
+EMAIL_ENABLED = os.getenv("SALISH_NO_EMAIL", "").lower() not in ("1", "true", "yes")
+
+
+def deliver(message, label):
+    """Send one alert, unless email delivery is suppressed."""
+    if not EMAIL_ENABLED:
+        print(f"[SALISH_NO_EMAIL] {label} alert suppressed (would have sent)")
+        return
+    if not sender_email or not password:
+        print(f"[warning] EMAIL_USER/EMAIL_PASS unset - {label} alert not sent")
+        return
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender_email, password)
+        server.send_message(message)
+    print(f"{label} alert sent successfully!")
 
 ######################################################################
 '''Send Ocean Papa'''
@@ -274,11 +293,7 @@ Summary from Ocean Papa Buoy at {wave145['datetime'].astimezone(PacificTime).str
     message.attach(MIMEText(text, "plain"))
 
     # --- send email securely ---
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(sender_email, password)
-        server.send_message(message)
-
-    print("Ocean Papa alert sent successfully!")
+    deliver(message, "Ocean Papa")
 
 ######################################################################
 '''Send Strait Email'''
@@ -349,11 +364,7 @@ Summary from Neah Bay Bouy at {local_time}:
     message.attach(MIMEText(text, "plain"))
 
     # --- send email securely ---
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(sender_email, password)
-        server.send_message(message)
-
-    print("Strait of Juan de Fuca Alert sent successfully!")
+    deliver(message, "Strait")
 
 
 ######################################################################
@@ -405,11 +416,7 @@ Summary from Port Angelis at {local_time}:
     message.attach(MIMEText(text, "plain"))
 
     # --- send email securely ---
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(sender_email, password)
-        server.send_message(message)
-
-    print("PA alert sent successfully!")
+    deliver(message, "Port Angelis")
 ######################################################################
 '''Send ND Email!!'''
 ###################################################################### 
@@ -477,9 +484,7 @@ Summary from New Dungeness Bouy at {local_time}:
     message.attach(MIMEText(text, "plain"))
 
     # --- send email securely ---
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(sender_email, password)
-        server.send_message(message)
+    deliver(message, "New Dungeness")
 
     print("New Dungeness Alert sent successfully!")
 
@@ -490,7 +495,7 @@ pacific_waves = predict_pacific_wavepath(waves145)
 map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave123nd)
 
 #opening bathymetry datasert
-subset = xr.open_dataset("data/gebco_strait_subset.nc")
+subset = xr.open_dataset(BATHYMETRY / "gebco_strait_subset.nc")
 
 # Choose your zoom area (in degrees)
 lat_min, lat_max = 48.1, 48.45

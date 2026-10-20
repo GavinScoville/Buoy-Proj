@@ -8,6 +8,7 @@ import matplotlib.colors as mcolors
 import numpy as np
 import pandas as pd
 import os 
+from salish.paths import BATHYMETRY, PLOTS
 
 #this script litteratly just pulls data from the big gebco bathymetry dataset
 #which is 15 arc seconds or about 464 meters LOL so not the best 
@@ -15,7 +16,7 @@ import os
 #the whole purpose is to use this script every now and again
 #for when I am setting up a new lociton to model 
 
-subset = xr.open_dataset("data/gebco_strait_subset.nc")
+subset = xr.open_dataset(BATHYMETRY / "gebco_strait_subset.nc")
 subset.attrs
 # Choose zoom area (in degrees)
 lat_min, lat_max = 48.1, 48.45
@@ -601,8 +602,8 @@ def plot_ray_tracing(ray_dfs, subset, name):
     ax.grid(alpha=0.3)
     plt.tight_layout(rect=[0, 0.05, 1, 1])
     # --- Save
-    os.makedirs("plots/maps", exist_ok=True)
-    fig.savefig(f"plots/maps/{name}.png", bbox_inches="tight", dpi=200)
+    (PLOTS / "maps").mkdir(parents=True, exist_ok=True)
+    fig.savefig(PLOTS / "maps" / f"{name}.png", bbox_inches="tight", dpi=200)
 
 
 rayz_startz = intialise_advanced_starts(P1=(48.173, -123.607),

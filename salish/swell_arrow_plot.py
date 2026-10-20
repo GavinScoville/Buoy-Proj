@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from herbie import Herbie
 from datetime import datetime, timedelta
-from _station_metadata import get_station
+from salish.station_metadata import get_station
 
 # Get station coordinates
 s = get_station("46087")
@@ -164,12 +164,13 @@ ax.grid(True, alpha=0.3)
 
 # Add legend
 from matplotlib.patches import FancyArrowPatch
+from salish.paths import PLOTS
 swell_handles = [plt.Line2D([0], [0], color=swell_colors[i], marker='>', markersize=8, label=f'Swell {i+1}', linestyle='None')
                  for i in range(3)]
 wind_handle = plt.Line2D([0], [0], color='purple', marker='>', markersize=8, label='Wind Wave', linestyle='None')
 ax.legend(handles=swell_handles + [wind_handle], loc='upper left', fontsize=10)
 
 plt.tight_layout()
-plt.savefig('plots/swell_arrow_plot.png', dpi=300, bbox_inches='tight')
+plt.savefig(PLOTS / "swell_arrow_plot.png", dpi=300, bbox_inches='tight')
 print("\nPlot saved to plots/swell_arrow_plot.png")
 plt.show()

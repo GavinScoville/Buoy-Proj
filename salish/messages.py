@@ -10,10 +10,10 @@ from zoneinfo import ZoneInfo
 import math
 import os
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data,  predict_currents, predict_tides, plot_currents
-from _report_funcitons import  wave_summary, current_report, tide_report, wind_report, setstatus
-from _geodesy import arclength, azimuth
-from _salish_website import render_salish_report
+from salish.fetch_buoy import fetch_and_clean_buoy_data,  predict_currents, predict_tides, plot_currents
+from salish.report import  wave_summary, current_report, tide_report, wind_report, setstatus
+from salish.geodesy import arclength, azimuth
+from salish.website import render_salish_report
 
 from dotenv import load_dotenv
 import os

@@ -5,6 +5,7 @@ import requests
 import zipfile
 from pyproj import Geod
 from zoneinfo import ZoneInfo
+from salish.paths import DATA, PLOTS
 
 #this is an outdted file 
 #it holds functions that are ment to help for producing graphics
@@ -58,7 +59,7 @@ def download_map():
         base_dir = os.getcwd()
 
     # Create a local Cartopy data folder inside project
-    data_dir = os.path.join(base_dir, "cartopy_data")
+    data_dir = str(DATA / "cartopy_data")
     os.makedirs(os.path.join(data_dir, "shapefiles", "natural_earth", "physical"), exist_ok=True)
     import cartopy
     # Tell Cartopy to use it
@@ -120,7 +121,7 @@ def map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave1
         base_dir = os.getcwd()
 
     # Create a local Cartopy data folder inside your project
-    data_dir = os.path.join(base_dir, "cartopy_data")
+    data_dir = str(DATA / "cartopy_data")
     os.makedirs(os.path.join(data_dir, "shapefiles", "natural_earth", "physical"), exist_ok=True)
     import cartopy
     # Tell Cartopy to use it
@@ -328,7 +329,7 @@ def map_pacific(pacific_waves,wave133,wave126,wave125, wave124, wave123pa, wave1
     cbar.set_label("Wave Height (m)",fontsize=11)
 
     plt.title("Known Waves in the Northeast Pacific", fontsize=14, fontweight="bold")
-    os.makedirs("plots/maps", exist_ok=True)
+    (PLOTS / "maps").mkdir(parents=True, exist_ok=True)
     plt.tight_layout()
 
-    fig.savefig("plots/maps/pacific.png", bbox_inches="tight", dpi=150)
+    fig.savefig(PLOTS / "maps" / "pacific.png", bbox_inches="tight", dpi=150)

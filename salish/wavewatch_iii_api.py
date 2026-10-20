@@ -16,7 +16,8 @@ import numpy as np
 import pandas as pd
 from herbie import Herbie, HerbieLatest
 
-from _station_metadata import get_station
+from salish.station_metadata import get_station
+from salish.paths import PLOTS
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -29,10 +30,10 @@ SEARCH = ":(WVHGT|WVPER|WVDIR|SWELL|SWPER|SWDIR):"
 # SWDIR swell 3 is the last GRIB message (open-ended byte range) and Herbie drops it
 # from multi-field subsets, so it is fetched on its own.
 SEARCH_LAST = ":SWDIR:3 in sequence:"
-OUT_PATH = "plots/swell_forecast.png"
+OUT_PATH = PLOTS / "swell_forecast.png"
 HOURLY_HOURS = 48
 HOURLY_COLS = 8              # panels per row in the hourly chart
-HOURLY_OUT_PATH = "plots/swell_forecast_hourly.png"
+HOURLY_OUT_PATH = PLOTS / "swell_forecast_hourly.png"
 LOCAL_TZ = "America/Los_Angeles"
 
 PARTITIONS = ["Swell 1", "Swell 2", "Swell 3", "Wind wave"]

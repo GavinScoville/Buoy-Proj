@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import math
 from io import StringIO
+from salish.paths import HISTORIC, PROCESSED, RAW
 
 def fetch_and_clean_buoy_data(buoy_id):
     """
@@ -25,12 +26,12 @@ def fetch_and_clean_buoy_data(buoy_id):
     df = pd.DataFrame(data, columns=headers)
 
     # Create folders
-    os.makedirs("data/raw", exist_ok=True)
-    os.makedirs("data/processed", exist_ok=True)
-    os.makedirs("data/historic", exist_ok=True)
+    RAW.mkdir(parents=True, exist_ok=True)
+    PROCESSED.mkdir(parents=True, exist_ok=True)
+    HISTORIC.mkdir(parents=True, exist_ok=True)
 
     # Save raw
-    raw_path = f"data/raw/buoy_{buoy_id}_raw.csv"
+    raw_path = RAW / f"buoy_{buoy_id}_raw.csv"
     df.to_csv(raw_path, index=False)
     print(f"Raw data saved to {raw_path}")
 
@@ -70,7 +71,7 @@ def fetch_and_clean_buoy_data(buoy_id):
         return
 
     # Save cleaned
-    clean_path = f"data/processed/buoy_{buoy_id}_processed.csv"
+    clean_path = PROCESSED / f"buoy_{buoy_id}_processed.csv"
     df_clean.to_csv(clean_path, index=False)
     print(f"Cleaned data saved to {clean_path}")
 
@@ -108,7 +109,7 @@ def _write_historic_partitions(df, key):
     """
     if df is None or df.empty or "datetime" not in df:
         return
-    base_dir = f"data/historic/{key}"
+    base_dir = HISTORIC / key
     os.makedirs(base_dir, exist_ok=True)
     df = df.copy()
     df["datetime"] = pd.to_datetime(df["datetime"])
@@ -128,7 +129,7 @@ def read_recent_historic(key, months_back=1):
     _write_historic_partitions, for use as a fallback when the live NOAA
     API is unavailable. Returns an empty DataFrame if nothing is stored yet.
     """
-    base_dir = f"data/historic/{key}"
+    base_dir = HISTORIC / key
     paths = sorted(glob.glob(f"{base_dir}/*.parquet"))[-(months_back + 1):]
     if not paths:
         return pd.DataFrame()

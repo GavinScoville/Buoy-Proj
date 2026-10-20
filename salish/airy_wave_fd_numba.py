@@ -16,9 +16,10 @@ from io import BytesIO
 from PIL import Image
 import os
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data 
-from _fetch_buoy_functions import init_from_buoy
-from _3d_visualisation import plot_surf_3d
+from salish.fetch_buoy import fetch_and_clean_buoy_data 
+from salish.fetch_buoy import init_from_buoy
+from salish.visualise_3d import plot_surf_3d
+from salish.paths import ARTIFACTS, DATA
 
 # ============================================================================
 # NUMBA-COMPILED KERNEL (module-level, shared across all simulations)
@@ -520,8 +521,8 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
 if __name__ == "__main__":
     result = run_wave_simulation(
         buoy_id="46087",
-        bathymetry_file="data/the_dump.npy",
-        output_dir="output/the_dump",
+        bathymetry_file=DATA / "the_dump.npy",
+        output_dir=ARTIFACTS / "the_dump",
         nsteps=2000,
         last_n_frames=50,
         dx=10.0,

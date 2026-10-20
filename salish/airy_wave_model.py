@@ -2,12 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import copy
 from matplotlib import cm
-from _3d_visualisation import plot_surf_3d
+from salish.visualise_3d import plot_surf_3d
+from salish.paths import AIRYWAVES, DATA, FRAMES
 
 #this script is a verison of _airy_wave_fd.py that is specifically built to handel the salish sea 
 
 #this script runs an airy wave model as an approx. for ocean waves on a set map from a specific direction.
-depth = np.load("data/salish_sea_bathymetry_grid.npy")
+depth = np.load(DATA / "salish_sea_bathymetry_grid.npy")
 
 #Initialize physical and numerical constants
 dx = 10 #set the discrete spatial stepsize. this is what the grid spacing really is
@@ -26,7 +27,7 @@ near_shore = -L/10 <= depth  #just going to make the dampening a coefficient tur
 x = np.arange(0,depth.shape[1]*dx,dx) #define an array to store x position data
 y = np.arange(0,depth.shape[0]*dx,dx) #define an array to store y position data
 f = np.zeros((len(y),len(x),3)).astype(np.float32) #starting with no waves 
-#f = np.load("data/airywaves/strait_of_juan_de_fuca.npy")
+#f = np.load(AIRYWAVES / "strait_of_juan_de_fuca.npy")
 #we controll the celarity using these three equaitons for deep, medium, and shallow waters
 celarity= np.full((len(y),len(x)),c)
 celarity = np.sqrt((9.8 / (2 * np.pi / L)) * np.tanh(depth*-2 * np.pi / L))  # phase speed
@@ -205,13 +206,13 @@ for k in range(0,nsteps):
         #ax = fig.add_subplot(projection = '3d')
         plt.title('steps= %0.1f ' % (k) )
         #ax.set_zlim3d(-5,5)       
-        plt.savefig("frame_%03d.png" % k)
+        plt.savefig(FRAMES / ("frame_%03d.png" % k))
 
     if k == nsteps-1:
-        np.save("data/airywaves/strait_of_juan_de_fuca.npy", f)
+        np.save(AIRYWAVES / "strait_of_juan_de_fuca.npy", f)
 
 
-f = np.load("data/airywaves/strait_of_juan_de_fuca.npy")
+f = np.load(AIRYWAVES / "strait_of_juan_de_fuca.npy")
 plot_surf_3d(depth[120:400, 5650:6060], np.asarray(f[120:400, 5650:6060,2]),z_scale1=1, z_scale2=5, background="white", clim2=[-h/5,h/5]) #this will make a 3d rendering of the interest zone 
 
 

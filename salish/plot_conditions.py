@@ -15,7 +15,8 @@ import matplotlib.colors as mcolors
 
 from datetime import timedelta
 
-from _geodesy import azimuth
+from salish.geodesy import azimuth
+from salish.paths import PLOTS
 
 #this script has funcitons to produce graphics from the NOAA bouy data,
 #for the  dashboard 
@@ -71,8 +72,8 @@ def plot_tide_currents(tides, currents, local_time, timezone, station_name):
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax1.legend(lines + lines2, labels + labels2, loc='upper left')
 
-    os.makedirs("plots/tidecurrent", exist_ok=True)
-    fig.savefig(f"plots/tidecurrent/{station_name}.png", bbox_inches="tight", dpi=100)
+    (PLOTS / "tidecurrent").mkdir(parents=True, exist_ok=True)
+    fig.savefig(PLOTS / "tidecurrent" / f"{station_name}.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
 
 
@@ -121,8 +122,8 @@ def plot_waves(waves, station_name="Ocean_Papa", timezone="America/Los_Angeles")
     ax1.legend(lines + lines2, labels + labels2, loc="upper left")
 
     # Save
-    os.makedirs("plots/waves", exist_ok=True)
-    fig.savefig(f"plots/waves/{station_name}.png", bbox_inches="tight", dpi=100)
+    (PLOTS / "waves").mkdir(parents=True, exist_ok=True)
+    fig.savefig(PLOTS / "waves" / f"{station_name}.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
 
 #neah waves will eb different becasue it is going to plot amount of KJ entering the staight pr. m2
@@ -190,8 +191,8 @@ def plot_neah_waves(waves, timezone="America/Los_Angeles"):
     ax1.legend(lines + lines2 + lines3, labels + labels2 + labels3, loc='upper left')
 
     
-    os.makedirs("plots/waves", exist_ok=True)
-    fig.savefig(f"plots/waves/Neah_Bay.png", bbox_inches="tight", dpi=100)
+    (PLOTS / "waves").mkdir(parents=True, exist_ok=True)
+    fig.savefig(PLOTS / "waves" / "Neah_Bay.png", bbox_inches="tight", dpi=100)
     plt.close(fig)
 
 
@@ -247,6 +248,6 @@ def plot_wind(waves, station_name="Neah Bay", timezone="America/Los_Angeles"):
     ax1.legend(lines + lines2, labels + labels2, loc='upper left')
 
     
-    os.makedirs("plots/wind", exist_ok=True)
-    fig.savefig(f"plots/wind/{station_name}.png", bbox_inches="tight", dpi=100)
+    (PLOTS / "wind").mkdir(parents=True, exist_ok=True)
+    fig.savefig(PLOTS / "wind" / f"{station_name}.png", bbox_inches="tight", dpi=100)
     plt.close(fig)

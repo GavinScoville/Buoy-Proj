@@ -74,7 +74,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from scipy.linalg import solve_banded
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data
+from salish.fetch_buoy import fetch_and_clean_buoy_data
+from salish.paths import DATA, PLOTS
 
 # ---------------------------------------------------------------------------
 # Physical constants and model parameters
@@ -542,7 +543,7 @@ def main():
     print("=" * 70)
 
     # --- Bathymetry ------------------------------------------------------
-    depth_full = np.load("data/salish_sea_bathymetry.npy")
+    depth_full = np.load(DATA / "salish_sea_bathymetry.npy")
     s = max(1, args.subsample)
     depth = np.ascontiguousarray(depth_full[::s, ::s], dtype=np.float64)
     dx = dy = 10.0 * s
@@ -735,7 +736,7 @@ def plot(depth, H, Hs, T, mwd, dx, dy, cap):
         ax.set_aspect("equal")
 
     fig.tight_layout()
-    fig.savefig("plots/mild_slope_simulation.png", dpi=140, bbox_inches="tight")
+    fig.savefig(PLOTS / "mild_slope_simulation.png", dpi=140, bbox_inches="tight")
     plt.close(fig)
     print("    saved plots/mild_slope_simulation.png")
 

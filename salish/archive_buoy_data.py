@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 
-from _fetch_buoy_functions import fetch_and_clean_buoy_data
-from _station_metadata import STATION_IDS, save_buoy_timeseries, get_station
+from salish.fetch_buoy import fetch_and_clean_buoy_data
+from salish.station_metadata import STATION_IDS, save_buoy_timeseries, get_station
 
 
 def archive_station(station_id, hours_back=72, verbose=True):

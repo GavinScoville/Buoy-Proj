@@ -17,11 +17,12 @@ data/predicted/
 data/grib_cache/
 data/buoy_archive/
 
-# ---- large bathymetry source rasters (download separately, see README) ----
-data/bathymetry_file/
-GEBCO_2025_sub_ice.nc
+# ---- large bathymetry source rasters (see README for how to obtain) ----
+# Ignore the heavy source rasters and the grids derived from them, but KEEP
+# data/bathymetry_file/gebco_strait_subset.nc: it is only 1.5MB and the
+# pipeline (salish/ray_tracing.py) requires it at import time.
 *.tiff
-*.nc
+GEBCO_2025_sub_ice.nc
 
 # ---- cartopy shapefile cache (downloaded on demand) ----
 data/cartopy_data/

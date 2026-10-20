@@ -3,9 +3,10 @@ Master script: Run Airy wave simulations for all surfing locations.
 Generates GIFs and results for website integration.
 """
 
-from _airy_wave_fd_numba import run_wave_simulation
+from salish.airy_wave_fd_numba import run_wave_simulation
 import pandas as pd
 from datetime import datetime
+from salish.paths import ARTIFACTS, DATA
 
 # ============================================================================
 # DEFINE YOUR LOCATIONS
@@ -14,21 +15,21 @@ locations = [
     {
         'name': 'Neah_Bay',
         'buoy_id': '46087',
-        'bathymetry_file': 'data/neah_bay_grid.npy',
+        'bathymetry_file': DATA / 'neah_bay_grid.npy',
         'nsteps': 100,
         'description': 'Northern Olympic Peninsula'
     },
     {
         'name': 'Warmhouse',
         'buoy_id': '46087',
-        'bathymetry_file': 'data/the_dump_10m.npy',
+        'bathymetry_file': DATA / 'the_dump_10m.npy',
         'nsteps': 100,
         'description': 'Olympic Peninsula Headlands'
     },
         {
         'name': 'Port_Angeles',
         'buoy_id': '46267',
-        'bathymetry_file': 'data/PA_grid.npy',
+        'bathymetry_file': DATA / 'pa_grid.npy',
         'nsteps': 100,
         'description': 'Strait of Juan de Fuca'
     },
@@ -39,7 +40,7 @@ locations = [
     {
         'name': 'Flat_Island',
         'buoy_id': '51202',
-        'bathymetry_file': 'data/flat_is_grid.npy',
+        'bathymetry_file': DATA / 'flat_is_grid.npy',
         'nsteps': 100,
         'description': 'Central Pacific buoy'
     },
@@ -74,7 +75,7 @@ def run_all_simulations(verbose=True, use_warm_start=True, short_run=False):
     print(f"{'='*80}\n")
 
     for location in locations:
-        output_dir = f"output/{location['name']}"
+        output_dir = ARTIFACTS / location['name']
 
         # Determine parameters
         nsteps = location.get('nsteps', 1000)
@@ -196,7 +197,7 @@ def generate_website_markdown(results):
             output += f"- **Runtime:** {result['runtime']:.1f} seconds\n\n"
 
     # Save to file
-    with open("website_results.md", "w") as f:
+    with open(ARTIFACTS / "website_results.md", "w") as f:
         f.write(output)
 
     print(f"\n✓ Website Markdown saved to: website_results.md")
@@ -246,7 +247,7 @@ Examples:
     markdown = generate_website_markdown(results)
 
     print(f"\n✓ All simulations complete!")
-    print(f"Results saved to output/ directory")
+    print(f"Results saved to {ARTIFACTS}/")
 
     # Print usage tips
     if use_warm_start:

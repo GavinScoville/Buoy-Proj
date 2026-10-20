@@ -3,7 +3,8 @@ import numpy as np
 from datetime import date, timedelta, datetime
 from zoneinfo import ZoneInfo
 import math
-from _geodesy import arclength, azimuth
+from salish.geodesy import arclength, azimuth
+from salish.paths import ARTIFACTS
 
 #this script runs holds the function that renders the salish sea report form 4 diffferent bouys.
 
@@ -24,7 +25,7 @@ def render_salish_report(wave145, wave124, wave123pa, wave123nd):
 ---
 
 ## Pacific Wave Propagation
-![Wave Map](/plots/maps/pacific.png)
+![Wave Map](plots/maps/pacific.png)
 
 1,600 km off the coast, the Ocean Papa buoy collects wave data.  
 Using this information, we can infer the trajectory of waves as they travel across the Pacific.  
@@ -34,7 +35,7 @@ It does not yet include the Coriolis effect — coming soon.
 ---
 
 ## Strait of Juan de Fuca Refraction
-![Wave Map](/plots/maps/Strait.png)
+![Wave Map](plots/maps/Strait.png)
 
 At the entrance of the Salish Sea, the Neah Bay buoy provides us basic wave data.  
 No other surf models currently incorporate how these waves refract across the Strait.  
@@ -45,7 +46,7 @@ A simple algorithm currently predicts wave height by holding energy flux constan
 ---
 
 ## Islands Region Refraction
-![Wave Map](/plots/maps/Island.png)
+![Wave Map](plots/maps/Island.png)
 
 This map uses the same model. The rays linearly interpolate between the Port Angeles Buoy  
 and the New Dungeness Buoy. Waves pass over many underwater features but only experience  
@@ -69,7 +70,7 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
 
-![Wave Plot](/plots/waves/Ocean_Papa.png)
+![Wave Plot](plots/waves/Ocean_Papa.png)
 
 </details>
 
@@ -92,9 +93,9 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
 
-![Wave Plot](/plots/waves/Neah_Bay.png)  
-![Wind Plot](/plots/wind/Neah_Bay.png)  
-![Tide Plot](/plots/tidecurrent/Neah_Bay.png)
+![Wave Plot](plots/waves/Neah_Bay.png)  
+![Wind Plot](plots/wind/Neah_Bay.png)  
+![Tide Plot](plots/tidecurrent/Neah_Bay.png)
 
 </details>
 
@@ -113,7 +114,7 @@ Distance: {arclength(48.173, 123.607, 48.2248207, 122.7701732)/1000:.0f} km to F
 <details>
 <summary><strong>Click to show Port Angeles plot</strong></summary>
 
-![Wave Plot](/plots/waves/Port_Angelis.png)
+![Wave Plot](plots/waves/Port_Angelis.png)
 
 </details>
 
@@ -132,9 +133,9 @@ Distance: {arclength(48.332, 123.179, 48.2248207, 122.7701732)/1000:.0f} km to F
 <details>
 <summary><strong>Click to show New Dungeness plots</strong></summary>
 
-![Wave Plot](/plots/waves/New_Dungeness.png)  
-![Wind Plot](/plots/wind/New_Dungeness.png)  
-![Tide Plot](/plots/tidecurrent/New_Dungeness.png)
+![Wave Plot](plots/waves/New_Dungeness.png)  
+![Wind Plot](plots/wind/New_Dungeness.png)  
+![Tide Plot](plots/tidecurrent/New_Dungeness.png)
 
 </details>
 
@@ -145,7 +146,7 @@ Distance: {arclength(48.332, 123.179, 48.2248207, 122.7701732)/1000:.0f} km to F
 
 """
 
-    outpath = "Salish-Surf-Report.md"
+    outpath = ARTIFACTS / "Salish-Surf-Report.md"
 
     # Write (overwrite) the file
     with open(outpath, "w") as f:

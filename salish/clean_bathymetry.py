@@ -9,6 +9,7 @@ import os
 import rasterio
 from rasterio.transform import Affine
 from rasterio.crs import CRS
+from salish.paths import BATHYMETRY, DATA
 
 # Ensure script runs from project root regardless of VS Code working directory
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -185,24 +186,24 @@ def grid_bathymetry(data, lat, lon, lat_min, lat_max, lon_min, lon_max, grid_siz
 # Define your locations and their parameters
 locations = {
     'Neah_Bay': {
-        'input_file': 'data/bathymetry_file/neah_bay_30m.tiff',  # Update with your 30m TIFF
-        'output_file': 'data/neah_bay_grid.npy',
+        'input_file': BATHYMETRY / "neah_bay_30m.tiff",  # Update with your 30m TIFF
+        'output_file': DATA / "neah_bay_grid.npy",
         'lat_min': 48.13, 'lat_max': 48.58,
         'lon_min': -124.73, 'lon_max': -123.655,
         'grid_size': 10.0,  # meters
         'description': 'Northern Olympic Peninsula'
     },
     'The_Dump': {
-        'input_file': 'data/bathymetry_file/the_dump_10m.tiff',  # Update with your 10m TIFF
-        'output_file': 'data/the_dump.npy',
+        'input_file': BATHYMETRY / "the_dump_10m.tiff",  # Update with your 10m TIFF
+        'output_file': DATA / "the_dump.npy",
         'lat_min': 48.34, 'lat_max': 48.43,
         'lon_min': -124.75, 'lon_max': -124.57,
         'grid_size': 10.0,  # Use 30m grid for coarse locations
         'description': 'The Headlands of the Peninsula'
     },
     'Port_Angelis': {
-        'input_file': 'data/bathymetry_file/PA_30m.tiff',  # Update with your 30m TIFF
-        'output_file': 'data/PA_grid.npy',
+        'input_file': BATHYMETRY / "PA_30m.tiff",  # Update with your 30m TIFF
+        'output_file': DATA / "pa_grid.npy",
         'lat_min': 48.08, 'lat_max': 48.32,
         'lon_min': -123.62, 'lon_max': -122.70,
         'grid_size': 10.0,  # Use 30m grid for coarse locations
@@ -308,8 +309,8 @@ if __name__ == "__main__":
         print("   Update run_all_simulations.py with new bathymetry_file paths\n")
 
 """    'Flat_Island': {
-        'input_file': 'data/bathymetry_file/flat_is.tiff',  # NetCDF example
-        'output_file': 'data/flat_is_grid.npy',
+        'input_file': BATHYMETRY / "flat_is.tiff",  # NetCDF example
+        'output_file': DATA / "flat_is_grid.npy",
         'lat_min': 21.3685, 'lat_max': 21.4783,
         'lon_min': -157.7533, 'lon_max': -157.6807,
         'grid_size': 10.0,

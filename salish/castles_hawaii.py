@@ -1,5 +1,5 @@
-from _fetch_buoy_functions import fetch_and_clean_buoy_data, predict_tides, plot_tides, predict_currents
-from _report_funcitons import wave_summary
+from salish.fetch_buoy import fetch_and_clean_buoy_data, predict_tides, plot_tides, predict_currents
+from salish.report import wave_summary
 from datetime import date, timedelta
 
 # today

@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 import pytz
 import numpy
 import numpy as np
+from salish.paths import STATUS
 
 #this script has funcitons that pull the most recent data from my datafiles, 
 #this was the very first version of my NOAA data reporting
@@ -163,8 +164,8 @@ def wind_report(df, bouy_name, timezone):
 
 def setstatus(wave, buoy_id): 
     # Create folder if it doesn’t exist
-    os.makedirs("data/status", exist_ok=True)
-    file_path = f"data/status/{buoy_id}.csv"
+    STATUS.mkdir(parents=True, exist_ok=True)
+    file_path = STATUS / f"{buoy_id}.csv"
 
     # Read file if it exists
     if os.path.exists(file_path):

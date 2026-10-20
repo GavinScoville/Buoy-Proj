@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import copy
 from matplotlib import cm
 import time
-from _fetch_buoy_functions import fetch_and_clean_buoy_data
+from salish.fetch_buoy import fetch_and_clean_buoy_data
 
-from _3d_visualisation import plot_surf_3d
+from salish.visualise_3d import plot_surf_3d
+from salish.paths import DATA, FRAMES
 
 #this script runs an airy wave model as an approx. for ocean waves on a set map from a specific direction.
 
@@ -52,7 +53,7 @@ wave_direction = 282
 #add metadata of wind conditions on top of graphics 
 
 # this is an array of bathymetric data 
-depth = np.load("data/the_dump.npy")
+depth = np.load(DATA / "the_dump.npy")
 zoom = depth[450:700,500:750] #this is for the closeup window 
 
 dx = 10 #set the discrete spatial stepsize. this is what the grid spacing really is
@@ -265,7 +266,7 @@ for k in range(0,nsteps):
         #ax = fig.add_subplot(projection = '3d')
         plt.title('seconds= %0.2f ' % (st) )
         #ax.set_zlim3d(-5,5)       
-        plt.savefig("frame_%03d.png" % k)
+        plt.savefig(FRAMES / ("frame_%03d.png" % k))
 
 loop_time = time.time() - loop_start
 print(loop_time)

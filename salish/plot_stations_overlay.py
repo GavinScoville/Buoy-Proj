@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 import pandas as pd
 
-from _station_metadata import get_station_dataframe, load_buoy_timeseries
+from salish.station_metadata import get_station_dataframe, load_buoy_timeseries
+from salish.paths import PLOTS
 
 
 def plot_stations_on_domain(depth, dx, dy, stations_df=None, ax=None,
@@ -104,7 +105,7 @@ def plot_stations_with_timeseries(station_ids=None, hours_back=72, ncols=2):
         ncols: number of columns in subplot grid
     """
     if station_ids is None:
-        from _station_metadata import STATION_IDS
+        from salish.station_metadata import STATION_IDS
         station_ids = STATION_IDS
 
     nrows = (len(station_ids) + ncols - 1) // ncols
@@ -160,5 +161,5 @@ if __name__ == "__main__":
     import matplotlib.dates as mdates
 
     fig = plot_stations_with_timeseries(["46087", "46267", "46088"], hours_back=168)
-    fig.savefig("plots/station_timeseries.png", dpi=100, bbox_inches="tight")
+    fig.savefig(PLOTS / "station_timeseries.png", dpi=100, bbox_inches="tight")
     print("Saved plots/station_timeseries.png")

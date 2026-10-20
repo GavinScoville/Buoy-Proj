@@ -30,7 +30,7 @@ jobs:
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-        run: python Salish_Alerts.py
+        run: python -m salish.pipeline
 
       - name: Commit and push results
         env:
@@ -41,8 +41,3 @@ jobs:
           git add -A
           git commit -m "Auto-update buoy report [skip ci]" || echo "No changes to commit"
           git push https://$GH_PAT@github.com/GavinScoville/Buoy_Proj.git HEAD:main
-
-
-
-
-
