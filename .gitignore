@@ -1,6 +1,41 @@
+# ---- environment ----
 .venv/
+venv/
 .env
 __pycache__/
+*.pyc
+
+# ---- OS cruft ----
+.DS_Store
+
+# ---- fetched / derived buoy data (regenerated each pipeline run) ----
+# NOTE: data/status/ is deliberately NOT ignored - it is cross-run state
+# driving email dedup (alerts fire only on change) and CI commits it back.
 data/raw/
 data/processed/
+data/predicted/
+data/grib_cache/
+data/buoy_archive/
+
+# ---- large bathymetry source rasters (download separately, see README) ----
+data/bathymetry_file/
 GEBCO_2025_sub_ice.nc
+*.tiff
+*.nc
+
+# ---- cartopy shapefile cache (downloaded on demand) ----
+data/cartopy_data/
+
+# ---- heavy simulation output (regenerable; keep out of history) ----
+*.npy
+*.gif
+artifacts/surface_plot.html
+artifacts/the_dump/
+artifacts/flat_is/
+artifacts/Neah_Bay/
+artifacts/Port_Angeles/
+artifacts/Ocean_Papa/
+
+# ---- logs & scratch ----
+cron.log
+*.log

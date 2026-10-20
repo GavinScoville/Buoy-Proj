@@ -1,79 +1,28 @@
-# The goal of this program is alert you if a swell is comming into the Straight of Juan de Fuca 
+# The goal of this program is to investigate how waves propogate through the salish sea. It may be useful for informing surfing conditions. 
+
+## the project has the following strucutre:
+
+### Config: 
+- Hardcoded bouy tags and coordinates 
+- Webpage design scripts 
+- emails to alert if the waves look good for surfing
+
+### Code:
+The code that pulls data, runs it through numerical models. It will output reports and visualisations 
+
+This is also the code that sends out alerts 
+
+### Data: 
+The home for bathymetric data and bouy data 
+
+### Artifacts:
+The home for deliverables: plots, forcasts, and tables 
+
+
+
+
 
 ## Download NOAA data (waves and tides) 
 Every 15 minutes I retrieve new infomration from NOAA on the waves, tides, current, and wind. See fetch_bouy_funcitons.py to see the functions that call on the NOAA API. This data is collected by NOAA bouys such as the[New Dungeness Buoy](https://www.ndbc.noaa.gov/station_page.php?station=46088). 
 
  Description of on NOAA bouy measurments is [available here](https://www.ndbc.noaa.gov/faq/measdes.shtml) 
-
-### Wave Stations: 
-    1 Ocean PAPA. 46246.[49.903 N 145.246 W]. -(water depth 4252m)-(advanced wave data).  
-
-    2 Climate PAPA. 48400.[50.055 N 144.873 W]. -(wind data only). 
-
-    3 South Nomad. 46036.[48.360 N 133.940 W]. -(no  directional data). 
-
-    4 La Perouse Bank. 46206. [48.840 N 126.000 W]. (no direcitonal data).
-
-    5 Tillamook OR. 46089. [45.928 N 125.815 W] 
-    
-    6 Neah Bay. 46087. [48.493 N 124.727 W]. -(Depth 259 m) [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46087).   
-
-    7 Port Angles. 46267. [48.173 N 123.607 W]. -(Depth 75 m). 
-
-    8 New Dungeness. 46088. [48.332 N 123.179 W]. -(Depth 115 m).    [photos available](https://www.ndbc.noaa.gov/station_page.php?station=46088).   
-
-    9 Smith Island. SISW1. [48.321 N 122.831 W] (wind only).   
-## Target Surf Spots:
-    1 Neah Bay 48.493 N, 124.727 W
-
-    2 Fort Ebey 48.2248207, 122.7701732 W
-
-## Make predictions as to what windows conditions are good 
-I am currently using a very simplistic newtonian model, while I keep past observations logged on my personal computer. When the dataset gets large enough to do some machine learning, I can fit a stochastic model to predict wave conditions. 
-
-If I want to take this project a whole step farther, I could learn to use the program WaveWatch3, developed by NOAA and available at https://github.com/NOAA-EMC/WW3/wiki/About-WW3. It "solves the random phase spectral action density balance equation for wavenumber-direction spectra" and the model includes options for shallow-water surf zone applicaitons. This is the model that surfline uses, and the package can do some really advanced physics and numerical modeling. 
-
-### Process of Building Wave Report: 
-Wave report is stored in Salish_Alerts.py 
-
-#### Step 1: Look at most recent data 
-I pull the NOAA data into my program. 
-
-#### Step 2: Infer Wave's properties
-For geodesy, I use formulas for handeling spherical coordinate systems [oulined here.](https://www.movable-type.co.uk/scripts/latlong-vectors.html)
-
-For estimating the wave's properties such as steepness and celarity, I use formulas outlined here 
-
-Azimuth from Neah Bay to Fort Ebey is about 100° E of N. A wave with an 11 second period traveling in 100m water moves about 17 meters/s. Tidal Currents can add +- 1.5 meters/s to this speed. 
-
-#### Step 3: Identify when waves pass Port Angelis, and New Dungeness
-Qualify that yes waves did make in into the straight. Ebey should be firing 
-
-#### Step 4: Include Wind Waves genrated along Juan de Fuce fetch
-Have not done this yet. Adding a wind report is defintly the next step for the wave forcaster. 
-
-
-## Send out text updates if it looks like the waves are going to be really good 
-
-### Possible Conditions: 
-
-#### A. It is firing at Neah Bay and it looks like it might get good in Fort Ebey 
- If Neah Bay is >10 feet, and dominant wave bearing is within 10 degrees of 100° E of North. 
-
- Note: It takes about 2.5 hours for a wave with an 11 second period to make it from Neah Bay to fort Ebey on a slack current
-
- Report Wind at Neah Bay and New Dungeness also report tide
-#### B. It is firing at Neah bay and Fort Ebay 
-
- If Neah Bay is >10 feet, and New Dungeness Bouy has >5 ft headed within 30° at Fort Ebey
-
-#### C. It is just firing in Fort Ebey 
-
-If New Dungeness Bouy has >5 ft, and bearing is within 30° of Fort Ebey
-
-#### D. It is not firing anywhere 
-
-Once the swell has passed, remove updates so that noone wastes thier time going out to check the surf
-
-
-
