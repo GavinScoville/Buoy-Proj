@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "salish"
+version = "0.1.0"
+description = "Salish Sea surf forecaster"
+requires-python = ">=3.11"
+# Pinned dependencies live in requirements.txt
+
+[tool.setuptools.packages.find]
+include = ["salish*"]

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salish Sea Surf Report</title>
+<style>
+:root { color-scheme: light dark; }
+body { margin: 0 auto; padding: 2rem 1rem 4rem; max-width: 56rem; line-height: 1.6;
+       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif; }
+h1 { font-size: 2rem; } h2 { margin-top: 2.5rem; } h3 { margin-top: 2rem; }
+hr { border: 0; border-top: 1px solid currentColor; opacity: .2; margin: 2.5rem 0; }
+img, iframe { max-width: 100%; border-radius: 4px; }
+iframe { border: 1px solid currentColor; }
+details { margin: 1rem 0; padding: .5rem 0; }
+summary { cursor: pointer; padding: .4rem 0; }
+</style>
+</head>
+<body>
+<h1>Salish Sea Surf Report</h1>
+<p><strong>Updated:</strong> 2026-10-20 11:17 PDT</p>
+<hr />
+<h2>Swell Forecast (WAVEWATCH III)</h2>
+<p>NOAA's GFS-Wave (WAVEWATCH III) forecast at the Neah Bay buoy. Each panel shows
+the swell partitions as arrows pointing the way the waves travel; length is height
+and colour is period.</p>
+<p><img alt="Daily swell forecast" src="../plots/swell_forecast.png" /></p>
+<details>
+<summary><strong>Hourly forecast, next 48 hours</strong></summary>
+<p><img alt="Hourly swell forecast" src="../plots/swell_forecast_hourly.png" /></p>
+</details>
+<hr />
+<h2>Ray Tracing</h2>
+<h3>Across the Pacific</h3>
+<p><img alt="Pacific wave propagation" src="../plots/maps/pacific.png" /></p>
+<p>1,600 km off the coast, the Ocean Papa buoy collects wave data.
+Using this information, we can infer the trajectory of waves as they travel across the Pacific.
+This map uses spherical trigonometry to calculate the azimuth and great-circle path of each wave.
+It does not yet include the Coriolis effect — coming soon.</p>
+<h3>Strait of Juan de Fuca</h3>
+<p><img alt="Strait refraction" src="../plots/maps/Strait.png" /></p>
+<p>At the entrance of the Salish Sea, the Neah Bay buoy provides us basic wave data.
+No other surf models currently incorporate how these waves refract across the Strait.
+This ray-tracing diagram illustrates how the coastline bends and redirects incoming wave energy.
+A simple algorithm currently predicts wave height by holding energy flux constant.</p>
+<h3>Islands Region</h3>
+<p><img alt="Islands refraction" src="../plots/maps/Island.png" /></p>
+<p>The rays linearly interpolate between the Port Angeles Buoy and the New Dungeness Buoy.
+Waves pass over many underwater features but only experience friction and thus
+refraction when the depth is less than half the wavelength.</p>
+<hr />
+<h2>Spectral Model (Parabolic Mild-Slope)</h2>
+<p>A directionally spread sea state from the Neah Bay buoy is marched shoreward across
+10 m bathymetry, capturing refraction, shoaling, diffraction and depth-limited breaking.</p>
+<p><img alt="Mild-slope wave height field" src="../plots/mild_slope_simulation.png" /></p>
+<hr />
+<h2>Finite-Difference Model (Airy Waves)</h2>
+<p>Time-stepped linear wave simulations on 10-30 m bathymetry grids.</p>
+<h3>Neah Bay</h3>
+<p>Northern Olympic Peninsula</p>
+<ul>
+<li><strong>Forcing:</strong> 1.40 m, 10 s, from 270°</li>
+<li><strong>Grid:</strong> 5009×7952 points</li>
+</ul>
+<p><img alt="Neah_Bay simulation" src="../simulations/Neah_Bay/wave_simulation.gif" /></p>
+<details>
+<summary><strong>3D view of Neah Bay, last frame</strong></summary>
+<p><img alt="Neah_Bay 3D wave surface" src="../simulations/Neah_Bay/wave_3d.png" /></p>
+<iframe height="620" loading="lazy" src="../simulations/Neah_Bay/wave_3d.html" title="Interactive 3D wave surface" width="100%"></iframe>
+</details>
+<h3>Warmhouse</h3>
+<p>Olympic Peninsula Headlands</p>
+<ul>
+<li><strong>Forcing:</strong> 1.40 m, 10 s, from 270°</li>
+<li><strong>Grid:</strong> 1001×1330 points</li>
+</ul>
+<p><img alt="Warmhouse simulation" src="../simulations/Warmhouse/wave_simulation.gif" /></p>
+<details>
+<summary><strong>3D view of Warmhouse, last frame</strong></summary>
+<p><img alt="Warmhouse 3D wave surface" src="../simulations/Warmhouse/wave_3d.png" /></p>
+<iframe height="620" loading="lazy" src="../simulations/Warmhouse/wave_3d.html" title="Interactive 3D wave surface" width="100%"></iframe>
+</details>
+<h3>Port Angeles</h3>
+<p>Strait of Juan de Fuca</p>
+<ul>
+<li><strong>Forcing:</strong> 0.30 m, 10 s, from 288°</li>
+<li><strong>Grid:</strong> 2671×6826 points</li>
+</ul>
+<p><img alt="Port_Angeles simulation" src="../simulations/Port_Angeles/wave_simulation.gif" /></p>
+<details>
+<summary><strong>3D view of Port Angeles, last frame</strong></summary>
+<p><img alt="Port_Angeles 3D wave surface" src="../simulations/Port_Angeles/wave_3d.png" /></p>
+<iframe height="620" loading="lazy" src="../simulations/Port_Angeles/wave_3d.html" title="Interactive 3D wave surface" width="100%"></iframe>
+</details>
+<hr />
+<h1>Wave Reports</h1>
+<hr />
+<h2>Ocean Papa Wave Report</h2>
+<p>Distance: 1642 km to Fort Ebey</p>
+<ul>
+<li><strong>Wave height:</strong> 13.5 ft</li>
+<li><strong>Dominant period:</strong> 9 s</li>
+<li><strong>Wave energy:</strong> 2672 kJ/m of crest</li>
+<li><strong>Waves travelling toward:</strong> 78°</li>
+<li><strong>Alert status:</strong> normal (waves travelling 78° are -10° off the path to neah bay mouth)</li>
+</ul>
+<p>A meter of wave crest has the kinetic energy of a Prius traveling
+<strong>4.5 mph.</strong></p>
+<details>
+<summary><strong>Click to show Ocean Papa plots</strong></summary>
+<p><img alt="Ocean Papa waves" src="../plots/waves/Ocean_Papa.png" />  </p>
+</details>
+<ul>
+<li><a href="https://www.ndbc.noaa.gov/station_page.php?station=46246">Station Page →</a></li>
+</ul>
+<hr />
+<h2>Neah Bay Wave Report</h2>
+<p>Distance: 146 km to Fort Ebey</p>
+<ul>
+<li><strong>Wave height:</strong> 4.6 ft</li>
+<li><strong>Dominant period:</strong> 10.0 s</li>
+<li><strong>Wave energy:</strong> 385 kJ/m of crest</li>
+<li><strong>Waves travelling toward:</strong> 90°</li>
+<li><strong>Wind:</strong> 7.0 m/s from 80.0°</li>
+<li><strong>Alert status:</strong> normal (waves travelling 90° are outside the 97-112° window)</li>
+</ul>
+<p>A meter of wave crest has the kinetic energy of a Prius traveling
+<strong>1.7 mph.</strong></p>
+<details>
+<summary><strong>Click to show Neah Bay plots</strong></summary>
+<p><img alt="Neah Bay waves" src="../plots/waves/Neah_Bay.png" /><br />
+<img alt="Neah Bay wind" src="../plots/wind/Neah_Bay.png" /><br />
+<img alt="Neah Bay tidecurrent" src="../plots/tidecurrent/Neah_Bay.png" />  </p>
+</details>
+<ul>
+<li><a href="https://www.ndbc.noaa.gov/station_page.php?station=46087">Station Page →</a></li>
+</ul>
+<hr />
+<h2>Port Angeles Wave Report</h2>
+<p>Distance: 41 km to Fort Ebey</p>
+<ul>
+<li><strong>Wave height:</strong> 1.0 ft</li>
+<li><strong>Dominant period:</strong> 10.0 s</li>
+<li><strong>Wave energy:</strong> 18 kJ/m of crest</li>
+<li><strong>Waves travelling toward:</strong> 108°</li>
+<li><strong>Alert status:</strong> normal (waves are 0.3 m, under 1.2 m)</li>
+</ul>
+<p>A meter of wave crest has the kinetic energy of a Prius traveling
+<strong>0.4 mph.</strong></p>
+<details>
+<summary><strong>Click to show Port Angeles plots</strong></summary>
+<p><img alt="Port Angeles waves" src="../plots/waves/Port_Angeles.png" />  </p>
+</details>
+<ul>
+<li><a href="https://www.ndbc.noaa.gov/station_page.php?station=46267">Station Page →</a></li>
+</ul>
+<hr />
+<h2>New Dungeness Wave Report</h2>
+<p>Distance: 29 km to Fort Ebey</p>
+<ul>
+<li><strong>Wave height:</strong> 1.0 ft</li>
+<li><strong>Dominant period:</strong> 7.0 s</li>
+<li><strong>Wave energy:</strong> 9 kJ/m of crest</li>
+<li><strong>Waves travelling toward:</strong> 68°</li>
+<li><strong>Wind:</strong> 3.0 m/s from 350.0°</li>
+<li><strong>Alert status:</strong> normal (waves are 0.3 m, under 1.0 m)</li>
+</ul>
+<p>A meter of wave crest has the kinetic energy of a Prius traveling
+<strong>0.3 mph.</strong></p>
+<details>
+<summary><strong>Click to show New Dungeness plots</strong></summary>
+<p><img alt="New Dungeness waves" src="../plots/waves/New_Dungeness.png" /><br />
+<img alt="New Dungeness wind" src="../plots/wind/New_Dungeness.png" /><br />
+<img alt="New Dungeness tidecurrent" src="../plots/tidecurrent/New_Dungeness.png" />  </p>
+</details>
+<ul>
+<li><a href="https://www.ndbc.noaa.gov/station_page.php?station=46088">Station Page →</a></li>
+</ul>
+<hr />
+<p><em>Report auto-generated from live NOAA buoy data and wave models.</em></p>
+</body>
+</html>

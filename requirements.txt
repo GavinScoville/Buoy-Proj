@@ -5,6 +5,7 @@ Bottleneck==1.6.0
 Cartopy==0.25.0
 cattrs==25.3.0
 certifi==2025.10.5
+cfgrib==0.9.15.1
 cftime==1.6.5
 charset-normalizer==3.4.3
 click==8.3.0
@@ -16,12 +17,16 @@ dask==2025.10.0
 DateTime==5.5
 distributed==2025.10.0
 donfig==0.8.1.post1
+eccodes==2.48.0
+eccodeslib==2.49.0.30
 flox==0.10.7
 fonttools==4.60.1
 fsspec==2025.10.0
 h5netcdf==1.7.3
 h5py==3.15.1
+herbie-data==2026.9.1
 idna==3.10
+imageio==2.37.4
 Jinja2==3.1.6
 joblib==1.5.2
 kiwisolver==1.4.9
@@ -30,6 +35,7 @@ llvmlite==0.45.1
 locket==1.0.0
 lxml==6.0.2
 lz4==4.4.5
+Markdown==3.11.2
 MarkupSafe==3.0.3
 matplotlib==3.10.7
 msgpack==1.1.2
@@ -39,8 +45,8 @@ netCDF4==1.7.3
 numba==0.62.1
 numbagg==0.9.3
 numcodecs==0.16.3
-numpy==2.3.3
 numpy-groupies==0.11.3
+numpy==2.3.3
 opt_einsum==3.4.0
 packaging==25.0
 pandas==2.3.3
@@ -57,9 +63,11 @@ pyshp==3.0.2.post1
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.1
 pytz==2025.2
+pyvista==0.48.4
 PyYAML==6.0.3
-requests==2.32.5
+rasterio==1.5.0
 requests-cache==1.2.1
+requests==2.32.5
 scikit-learn==1.7.2
 scipy==1.16.2
 seaborn==0.13.2
@@ -73,6 +81,8 @@ tblib==3.2.1
 threadpoolctl==3.6.0
 toolz==1.1.0
 tornado==6.5.2
+trame-vtk==2.11.8
+trame==3.13.2
 typing_extensions==4.15.0
 tzdata==2025.2
 url-normalize==2.2.1

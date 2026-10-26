@@ -1,0 +1,178 @@
+# Pipeline settings: what to fetch, when to alert, which models to run.
+# Buoy coordinates live in stations.yaml; coordinates here are [lat, lon]
+# with longitude negative for west.
+
+timezone: America/Los_Angeles
+
+# Fixed points used for bearings, distances and model set-up.
+places:
+  fort_ebey:       [48.2248207, -122.7701732]
+  neah_bay_mouth:  [48.493, -124.727]    # where Pacific swell enters the strait
+  strait_south:    [48.173, -123.607]    # off Port Angeles
+  strait_north:    [48.332, -123.179]    # off Dungeness Spit
+
+# Every buoy fetched each run (the Pacific map uses all of them).
+buoys:
+  - "46246"   # Ocean Papa
+  - "46036"   # South Nomad
+  - "46204"   # La Perouse Bank
+  - "46089"   # Tillamook
+  - "46087"   # Neah Bay
+  - "46267"   # Port Angeles
+  - "46088"   # New Dungeness
+
+breaks:
+  fort_ebey:       [48.2241726, -122.7715496]
+  hobuck:          [48.335227, -124.665488]
+  # shishi_beach:  [48.2755035, -124.6805468]
+  warmhouse:       [48.389152, -124.663985]
+  # clallam_bay:   [48.25841, -124.2581]
+  crescent_beach:  [48.162190, -123.713749]
+  twin_rivers:     [48.16681, -123.9524]
+
+# Spots get a wave report on the website and, if `alert` is set, an email
+# when their status goes from 0 (normal) to 1 (watch).
+# status_file names match the existing files in data/state/alerts/.
+spots:
+  - key: ocean_papa
+    name: Ocean Papa
+    buoy: "46246"
+    status_file: ocean_papa
+    plots: [waves]
+    alert:
+      subject: "🌊 Ocean Papa Detects Waves"
+      min_height_m: 5.0
+      min_period_s: 12
+      aimed_at: {place: neah_bay_mouth, tolerance_deg: 10}
+      travel_to: {place: fort_ebey}               # deep-water speed
+
+  - key: neah_bay
+    name: Neah Bay
+    buoy: "46087"
+    status_file: Neah_Bay
+    tide_station: "9443090"
+    current_station: "PUG1642"
+    plots: [waves, wind, tidecurrent]
+    alert:
+      subject: "🌊 Waves are Moving down the Strait"
+      min_height_m: 2.5
+      min_period_s: 10
+      heading_between: [strait_north, strait_south]
+      travel_to: {place: fort_ebey, depth_m: 100}  # plus the tidal current
+      report_wind: true
+
+  - key: port_angeles
+    name: Port Angeles
+    buoy: "46267"
+    status_file: Port Angelis
+    tide_station: "9444900"                       # Port Townsend
+    plots: [waves]
+    alert:
+      subject: "🌊 Port Angeles has Waves"
+      min_height_m: 1.2
+      min_period_s: 8
+      bearing_needed: {at: fort_ebey, from: neah_bay_mouth}
+
+  - key: new_dungeness
+    name: New Dungeness
+    buoy: "46088"
+    status_file: New Dungeness
+    tide_station: "9444900"                       # Port Townsend
+    current_station: "PUG1635"
+    plots: [waves, wind, tidecurrent]
+    alert:
+      subject: "🌊 New Dungeness has Waves"
+      min_height_m: 1.0
+      min_period_s: 8
+      bearing_needed: {at: fort_ebey, from: neah_bay_mouth}
+      report_wind: true
+
+email:
+  recipients: [gavin.scoville@gmail.com]
+
+# Models run in this order, and the website shows them in this order.
+# A model whose input files are missing (e.g. the gitignored .npy grids in
+# CI) is skipped and the website keeps the last image it produced.
+models:
+  wavewatch:
+    enabled: true
+    station: "46087"
+
+  pacific_rays:
+    enabled: true
+    source_buoy: "46246"
+    # Buoys whose latest height is drawn on the Pacific map, in the order
+    # salish.viz.map_conditions.map_pacific expects them.
+    map_buoys: ["46036", "46204", "46089", "46087", "46267", "46088"]
+
+  ray_tracing:
+    enabled: true
+    strait:
+      buoy: "46087"
+      start: [48.5, -124.8]
+      n_rays: 30
+      front_width_m: 30000
+      n_steps: 2000
+      dt: 5
+    islands:
+      south: {buoy: "46267", start: [48.173, -123.607]}
+      north: {buoy: "46088", start: [48.3, -123.5]}
+      n_rays: 30
+      n_steps: 2000
+      dt: 5
+      lat: [48.1, 48.45]
+      lon: [-123.75, -122.5]
+
+  spectral:
+    enabled: true
+    buoy: "46087"
+    bathymetry: salish_sea_bathymetry.npy         # in data/processed/bathymetry/
+    # Where that grid sits, for finding the breaks in it. Not recorded when
+    # the grid was built; fitted against neah_bay_30m.tiff and PA_30m.tiff,
+    # good to about +/-100 m.
+    grid_origin: [48.10, -124.7486]               # [lat, lon] of cell (0, 0), the SW corner
+    grid_mean_lat: 48.34                          # sets metres per degree of longitude
+    grid_spacing_m: 10
+    subsample: 2
+    components: 9
+    # Tide floods the whole grid by the current prediction at this station.
+    tide_station: "9444090"                       # Port Angeles
+    # Height of the grid's zero above MLLW. The DEMs don't record their
+    # vertical datum; this assumes NAVD88, which is 0.13 m above MLLW at
+    # Port Angeles (0.26 m at Neah Bay). If they're MHW, use ~2.2 instead.
+    datum_above_mllw_m: 0.13
+    # Iribarren number at the breaks: water this deep, within this window of
+    # the nearest such water to each break's coordinate.
+    depth_band_m: [1, 5]
+    break_search_m: 1000
+    window_arcsec: 2
+    spread_s: 20
+    cap: 2.0
+
+  finite_difference:
+    enabled: true
+    warm_start: false
+    locations:
+      # Only Warmhouse for now; uncomment the others to run them again.
+      # - name: Neah_Bay
+      #   buoy: "46087"
+      #   bathymetry: neah_bay_grid.npy
+      #   nsteps: 100
+      #   description: Northern Olympic Peninsula
+      - name: Warmhouse
+        buoy: "46087"
+        bathymetry: the_dump_10m.npy
+        nsteps: 2000
+        description: Olympic Peninsula Headlands
+        zoom_window: [450, 650, 450, 650]  # [y0, y1, x0, x1] for the detail view
+      - name: Fort_Ebey
+        buoy: "46267"                    # Port Angeles
+        bathymetry: fort_ebey.npy
+        nsteps: 2500
+        description: Whidbey Island
+        zoom_window: [650, 800, 900, 1100]
+      # - name: Port_Angeles
+      #   buoy: "46267"
+      #   bathymetry: pa_grid.npy
+      #   nsteps: 100
+      #   description: Strait of Juan de Fuca

@@ -8,35 +8,32 @@ __pycache__/
 # ---- OS cruft ----
 .DS_Store
 
-# ---- fetched / derived buoy data (regenerated each pipeline run) ----
-# NOTE: data/status/ is deliberately NOT ignored - it is cross-run state
-# driving email dedup (alerts fire only on change) and CI commits it back.
+# ---- data/raw: everything as downloaded (NDBC text, GRIB, bathymetry
+# rasters, cartopy shapefiles). Refetchable, so never tracked. ----
 data/raw/
-data/processed/
-data/predicted/
-data/grib_cache/
-data/buoy_archive/
 
-# ---- large bathymetry source rasters (see README for how to obtain) ----
-# Ignore the heavy source rasters and the grids derived from them, but KEEP
-# data/bathymetry_file/gebco_strait_subset.nc: it is only 1.5MB and the
-# pipeline (salish/ray_tracing.py) requires it at import time.
-*.tiff
-GEBCO_2025_sub_ice.nc
+# ---- data/processed: regenerated each run or from raw/ ----
+# NOT ignored, deliberately:
+#   data/processed/historic/   monthly Parquet archive, CI commits it back
+#   data/processed/bathymetry/gebco_strait_subset.nc   1.5MB, needed by
+#                              salish/models/ray_tracing.py at import time
+data/processed/buoys/
+data/processed/buoy_archive/
+data/processed/predictions/
+data/processed/airywaves/
+*.npy
 
-# ---- cartopy shapefile cache (downloaded on demand) ----
-data/cartopy_data/
+# data/state/ is deliberately NOT ignored - it is cross-run state driving
+# email dedup (alerts fire only on change) and CI commits it back.
 
 # ---- heavy simulation output (regenerable; keep out of history) ----
-*.npy
+# Keep artifacts/simulations/results.md, drop the per-location output dirs.
+artifacts/simulations/*/
 *.gif
 artifacts/surface_plot.html
-artifacts/the_dump/
-artifacts/flat_is/
-artifacts/Neah_Bay/
-artifacts/Port_Angeles/
-artifacts/Ocean_Papa/
 
 # ---- logs & scratch ----
 cron.log
 *.log
+.venv.old/
+*.egg-info/
