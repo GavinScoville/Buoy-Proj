@@ -1,5 +1,5 @@
 # Salish Sea Surf Report
-**Updated:** 2026-10-26 12:55 PDT
+**Updated:** 2026-10-26 16:17 PDT
 
 ---
 
@@ -60,40 +60,23 @@ spill, plunge or surge, from the local seabed slope and the modelled wave height
 
 ## Finite-Difference Model (Airy Waves)
 
+_Not updated this run (skipped: bathymetry grid not found: the_dump_10m.npy, fort_ebey.npy (build it with python -m salish.processing.bathymetry)); any figures below are from an earlier run._
+
 Time-stepped linear wave simulations on 10-30 m bathymetry grids.
 
 ### Warmhouse
 Olympic Peninsula Headlands
 
-- **Forcing:** 0.80 m, 10 s, from 249°
-- **Grid:** 1001×1330 points
+_No output yet._
 
-![Warmhouse simulation](../simulations/Warmhouse/wave_simulation.gif)
-
-<details>
-<summary><strong>3D view of Warmhouse, last frame</strong></summary>
-
-![Warmhouse 3D wave surface](../simulations/Warmhouse/wave_3d.png)
-
-[Open the interactive version →](../simulations/Warmhouse/wave_3d.html)
-
-</details>
+_No 3D view yet._
 
 ### Fort Ebey
 Whidbey Island
 
-_Not updated this run: ❌ Too coarse: only 1.4 PPW (need ≥ 4)._
+_No output yet._
 
-![Fort_Ebey simulation](../simulations/Fort_Ebey/wave_simulation.gif)
-
-<details>
-<summary><strong>3D view of Fort Ebey, last frame</strong></summary>
-
-![Fort_Ebey 3D wave surface](../simulations/Fort_Ebey/wave_3d.png)
-
-[Open the interactive version →](../simulations/Fort_Ebey/wave_3d.html)
-
-</details>
+_No 3D view yet._
 
 ---
 
@@ -104,11 +87,11 @@ _Not updated this run: ❌ Too coarse: only 1.4 PPW (need ≥ 4)._
 ## Ocean Papa Wave Report
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 7.2 ft
-- **Dominant period:** 11 s
-- **Wave energy:** 1149 kJ/m of crest
-- **Waves travelling toward:** 334°
-- **Alert status:** normal (waves travelling 334° are -114° off the path to neah bay mouth)
+- **Wave height:** 7.9 ft
+- **Dominant period:** 10 s
+- **Wave energy:** 1130 kJ/m of crest
+- **Waves travelling toward:** 8°
+- **Alert status:** normal (waves travelling 8° are -80° off the path to neah bay mouth)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
 **2.9 mph.**
@@ -130,9 +113,9 @@ Distance: 146 km to Fort Ebey
 - **Wave height:** 2.6 ft
 - **Dominant period:** 10.0 s
 - **Wave energy:** 126 kJ/m of crest
-- **Waves travelling toward:** 69°
+- **Waves travelling toward:** 76°
 - **Wind:** 3.0 m/s from 70.0°
-- **Alert status:** normal (waves travelling 69° are outside the 97-112° window)
+- **Alert status:** normal (waves travelling 76° are outside the 97-112° window)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
 **1.0 mph.**
