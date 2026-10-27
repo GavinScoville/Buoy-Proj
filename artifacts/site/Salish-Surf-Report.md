@@ -1,5 +1,5 @@
 # Salish Sea Surf Report
-**Updated:** 2026-10-26 19:11 PDT
+**Updated:** 2026-10-27 00:55 PDT
 
 ---
 
@@ -88,13 +88,13 @@ _No 3D view yet._
 Distance: 1642 km to Fort Ebey
 
 - **Wave height:** 8.2 ft
-- **Dominant period:** 11 s
-- **Wave energy:** 1484 kJ/m of crest
-- **Waves travelling toward:** 355°
-- **Alert status:** normal (waves travelling 355° are -93° off the path to neah bay mouth)
+- **Dominant period:** 10 s
+- **Wave energy:** 1227 kJ/m of crest
+- **Waves travelling toward:** 12°
+- **Alert status:** normal (waves travelling 12° are -76° off the path to neah bay mouth)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**3.3 mph.**
+**3.0 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -110,15 +110,15 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report
 Distance: 146 km to Fort Ebey
 
-- **Wave height:** 3.0 ft
-- **Dominant period:** 10.0 s
-- **Wave energy:** 159 kJ/m of crest
-- **Waves travelling toward:** 68°
-- **Wind:** 1.0 m/s from 70.0°
-- **Alert status:** normal (waves travelling 68° are outside the 97-112° window)
+- **Wave height:** 3.6 ft
+- **Dominant period:** 9.0 s
+- **Wave energy:** 192 kJ/m of crest
+- **Waves travelling toward:** 70°
+- **Wind:** 0.0 m/s from nan°
+- **Alert status:** normal (waves travelling 70° are outside the 97-112° window)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**1.1 mph.**
+**1.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -137,13 +137,13 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 41 km to Fort Ebey
 
 - **Wave height:** 1.0 ft
-- **Dominant period:** 8.0 s
-- **Wave energy:** 11 kJ/m of crest
-- **Waves travelling toward:** 119°
+- **Dominant period:** 10.0 s
+- **Wave energy:** 18 kJ/m of crest
+- **Waves travelling toward:** 92°
 - **Alert status:** normal (waves are 0.3 m, under 1.2 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**0.3 mph.**
+**0.4 mph.**
 
 <details>
 <summary><strong>Click to show Port Angeles plots</strong></summary>
