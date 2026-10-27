@@ -1,5 +1,5 @@
 # Salish Sea Surf Report
-**Updated:** 2026-10-26 16:17 PDT
+**Updated:** 2026-10-26 19:11 PDT
 
 ---
 
@@ -87,14 +87,14 @@ _No 3D view yet._
 ## Ocean Papa Wave Report
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 7.9 ft
-- **Dominant period:** 10 s
-- **Wave energy:** 1130 kJ/m of crest
-- **Waves travelling toward:** 8°
-- **Alert status:** normal (waves travelling 8° are -80° off the path to neah bay mouth)
+- **Wave height:** 8.2 ft
+- **Dominant period:** 11 s
+- **Wave energy:** 1484 kJ/m of crest
+- **Waves travelling toward:** 355°
+- **Alert status:** normal (waves travelling 355° are -93° off the path to neah bay mouth)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**2.9 mph.**
+**3.3 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -110,15 +110,15 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report
 Distance: 146 km to Fort Ebey
 
-- **Wave height:** 2.6 ft
+- **Wave height:** 3.0 ft
 - **Dominant period:** 10.0 s
-- **Wave energy:** 126 kJ/m of crest
-- **Waves travelling toward:** 76°
-- **Wind:** 3.0 m/s from 70.0°
-- **Alert status:** normal (waves travelling 76° are outside the 97-112° window)
+- **Wave energy:** 159 kJ/m of crest
+- **Waves travelling toward:** 68°
+- **Wind:** 1.0 m/s from 70.0°
+- **Alert status:** normal (waves travelling 68° are outside the 97-112° window)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**1.0 mph.**
+**1.1 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -137,13 +137,13 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 41 km to Fort Ebey
 
 - **Wave height:** 1.0 ft
-- **Dominant period:** 3.0 s
-- **Wave energy:** 2 kJ/m of crest
-- **Waves travelling toward:** 247°
+- **Dominant period:** 8.0 s
+- **Wave energy:** 11 kJ/m of crest
+- **Waves travelling toward:** 119°
 - **Alert status:** normal (waves are 0.3 m, under 1.2 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**0.1 mph.**
+**0.3 mph.**
 
 <details>
 <summary><strong>Click to show Port Angeles plots</strong></summary>
