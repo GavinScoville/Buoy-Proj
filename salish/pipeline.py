@@ -33,7 +33,7 @@ from salish.processing.conditions import wave_summary
 from salish.viz.plot_conditions import plot_tide_currents, plot_waves, plot_wind
 from salish.web.website import plot_name, render_site
 
-MODEL_STAGES = ("wavewatch", "pacific_rays", "finite_difference") #"ray_tracing", add ray tracing if you ant but its pretty lame 
+MODEL_STAGES = ("wavewatch", "pacific_rays", "spectral", "finite_difference") #"ray_tracing", add ray tracing if you ant but its pretty lame 
 
 
 # ---------------------------------------------------------------------------
@@ -196,7 +196,8 @@ def model_finite_difference(mcfg, obs, buoys):
 MODELS = {
     "wavewatch": model_wavewatch,
     "pacific_rays": model_pacific_rays,
-    "ray_tracing": model_ray_tracing,
+    #"ray_tracing": model_ray_tracing,
+    "spectral": model_spectral,
     "finite_difference": model_finite_difference,
 }
 

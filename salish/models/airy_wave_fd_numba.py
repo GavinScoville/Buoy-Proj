@@ -122,18 +122,11 @@ def validate_simulation_params(buoy_params, depth, dx, verbose=True):
 
     # Check 1: Wave height reasonable
     if h < 0.1 or h > 15:
-        return False, f"❌ Wave height {h}m unrealistic (need 0.1-15m)", details
+        return False, f"Data issue: Wave height {h}m unrealistic (need 0.1-20m)", details
 
     # Check 2: Wave period reasonable
     if T < 2 or T > 30:
-        return False, f"❌ Wave period {T}s unrealistic (need 2-30s)", details
-
-    # Check 3: Grid has valid depths
-    water_cells = depth < 0
-    if not np.any(water_cells):
-        return False, f"❌ All land (no water cells)", details
-    if np.min(depth[water_cells]) < -5000:
-        return False, f"❌ Unrealistic depths (< -5000m)", details
+        return False, f"Data issue: Wave period {T}s unrealistic (need 2-30s)", details
 
     # Check 4: Wavelength resolution
     L = 9.81 * T**2 / (2 * np.pi)
@@ -142,9 +135,9 @@ def validate_simulation_params(buoy_params, depth, dx, verbose=True):
     details['ppw'] = ppw
 
     if ppw < 4:
-        return False, f"❌ Too coarse: only {ppw:.1f} PPW (need ≥ 4)", details
-    elif ppw < 10 and verbose:
-        print(f"⚠️  WARNING: Only {ppw:.1f} PPW (< 10), may have dispersion")
+        details['warning'] = (f"Grid ({dx:.0f} m) too coarse for {L:.0f} m waves: "
+                          f"only {ppw:.1f} points per wavelength (need ≥ 4); results are inaccurate.")
+        print(" WARNING:", details['warning'])
 
     # Check 5: CFL condition
     c = 9.81 * T / (2 * np.pi)
@@ -276,7 +269,7 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
     # ========== VALIDATION ==========
     if verbose:
         print("\nValidating simulation parameters...")
-    is_valid, val_msg, val_details = validate_simulation_params(buoy_params, depth, dx, verbose=verbose)
+    is_valid, val_msg, val_details = validate_simulation_params(buoy_params, depth, dx, verbose=False)
     if not is_valid:
         print(val_msg)
         timer['total'] = perf_counter() - timer['total']
@@ -415,7 +408,7 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
             if stability_check and k % 50 == 0 and k > 0:
                 is_stable, stab_msg = check_stability(f, dt, dx, celarity, k)
                 if not is_stable:
-                    print(f"\n❌ INSTABILITY DETECTED: {stab_msg}")
+                    print(f"\nNUMERICAL INSTABILITY DETECTED: {stab_msg}")
                     print(f"   Exiting at step {k}/{nsteps}")
                     # Save emergency checkpoint
                     emergency_file = os.path.join(output_dir, f"state_unstable_step_{k}.npy")

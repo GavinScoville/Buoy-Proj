@@ -61,11 +61,11 @@ It does not yet include the Coriolis effect — coming soon.
 {_stage_note(stages.get("ray_tracing"))}{_image(PLOTS / "maps" / "Strait.png", "Strait refraction")}
 
 At the entrance of the Salish Sea, the Neah Bay buoy provides us basic wave data.
-No other surf models currently incorporate how these waves refract across the Strait.
+No other open access surf models currently incorporate how these waves refract across the Strait.
 This ray-tracing diagram illustrates how the coastline bends and redirects incoming wave energy.
 A simple algorithm currently predicts wave height by holding energy flux constant.
 
-### Islands Region
+### San Juan Islands
 {_image(PLOTS / "maps" / "Island.png", "Islands refraction")}
 
 The rays linearly interpolate between the Port Angeles Buoy and the New Dungeness Buoy.
