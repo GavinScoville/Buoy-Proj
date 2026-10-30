@@ -1,5 +1,5 @@
 # Salish Sea Surf Report
-**Updated:** 2026-10-30 13:34 PDT
+**Updated:** 2026-10-30 14:37 PDT
 
 ---
 
@@ -34,11 +34,11 @@ It does not yet include the Coriolis effect — coming soon.
 ![Strait refraction](../plots/maps/Strait.png)
 
 At the entrance of the Salish Sea, the Neah Bay buoy provides us basic wave data.
-No other surf models currently incorporate how these waves refract across the Strait.
+No other open access surf models currently incorporate how these waves refract across the Strait.
 This ray-tracing diagram illustrates how the coastline bends and redirects incoming wave energy.
 A simple algorithm currently predicts wave height by holding energy flux constant.
 
-### Islands Region
+### San Juan Islands
 ![Islands refraction](../plots/maps/Island.png)
 
 The rays linearly interpolate between the Port Angeles Buoy and the New Dungeness Buoy.
@@ -48,6 +48,8 @@ refraction when the depth is less than half the wavelength.
 ---
 
 ## Spectral Model (Parabolic Mild-Slope)
+
+_Not updated this run (skipped: bathymetry grid not found: salish_sea_bathymetry.npy (build it with python -m salish.processing.bathymetry)); any figures below are from an earlier run._
 
 A directionally spread sea state from the Neah Bay buoy is marched shoreward across
 10 m bathymetry, capturing refraction, shoaling, diffraction and depth-limited breaking.
@@ -65,18 +67,20 @@ Time-stepped linear wave simulations on 10-30 m bathymetry grids.
 ### Warmhouse
 Olympic Peninsula Headlands
 
-_Not updated this run: ❌ Too coarse: only 2.5 PPW (need ≥ 4)._
+- **Forcing:** 0.90 m, 4 s, from 123°
+- **Grid:** 1001×1330 points
 
-_No output yet._
+![Warmhouse simulation](../simulations/Warmhouse/wave_simulation.gif)
 
 _No 3D view yet._
 
 ### Fort Ebey
 Whidbey Island
 
-_Not updated this run: ❌ Too coarse: only 1.4 PPW (need ≥ 4)._
+- **Forcing:** 0.40 m, 3 s, from 29°
+- **Grid:** 1558×1443 points
 
-_No output yet._
+![Fort_Ebey simulation](../simulations/Fort_Ebey/wave_simulation.gif)
 
 _No 3D view yet._
 
@@ -89,14 +93,14 @@ _No 3D view yet._
 ## Ocean Papa Wave Report
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 6.9 ft
-- **Dominant period:** 6 s
-- **Wave energy:** 312 kJ/m of crest
-- **Waves travelling toward:** 347°
-- **Alert status:** normal (waves travelling 347° are -101° off the path to neah bay mouth)
+- **Wave height:** 7.5 ft
+- **Dominant period:** 12 s
+- **Wave energy:** 1495 kJ/m of crest
+- **Waves travelling toward:** 98°
+- **Alert status:** normal (waves are 2.3 m, under 4.0 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**1.5 mph.**
+**3.3 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -115,9 +119,9 @@ Distance: 146 km to Fort Ebey
 - **Wave height:** 3.0 ft
 - **Dominant period:** 4.0 s
 - **Wave energy:** 25 kJ/m of crest
-- **Waves travelling toward:** 291°
+- **Waves travelling toward:** 303°
 - **Wind:** 9.0 m/s from 120.0°
-- **Alert status:** normal (waves travelling 291° are outside the 97-112° window)
+- **Alert status:** normal (waves travelling 303° are outside the 97-112° window)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
 **0.4 mph.**
@@ -138,14 +142,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report
 Distance: 41 km to Fort Ebey
 
-- **Wave height:** 1.6 ft
+- **Wave height:** 1.3 ft
 - **Dominant period:** 3.0 s
-- **Wave energy:** 4 kJ/m of crest
-- **Waves travelling toward:** 213°
-- **Alert status:** normal (waves are 0.5 m, under 1.0 m)
+- **Wave energy:** 3 kJ/m of crest
+- **Waves travelling toward:** 209°
+- **Alert status:** normal (waves are 0.4 m, under 1.0 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**0.2 mph.**
+**0.1 mph.**
 
 <details>
 <summary><strong>Click to show Port Angeles plots</strong></summary>
