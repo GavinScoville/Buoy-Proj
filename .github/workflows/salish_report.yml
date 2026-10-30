@@ -5,13 +5,23 @@ on:
     - cron: "*/15 * * * *"  # every 15 minutes
   workflow_dispatch:  # lets you trigger it manually from the GitHub UI
 
+# Nothing gets write access unless a job asks for it below.
 permissions:
-  contents: write
+  contents: read
+
+# One run at a time, so two runs never push data or deploy over each other.
+# A run that starts while another is going waits instead of being cancelled.
+concurrency:
+  group: salish-report
+  cancel-in-progress: false
 
 jobs:
+  # Fetch, alert, model; commit the data back; package the site.
   run-report:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write  # commit data/ back to this repo, via the built-in GITHUB_TOKEN
 
     steps:
       - name: Checkout repository
@@ -36,12 +46,41 @@ jobs:
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: python -m salish.pipeline
 
-      - name: Commit and push results
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+      # Only data/ is committed: the Parquet archive and alert state. Plots,
+      # GIFs and the report go to GitHub Pages below instead of into history.
+      - name: Commit and push data
         run: |
           git config user.name "GavinScoville"
           git config user.email "gavin.scoville@gmail.com"
-          git add -A
-          git commit -m "Auto-update buoy report [skip ci]" || echo "No changes to commit"
-          git push https://$GH_PAT@github.com/GavinScoville/Buoy_Proj.git HEAD:main
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "Auto-update buoy data [skip ci]"
+            git pull --rebase
+            git push
+          fi
+
+      # Copies index.html plus only the files the report links to.
+      - name: Build site
+        run: python -m salish.web.export_html --site _site
+
+      - name: Upload site for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  # Publish the packaged site. This job can't touch the repo's code.
+  deploy:
+    needs: run-report
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write     # publish to this repo's Pages site
+      id-token: write  # prove to Pages the deploy came from this workflow
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

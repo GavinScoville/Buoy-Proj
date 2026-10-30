@@ -6,21 +6,26 @@ into <iframe>s, so the scenes are live and spinnable in the page.
 
     python -m salish.web.export_html            # write artifacts/site/*.html
     python -m salish.web.export_html --serve    # ...and serve it, see below
+    python -m salish.web.export_html --site _site   # self-contained folder for GitHub Pages
 
 The images and scenes are referenced by relative path, so the page only works
 from inside artifacts/site/. Browsers also differ on whether a file:// page may
 frame another local file, so --serve runs a local web server over the repo and
 prints the URL to open; without the 3D frames, opening the file works anywhere.
+
+--site copies the page to <dir>/index.html along with only the files it links
+to, so the published folder never picks up config or state by accident.
 """
 
 import argparse
 import re
+import shutil
 import webbrowser
 from pathlib import Path
 
 import markdown
 
-from salish.paths import PROJECT_ROOT, SITE
+from salish.paths import ARTIFACTS, PROJECT_ROOT, SITE
 from salish.web.website import REPORT
 
 IFRAME = ('<iframe src="\\1" width="100%" height="620" loading="lazy" '
@@ -60,18 +65,54 @@ PAGE = """<!doctype html>
 """
 
 
-def export_html(report=REPORT, out=None, embed_3d=True, title="Salish Sea Surf Report"):
-    """Convert the Markdown report to HTML. Returns the path written."""
-    out = Path(out) if out else SITE / (report.stem + ".html")
-    text = report.read_text()
+# Relative targets of Markdown images and links: ![alt](path) and [text](path)
+LINK_TARGET = re.compile(r"\]\(([^)\s]+)\)")
+
+
+def _render(text, embed_3d, title):
     if embed_3d:
         text = LINK_3D.sub(IFRAME, text)
     text = DETAILS.sub('<details markdown="1">', text)
-
     body = markdown.markdown(text, extensions=["md_in_html", "extra", "sane_lists"])
-    out.write_text(PAGE.format(title=title, style=STYLE, body=body))
+    return PAGE.format(title=title, style=STYLE, body=body)
+
+
+def export_html(report=REPORT, out=None, embed_3d=True, title="Salish Sea Surf Report"):
+    """Convert the Markdown report to HTML. Returns the path written."""
+    out = Path(out) if out else SITE / (report.stem + ".html")
+    out.write_text(_render(report.read_text(), embed_3d, title))
     print(f"HTML report written: {out}")
     return out
+
+
+def build_site(site_dir, report=REPORT, embed_3d=True, title="Salish Sea Surf Report"):
+    """
+    Write a self-contained copy of the report to site_dir: index.html plus
+    every file under artifacts/ it links to, at the same path relative to
+    artifacts/ (so ../plots/x.png becomes plots/x.png). Missing files and
+    anything outside artifacts/ are left as they are. Returns index.html.
+    """
+    site_dir = Path(site_dir)
+    if site_dir.exists():
+        shutil.rmtree(site_dir)
+    site_dir.mkdir(parents=True)
+
+    def copy(match):
+        target = match.group(1)
+        src = (report.parent / target).resolve()
+        if "://" in target or not src.is_file() or not src.is_relative_to(ARTIFACTS):
+            return match.group(0)
+        rel = src.relative_to(ARTIFACTS)
+        (site_dir / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, site_dir / rel)
+        return f"]({rel.as_posix()})"
+
+    text = LINK_TARGET.sub(copy, report.read_text())
+    index = site_dir / "index.html"
+    index.write_text(_render(text, embed_3d, title))
+    n = sum(1 for p in site_dir.rglob("*") if p.is_file()) - 1
+    print(f"Site written: {index} (+{n} linked files)")
+    return index
 
 
 def serve(path, port=8765):
@@ -100,8 +141,13 @@ def main():
     parser.add_argument("--serve", action="store_true",
                         help="serve the page over HTTP and open a browser")
     parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--site", metavar="DIR",
+                        help="write a self-contained site (index.html + linked files) to DIR")
     args = parser.parse_args()
 
+    if args.site:
+        build_site(args.site, embed_3d=not args.no_3d)
+        return
     path = export_html(out=args.out, embed_3d=not args.no_3d)
     if args.serve:
         serve(path, args.port)

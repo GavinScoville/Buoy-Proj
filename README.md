@@ -61,10 +61,12 @@ Each run:
 5. runs the models in this order: WAVEWATCH III forecast, ray tracing (Pacific,
    Strait, Islands), the spectral mild-slope model, then the finite-difference model
 6. renders `artifacts/site/Salish-Surf-Report.md`, with the model sections in that same order
+   (on GitHub, the Action then publishes it to GitHub Pages; see below)
 
 Alerts go out before the models run, so a slow or broken model can't delay them.
 Each model is isolated: if it fails, or its input files are missing, the run
-carries on. The website then says it wasn't updated and keeps the last figure.
+carries on. The website then says it wasn't updated; locally it keeps the last
+figure, while on GitHub Pages (a fresh machine each run) that figure is left out.
 
 Station lists, alert thresholds, email recipients and model settings all live in
 `config/pipeline.yaml`. To leave models out of a run:
@@ -113,6 +115,19 @@ iframe, and opens it. It is served over HTTP rather than opened straight from
 disk because browsers disagree about whether a `file://` page may frame another
 local file. Pass `--no-3d` to keep the scenes as links, which makes the page
 safe to open from disk.
+
+### The published site (GitHub Pages)
+
+The report, plots, GIFs and 3D scenes are not committed. Each Action run builds
+a self-contained folder and publishes it to GitHub Pages, replacing the previous
+version:
+
+```bash
+python -m salish.web.export_html --site _site   # index.html + only the files it links to
+```
+
+Only `data/` (the Parquet archive and alert state) is committed back by the
+Action. One-time setup: in the repo, **Settings → Pages → Source: GitHub Actions**.
 
 ### Large data files
 
