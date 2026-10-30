@@ -1,5 +1,5 @@
 # Salish Sea Surf Report
-**Updated:** 2026-10-30 10:30 PDT
+**Updated:** 2026-10-30 11:21 PDT
 
 ---
 
@@ -65,22 +65,35 @@ Time-stepped linear wave simulations on 10-30 m bathymetry grids.
 ### Warmhouse
 Olympic Peninsula Headlands
 
-- **Forcing:** 0.70 m, 11 s, from 262°
+- **Forcing:** 0.70 m, 12 s, from 264°
 - **Grid:** 1001×1330 points
 
 ![Warmhouse simulation](../simulations/Warmhouse/wave_simulation.gif)
 
-_No 3D view yet._
+<details>
+<summary><strong>3D view of Warmhouse, last frame</strong></summary>
+
+![Warmhouse 3D wave surface](../simulations/Warmhouse/wave_3d.png)
+
+[Open the interactive version →](../simulations/Warmhouse/wave_3d.html)
+
+</details>
 
 ### Fort Ebey
 Whidbey Island
 
-- **Forcing:** 0.50 m, 7 s, from 292°
-- **Grid:** 1558×1443 points
+_Not updated this run: ❌ Too coarse: only 1.4 PPW (need ≥ 4)._
 
 ![Fort_Ebey simulation](../simulations/Fort_Ebey/wave_simulation.gif)
 
-_No 3D view yet._
+<details>
+<summary><strong>3D view of Fort Ebey, last frame</strong></summary>
+
+![Fort_Ebey 3D wave surface](../simulations/Fort_Ebey/wave_3d.png)
+
+[Open the interactive version →](../simulations/Fort_Ebey/wave_3d.html)
+
+</details>
 
 ---
 
@@ -115,14 +128,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 146 km to Fort Ebey
 
 - **Wave height:** 2.3 ft
-- **Dominant period:** 11.0 s
-- **Wave energy:** 116 kJ/m of crest
-- **Waves travelling toward:** 82°
-- **Wind:** 8.0 m/s from 90.0°
-- **Alert status:** normal (waves travelling 82° are outside the 97-112° window)
+- **Dominant period:** 12.0 s
+- **Wave energy:** 138 kJ/m of crest
+- **Waves travelling toward:** 84°
+- **Wind:** 8.0 m/s from 110.0°
+- **Alert status:** normal (waves travelling 84° are outside the 97-112° window)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**0.9 mph.**
+**1.0 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -140,14 +153,14 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report
 Distance: 41 km to Fort Ebey
 
-- **Wave height:** 1.6 ft
-- **Dominant period:** 7.0 s
-- **Wave energy:** 24 kJ/m of crest
-- **Waves travelling toward:** 112°
-- **Alert status:** normal (waves are 0.5 m, under 1.0 m)
+- **Wave height:** 1.3 ft
+- **Dominant period:** 3.0 s
+- **Wave energy:** 3 kJ/m of crest
+- **Waves travelling toward:** 260°
+- **Alert status:** normal (waves are 0.4 m, under 1.0 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**0.4 mph.**
+**0.1 mph.**
 
 <details>
 <summary><strong>Click to show Port Angeles plots</strong></summary>
@@ -166,8 +179,8 @@ Distance: 29 km to Fort Ebey
 - **Wave height:** 1.0 ft
 - **Dominant period:** 3.0 s
 - **Wave energy:** 2 kJ/m of crest
-- **Waves travelling toward:** 171°
-- **Wind:** 6.0 m/s from 20.0°
+- **Waves travelling toward:** 179°
+- **Wind:** 5.0 m/s from 10.0°
 - **Alert status:** normal (waves are 0.3 m, under 1.0 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
