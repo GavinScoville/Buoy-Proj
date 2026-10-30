@@ -1,5 +1,5 @@
 # Salish Sea Surf Report
-**Updated:** 2026-10-29 19:40 PDT
+**Updated:** 2026-10-30 02:02 PDT
 
 ---
 
@@ -87,14 +87,14 @@ _No 3D view yet._
 ## Ocean Papa Wave Report
 Distance: 1642 km to Fort Ebey
 
-- **Wave height:** 5.6 ft
-- **Dominant period:** 8 s
-- **Wave energy:** 363 kJ/m of crest
-- **Waves travelling toward:** 240°
-- **Alert status:** normal (waves travelling 240° are +152° off the path to neah bay mouth)
+- **Wave height:** 6.2 ft
+- **Dominant period:** 11 s
+- **Wave energy:** 857 kJ/m of crest
+- **Waves travelling toward:** 52°
+- **Alert status:** normal (waves travelling 52° are -36° off the path to neah bay mouth)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**1.6 mph.**
+**2.5 mph.**
 
 <details>
 <summary><strong>Click to show Ocean Papa plots</strong></summary>
@@ -110,15 +110,15 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Neah Bay Wave Report
 Distance: 146 km to Fort Ebey
 
-- **Wave height:** 3.0 ft
+- **Wave height:** 3.3 ft
 - **Dominant period:** 10.0 s
-- **Wave energy:** 159 kJ/m of crest
-- **Waves travelling toward:** 90°
-- **Wind:** 4.0 m/s from 90.0°
-- **Alert status:** normal (waves travelling 90° are outside the 97-112° window)
+- **Wave energy:** 196 kJ/m of crest
+- **Waves travelling toward:** 88°
+- **Wind:** 7.0 m/s from 80.0°
+- **Alert status:** normal (waves travelling 88° are outside the 97-112° window)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
-**1.1 mph.**
+**1.2 mph.**
 
 <details>
 <summary><strong>Click to show Neah Bay plots</strong></summary>
@@ -136,11 +136,11 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 ## Port Angeles Wave Report
 Distance: 41 km to Fort Ebey
 
-- **Wave height:** 1.3 ft
-- **Dominant period:** 9.0 s
-- **Wave energy:** 25 kJ/m of crest
-- **Waves travelling toward:** 113°
-- **Alert status:** normal (waves are 0.4 m, under 1.2 m)
+- **Wave height:** 1.0 ft
+- **Dominant period:** 10.0 s
+- **Wave energy:** 18 kJ/m of crest
+- **Waves travelling toward:** 108°
+- **Alert status:** normal (waves are 0.3 m, under 1.2 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
 **0.4 mph.**
@@ -160,10 +160,10 @@ A meter of wave crest has the kinetic energy of a Prius traveling
 Distance: 29 km to Fort Ebey
 
 - **Wave height:** 1.0 ft
-- **Dominant period:** 3.0 s
-- **Wave energy:** 2 kJ/m of crest
-- **Waves travelling toward:** 255°
-- **Wind:** 6.0 m/s from 130.0°
+- **Dominant period:** 2.0 s
+- **Wave energy:** 1 kJ/m of crest
+- **Waves travelling toward:** 301°
+- **Wind:** 4.0 m/s from 110.0°
 - **Alert status:** normal (waves are 0.3 m, under 1.0 m)
 
 A meter of wave crest has the kinetic energy of a Prius traveling
