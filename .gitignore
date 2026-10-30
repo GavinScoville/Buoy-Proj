@@ -22,6 +22,10 @@ data/processed/buoy_archive/
 data/processed/predictions/
 data/processed/airywaves/
 *.npy
+!data/processed/bathymetry/the_dump_10m.npy
+!data/processed/bathymetry/fort_ebey.npy
+
+
 
 # data/state/ is deliberately NOT ignored - it is cross-run state driving
 # email dedup (alerts fire only on change) and CI commits it back.
