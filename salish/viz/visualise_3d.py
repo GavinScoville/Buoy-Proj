@@ -6,13 +6,12 @@ import pyvista as pv
 
 
 def _ensure_headless_display():
-    """On a Linux box with no X display (CI, cron), start a virtual one so
-    VTK can create an off-screen render window. No-op everywhere else."""
+    """On a Linux box with no X display (CI, cron), VTK can't open a render
+    window. PyVista dropped start_xvfb(), so the caller has to provide one:
+    run under `xvfb-run -a python -m salish.pipeline` (the Action does).
+    No-op everywhere else."""
     if platform.system() == "Linux" and not os.environ.get("DISPLAY"):
-        try:
-            pv.start_xvfb()
-        except OSError:
-            pass
+        raise RuntimeError("no X display for 3D rendering; run under `xvfb-run -a`")
 
 
 def plot_surf_3d(

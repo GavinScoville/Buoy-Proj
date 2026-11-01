@@ -40,11 +40,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # xvfb-run gives VTK a virtual display, so the PyVista 3D views can render.
       - name: Run NOAA buoy script
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-        run: python -m salish.pipeline
+        run: xvfb-run -a python -m salish.pipeline
 
       # Only data/ is committed: the Parquet archive and alert state. Plots,
       # GIFs and the report go to GitHub Pages below instead of into history.
