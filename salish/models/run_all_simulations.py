@@ -57,7 +57,7 @@ def run_all_simulations(verbose=True, use_warm_start=True, short_run=False,
         output_dir = SIMULATIONS / location['name']
 
         # Determine parameters
-        nsteps = location.get('nsteps', 1000)
+        nsteps = location.get('nsteps', 2500)
         if short_run:
             nsteps = min(200, nsteps)
 
@@ -229,9 +229,3 @@ Examples:
 
     print(f"\n✓ All simulations complete!")
     print(f"Results saved to {SIMULATIONS}/")
-
-    # Print usage tips
-    if use_warm_start:
-        print(f"\n💡 Tip: For faster updates, use: python run_all_simulations.py")
-    else:
-        print(f"\n💡 Tip: For next time, use warm start: python run_all_simulations.py --warm")

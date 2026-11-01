@@ -162,7 +162,7 @@ models:
       - name: Warmhouse
         buoy: "46087"
         bathymetry: the_dump_10m.npy
-        nsteps: 2000
+        nsteps: 2500
         description: Olympic Peninsula Headlands
         zoom_window: [450, 650, 450, 650]  # [y0, y1, x0, x1] for the detail view
       - name: Fort_Ebey
