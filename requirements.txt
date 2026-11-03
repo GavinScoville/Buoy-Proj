@@ -30,6 +30,7 @@ imageio==2.37.4
 Jinja2==3.1.6
 joblib==1.5.2
 kiwisolver==1.4.9
+lameenc==1.9.0
 legacy-cgi==2.6.4
 llvmlite==0.45.1
 locket==1.0.0
