@@ -4,7 +4,7 @@
 
 **Description:** Olympic Peninsula Headlands
 
-![Warmhouse Wave Simulation](/Users/gavinscoville/Desktop/salish sea surf forcaster/artifacts/simulations/Warmhouse/wave_simulation.gif)
+![Warmhouse Wave Simulation](Warmhouse/wave_simulation.gif)
 
 - **Size:** 4.9 MB
 - **Grid:** 1001×1330 points
@@ -17,7 +17,7 @@
 
 **Description:** Whidbey Island
 
-![Fort_Ebey Wave Simulation](/Users/gavinscoville/Desktop/salish sea surf forcaster/artifacts/simulations/Fort_Ebey/wave_simulation.gif)
+![Fort_Ebey Wave Simulation](Fort_Ebey/wave_simulation.gif)
 
 - **Size:** 7.0 MB
 - **Grid:** 1558×1443 points

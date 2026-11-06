@@ -18,7 +18,6 @@ The track opens with a short reference tone: an INTRO_PERIOD wave of INTRO_HEIGH
 on the same pitch and loudness scale as the forecast, so the swells that follow
 can be heard against it.
 """
-
 import wave
 
 import numpy as np
@@ -44,13 +43,11 @@ INTRO_FADE_SECONDS = 0.5    # fade in and out within the intro
 
 PARTITIONS = ["Swell 1", "Swell 2", "Swell 3", "Wind wave"]
 
-
 def reference_height(df):
     """Height that maps to amplitude 1: the largest non-negligible height in the
     forecast, or 1.0 if every partition is calm."""
     hmax = df.height[df.height > MIN_HEIGHT].max()
     return hmax if hmax > 0 else 1.0                # NaN > 0 is False, so all-NaN -> 1.0
-
 
 def forecast_to_tracks(df):
     """
@@ -126,7 +123,7 @@ def to_pcm(audio):
     """Normalise to 90% full scale and convert to interleaved 16-bit stereo samples."""
     peak = np.abs(audio).max()
     if peak > 0:
-        audio = audio * (0.9 / peak)
+        audio = audio * (.95 / peak)
     return (audio * 32767).astype("<i2")
 
 

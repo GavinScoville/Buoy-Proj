@@ -73,6 +73,31 @@ def interest_window(depth, wave, size=250, factor=10, max_depth=None):
     return slice(y0, y0 + size), slice(x0, x0 + size)
 
 
+def conditions_footer(buoy_id, buoy_params, tide):
+    """Two lines of the conditions a run was forced with, for under the plots.
+    Weather fields the buoy didn't report are left out."""
+    waves = (f"Buoy {buoy_id}: {buoy_params['h']:.1f} m @ {buoy_params['T']:.0f} s "
+             f"from {buoy_params['direction']:.0f}°   |   Tide: {tide:+.2f} m MLLW")
+    w = buoy_params.get("weather", {})
+    parts = []
+    if "WSPD" in w:
+        wind = f"Wind {w['WSPD']:.0f} m/s"
+        if "GST" in w:
+            wind += f" (gust {w['GST']:.0f})"
+        if "WDIR" in w:
+            wind += f" from {w['WDIR']:.0f}°"
+        parts.append(wind)
+    if "ATMP" in w:
+        parts.append(f"Air {w['ATMP']:.1f}°C")
+    if "WTMP" in w:
+        parts.append(f"Water {w['WTMP']:.1f}°C")
+    if "PRES" in w:
+        parts.append(f"{w['PRES']:.0f} hPa")
+    if "time" in w:
+        parts.append(w["time"])
+    return waves + ("\n" + "   |   ".join(parts) if parts else "")
+
+
 # ============================================================================
 # NUMBA-COMPILED KERNEL (module-level, shared across all simulations)
 # ============================================================================
@@ -108,6 +133,7 @@ def fd_step_kernel(f, fd_coeff, damp_coeff, dt, dx):
                 + fd_coeff[i, j] * (lap_x + lap_y)
                 - (dt**2 / dx) * damp_coeff[i, j] * (f[i, j, 1] - f[i, j, 0])
             )
+
 
 # ============================================================================
 # STABILITY VALIDATION FUNCTIONS
@@ -156,7 +182,6 @@ def validate_simulation_params(buoy_params, depth, dx, verbose=True):
 
     return True, "All checks passed", details
 
-
 def check_stability(f, dt, dx, celarity, k, threshold=1e3, verbose=False):
     """
     Monitor simulation for instability signs during integration.
@@ -186,12 +211,12 @@ def check_stability(f, dt, dx, celarity, k, threshold=1e3, verbose=False):
 
     return True, f"Stable at step {k}"
 
-
 # ============================================================================
 # MAIN SIMULATION FUNCTION
 # ============================================================================
 def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
                        previous_state_file=None,
+                       tide = 0,
                        nsteps=1000, last_n_frames=50, dx=10.0,
                        create_3d=True, verbose=True,
                        stability_check=True, buoy_params=None, zoom_window=None):
@@ -208,6 +233,9 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
         Directory to save output GIF and results
     previous_state_file : str, optional
         Path to saved state from previous run (warm start)
+    tide : float
+        Water level in metres above the grid's zero; the whole grid is
+        deepened by this much (default 0)
     nsteps : int
         Number of simulation timesteps (default 1000)
     last_n_frames : int
@@ -264,7 +292,9 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
     # Load bathymetry
     if verbose:
         print(f"Loading bathymetry from {bathymetry_file}...")
-    depth = np.load(bathymetry_file).astype(np.float32)
+    # Depth is elevation (negative = water), so a higher tide lowers every
+    # cell: a 5 m deep cell (-5) at +2 m tide becomes -7.
+    depth = np.load(bathymetry_file).astype(np.float32) - tide
 
     # ========== VALIDATION ==========
     if verbose:
@@ -285,6 +315,9 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
     celarity = np.sqrt((9.8 / (2 * np.pi / L)) * np.tanh(np.abs(depth) * 2 * np.pi / L))
     celarity = np.nan_to_num(celarity, nan=0.0)
     celarity = np.clip(celarity, np.sqrt(9.8 * np.abs(depth)), c)
+     # Arrays
+    land = depth >= 0
+    celarity[land] = 0
 
     dt = 0.5 * dx / np.max(celarity)
 
@@ -292,9 +325,6 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
     fd_coeff = celarity.astype(np.float32) ** 2 * (dt ** 2 / (dx ** 2))
     damp_coeff = np.clip(0.05 * L / ((depth**2)+.01), 0, 1).astype(np.float32)
 
-    # Arrays
-    land = depth >= 0
-    celarity[land] = 0
 
     x = np.arange(0, depth.shape[1] * dx, dx)
     y = np.arange(0, depth.shape[0] * dx, dx)
@@ -466,6 +496,7 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
     if verbose:
         print(f"  Detail window: y {sy.start}:{sy.stop}, x {sx.start}:{sx.stop}")
     zoom_land = land[sy, sx]
+    footer = conditions_footer(buoy_id, buoy_params, tide)
 
     for idx, frame in enumerate(frames_to_save):
         fig = plt.figure(figsize=figsize, dpi=dpi)
@@ -494,7 +525,8 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
         ax2.set_ylabel("Y (local)")
         plt.colorbar(im2, ax=ax2, label="Wave height (m)")
 
-        plt.tight_layout()
+        fig.text(0.5, 0.01, footer, ha="center", va="bottom", fontsize=8)
+        plt.tight_layout(rect=(0, 0.08, 1, 1))  # leave room for the footer
 
         # Convert figure to image array
         buf = BytesIO()
@@ -585,6 +617,7 @@ def run_wave_simulation(buoy_id, bathymetry_file, output_dir,
         'file_size_mb': file_size_mb,
         'grid_shape': (len(y), len(x)),
         'buoy_params': buoy_params,
+        'tide_m': tide,
         'runtime': timer['total'],
         'checkpoint_file': checkpoint_file,
         'html_3d_path': html_3d_path,
@@ -609,6 +642,7 @@ if __name__ == "__main__":
         bathymetry_file=BATHYMETRY / "the_dump.npy",
         output_dir=SIMULATIONS / "the_dump",
         nsteps=2000,
+        tide=4,
         last_n_frames=50,
         dx=10.0,
         stability_check=True

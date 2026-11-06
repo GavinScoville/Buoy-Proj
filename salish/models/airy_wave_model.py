@@ -8,7 +8,7 @@ from salish.paths import AIRYWAVES, BATHYMETRY, FRAMES
 #this script is a verison of _airy_wave_fd.py that is specifically built to handel the salish sea 
 
 #this script runs an airy wave model as an approx. for ocean waves on a set map from a specific direction.
-depth = np.load(BATHYMETRY / "salish_sea_bathymetry_grid.npy")
+depth = np.load(BATHYMETRY / "salish_sea_bathymetry.npy")
 
 #Initialize physical and numerical constants
 dx = 10 #set the discrete spatial stepsize. this is what the grid spacing really is

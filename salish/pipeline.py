@@ -187,8 +187,25 @@ def model_finite_difference(mcfg, obs, buoys):
         _need_grids(*(loc["bathymetry"] for loc in mcfg["locations"]))
         raise Skip("no buoy data for any location")
     from salish.models.run_all_simulations import run_all_simulations
-    params = {b: {"h": float(o["WVHT"]), "T": float(o["DPD"]), "direction": float(o["MWD"])}
-              for b, o in obs.items() if o is not None}
+    tz = ZoneInfo(load_pipeline_config()["timezone"])
+
+    # Each location runs at the tide predicted for now at its own station.
+    for loc in locations:
+        if "tide_station" in loc:
+            loc["tide_m"] = current_tide(loc["tide_station"], tz)
+
+    # Waves drive the model; the weather fields only go on the plots.
+    weather_cols = ("WSPD", "WDIR", "GST", "ATMP", "WTMP", "PRES")
+    params = {}
+    for b, o in obs.items():
+        if o is None:
+            continue
+        params[b] = {"h": float(o["WVHT"]), "T": float(o["DPD"]), "direction": float(o["MWD"])}
+        params[b]["weather"] = {c: float(o[c]) for c in weather_cols
+                                if c in o.index and pd.notna(o[c])}
+        if pd.notna(o.get("datetime")):
+            params[b]["weather"]["time"] = (pd.Timestamp(o["datetime"]).tz_convert(tz)
+                                            .strftime("%Y-%m-%d %H:%M %Z"))
     return run_all_simulations(use_warm_start=mcfg["warm_start"], locations=locations,
                                buoy_params=params, short_run=False, create_3d=True)
 

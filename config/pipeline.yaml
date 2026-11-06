@@ -162,12 +162,14 @@ models:
       - name: Warmhouse
         buoy: "46087"
         bathymetry: the_dump_10m.npy
+        tide_station: "9443090"          # Neah Bay
         nsteps: 2500
         description: Olympic Peninsula Headlands
         zoom_window: [450, 650, 450, 650]  # [y0, y1, x0, x1] for the detail view
       - name: Fort_Ebey
         buoy: "46267"                    # Port Angeles
         bathymetry: fort_ebey.npy
+        tide_station: "9444900"          # Port Townsend
         nsteps: 2500
         description: Whidbey Island
         zoom_window: [650, 800, 900, 1100]
